@@ -12,14 +12,30 @@ CaseWidth = mm(16.0);
 // Front Panel Dimensions
 FP_PCBLLength = mm(14.75);
 
+// Front Panel Ledge (temporary)
+FP_LedgeLength = mm(4);
+FP_LedgeWidth = mm(0.08);
+FP_LedgeHeight = mm(0.121);
+FP_LedgeAngle = 58.15;
+FP_LedgeRecess = mm(2.5);
+FP_LedgeOffset = mm(0.0);
+
+
 // Side Panel overall dimensions in inches.
-PanelHeight = mm(6.25);
+PanelHeight = mm(6.1375); //LB 6.25
 PanelCornerRadius = mm(0.125);
-PanelOverallLength = mm(17.0);
-PanelFrontBottomRecessHeight = mm(1.0);
+PanelOverallLength = mm(17);
+PanelFrontBottomRecessHeight = mm(0.5);
 PanelFrontBottomRecessLength = mm(0.5);
 PanelTopLength = mm(14.0);
 PanelThickness = mm(0.5);
+
+// Lid support
+LedgeRecess = mm(0.27);
+LedgeOffset = mm(1.875);
+LedgeWidth = mm(0.05);
+LedgeHeight = mm(0.125);
+LedgeLength = mm(10.7);
 
 // Side Panel Base Plate Dado 
 DadoDepth = mm(0.0);
@@ -28,4 +44,6 @@ DadoDepth = mm(0.0);
 BasePlateWidth = CaseWidth - 2 * PanelThickness - DadoDepth;
 BasePlateLength = mm(15.0); //Not verified
 BasePlateHeight = mm(0.375);
+
+
 

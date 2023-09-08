@@ -4,11 +4,13 @@
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
 // TO DO LIST:
-// Confirm side panel dimensions and shape (current values are just placehodlers).
+// Confirm side panel dimensions and shape 
 // Separate into two pieces for printing
 // Modify edge to add alignment structure for the two pieces
 // Add insert locations for ataching to back, bottom and front panels
 // Right side add insert locations to support side plane PC mounting
+
+//import("/Users/craig/git/Heathkit-H8-Enclosure/NCCP_stl/Left Side.stl", convexity=8);
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
@@ -29,4 +31,4 @@ module H8Case()
 }
 
 //H8Case();
-Panel();
+color("lime")rotate([0,0,90])translate([0,40.878,mm(0.5/2)])LeftPanel(); //NCC Match 40.878)

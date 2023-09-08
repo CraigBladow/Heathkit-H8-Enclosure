@@ -11,6 +11,26 @@ module RoundedEdge(thickness, radius)
     rotate([0,0,0])cylinder(h=thickness, r = radius, center = true);
 }
 
+module Ledge(L,H,R)
+{
+    hull()
+    {
+        translate([0,L/2-R/2,0])cylinder(H,R,R,center=true);
+        translate([0,-(L/2-R/2),0])cylinder(H,R,R,center=true);
+    }
+}
+
+module LidLedge()
+{
+    translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,PanelThickness/2+LedgeHeight/2])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
+    
+    //cube([LedgeWidth,LedgeHeight,LedgeLength],center=true);
+}
+module FrontPanelLedge()
+{
+    translate([FP_LedgeOffset,PanelOverallLength/2-FP_LedgeRecess,PanelThickness/2+FP_LedgeWidth/2])rotate([0,0,FP_LedgeAngle]) Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
+}
+
 module Panel()
 {
     hull()
@@ -24,3 +44,15 @@ module Panel()
     }
 }
 
+module LeftPanel()
+{
+    union()
+    {
+        Panel();
+        LidLedge();
+        color("magenta")FrontPanelLedge();
+    }
+}
+
+//LeftPanel();
+//Ledge(250,8,4);
