@@ -10,13 +10,21 @@ function mm(x) = x * 25.4;  //convert inches to mm
 CaseWidth = mm(16.0);
 
 // Front Panel Dimensions
-FP_PCBLLength = mm(14.75);
+FP_PCB_Length = mm(14.75);
+FP_PCB_Height = mm(5.75);
+SidePlanePCBHeight = mm(5.5);
+SidePlanePCBTopEdgeLength = mm(11.125);
+SidePlanePCBBottomEdgeLength = mm(13.25);
+SidePlanePCBFrontEdgeLength = mm(6.25);
+PCB_Thickness = 1.6; //mm
+
+
 
 // Front Panel Ledge (temporary)
 FP_LedgeLength = mm(4);
 FP_LedgeWidth = mm(0.08);
 FP_LedgeHeight = mm(0.121);
-FP_LedgeAngle = 58.15;
+FP_LedgeAngle = 58.15; //degrees
 FP_LedgeRecess = mm(2.5);
 FP_LedgeOffset = mm(0.0);
 
@@ -44,6 +52,5 @@ DadoDepth = mm(0.0);
 BasePlateWidth = CaseWidth - 2 * PanelThickness - DadoDepth;
 BasePlateLength = mm(15.0); //Not verified
 BasePlateHeight = mm(0.375);
-
 
 
