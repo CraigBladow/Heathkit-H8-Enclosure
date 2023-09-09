@@ -3,6 +3,10 @@
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
+// Common Constants
+left = 1.0;
+right = -1.0;
+
 //All measurements in inches converted to mm
 function mm(x) = x * 25.4;  //convert inches to mm
 
@@ -21,8 +25,6 @@ CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
 CardToSidePlaneGap = mm(3.0/16.0);
 
-
-
 // Front Panel Ledge (temporary)
 FP_LedgeLength = mm(4);
 FP_LedgeWidth = mm(0.08);
@@ -33,7 +35,7 @@ FP_LedgeOffset = mm(0.0);
 
 
 // Side Panel overall dimensions in inches.
-PanelHeight = mm(6.1375); //LB 6.25
+PanelHeight = mm(6.25); //NCCP 6.1375
 PanelCornerRadius = mm(0.125);
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = mm(0.5);
@@ -53,7 +55,7 @@ DadoDepth = mm(0.0);
 
 // Base Plate dimensions
 BasePlateWidth = CaseWidth - 2 * PanelThickness - DadoDepth;
-BasePlateLength = mm(15.0); //Not verified
-BasePlateHeight = mm(0.375);
+BasePlateLength = mm(16.0); //Not verified
+BasePlateHeight = 9.0; //Baltic Birch Plywood 9mm
 
 

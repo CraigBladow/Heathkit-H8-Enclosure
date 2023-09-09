@@ -20,15 +20,15 @@ module Ledge(L,H,R)
     }
 }
 
-module LidLedge()
+module LidLedge(side)
 {
-    translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,PanelThickness/2+LedgeHeight/2])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
+    translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeHeight/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
     
     //cube([LedgeWidth,LedgeHeight,LedgeLength],center=true);
 }
-module FrontPanelLedge()
+module FrontPanelLedge(side)
 {
-    translate([FP_LedgeOffset,PanelOverallLength/2-FP_LedgeRecess,PanelThickness/2+FP_LedgeWidth/2])rotate([0,0,FP_LedgeAngle]) Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
+    translate([FP_LedgeOffset,PanelOverallLength/2-FP_LedgeRecess,side*(PanelThickness/2+FP_LedgeWidth/2)])rotate([0,0,FP_LedgeAngle]) Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
 }
 
 module Panel()
@@ -49,8 +49,18 @@ module LeftPanel()
     union()
     {
         Panel();
-        LidLedge();
-        color("magenta")FrontPanelLedge();
+        LidLedge(left);
+        color("magenta")FrontPanelLedge(left);
+    }
+}
+
+module RightPanel()
+{
+    union()
+    {
+        Panel();
+        LidLedge(right);
+        FrontPanelLedge(right);
     }
 }
 
