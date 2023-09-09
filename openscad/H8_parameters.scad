@@ -17,6 +17,9 @@ SidePlanePCBTopEdgeLength = mm(11.125);
 SidePlanePCBBottomEdgeLength = mm(13.25);
 SidePlanePCBFrontEdgeLength = mm(6.25);
 PCB_Thickness = 1.6; //mm
+CardPCB_Length = mm(12.0);
+CardPCB_Height = mm(6.0);
+CardToSidePlaneGap = mm(3.0/16.0);
 
 
 
