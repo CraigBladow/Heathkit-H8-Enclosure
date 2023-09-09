@@ -5,5 +5,4 @@ Status: This is currently an incomplete work in progress.
 
 Important: Review the license for this project before utilizing any of designs or information provided.
 
-![image](https://github.com/CraigBladow/Heathkit-H8-Enclosure/assets/114250647/a368a8cb-a571-43cc-8207-e6e5bebf7c70)
-
+<img width="765" alt="image" src="https://github.com/CraigBladow/Heathkit-H8-Enclosure/assets/114250647/2b7c8b28-3663-475c-9ec7-980ab834de09">
