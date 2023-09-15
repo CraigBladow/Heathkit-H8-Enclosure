@@ -58,4 +58,8 @@ BasePlateWidth = CaseWidth - 2 * PanelThickness - DadoDepth;
 BasePlateLength = mm(16.0); //Not verified
 BasePlateHeight = 9.0; //Baltic Birch Plywood 9mm
 
+// Back Support Dimensions, 2 instances are needed
+BackSupportThickness = BasePlateHeight;
+BackSupportHeight = mm(1.0);
+
 
