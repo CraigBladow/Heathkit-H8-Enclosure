@@ -4,7 +4,7 @@
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
 // TO DO LIST:
-
+// Trial joining two pieces with square 3d printed pins
 // Separate into two pieces for printing
 // Modify edge to add alignment structure for the two pieces
 // Add insert locations for ataching to back, bottom and front panels

@@ -74,5 +74,27 @@ module Insert_IUB_632_2()
     }
 }
 
+// Tabs that are attached to the side panel to attach it to the Base Plate
+// todo: round corners / fillet all edges
+module BaseMount()
+{
+    difference()
+    {
+        translate([0,0,BaseMountFilletRadius*2+BaseMountThickness/2])cube([BaseMountWidth,BaseMountLength, BaseMountFilletRadius*4 + BaseMountThickness],center = true);
+        
+       translate([0,-BaseMountFilletRadius/2,BaseMountFilletRadius+BaseMountThickness/2])hull()
+        {
+            translate([0,0,BaseMountFilletRadius*2+BaseMountThickness])cube([BaseMountWidth,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
+            translate([0,BaseMountLength-BaseMountFilletRadius/2,BaseMountFilletRadius*2+BaseMountThickness])cube([BaseMountWidth,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
+            translate([0,BaseMountLength-BaseMountFilletRadius/2,0])cube([BaseMountWidth,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
+    
+            translate([0,0,0])rotate([0,90,0])cylinder(h = BaseMountWidth, r = BaseMountFilletRadius,center = true);
+        }
+    }
+    
+}
+
+
+BaseMount();
 //LeftPanel();
 //Ledge(250,8,4);

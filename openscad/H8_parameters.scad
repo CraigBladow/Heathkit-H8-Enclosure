@@ -72,5 +72,11 @@ Insert_6_32_opening_dia = mm(0.206) + mm(0.002);
 Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
 Insert_6_32_taper_length = mm(0.150);
 
+// Mounting Tabs
+BaseMountWidth = mm(0.75);
+BaseMountLength = mm(0.6);
+BaseMountThickness = mm(0.2);
+BaseMountFilletRadius = mm(0.2);
+
 
 
