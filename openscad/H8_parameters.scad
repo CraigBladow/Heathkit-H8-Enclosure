@@ -62,4 +62,15 @@ BasePlateHeight = 9.0; //Baltic Birch Plywood 9mm
 BackSupportThickness = BasePlateHeight;
 BackSupportHeight = mm(1.0);
 
+// Fasteners
+Screw_Hole_Tol = 0.1; // mm
+Screw_6_32x1_4_dia = mm(0.138) + Screw_Hole_Tol;
+Screw_6_32x1_4_len = mm(0.25) + Screw_Hole_Tol;
+
+Insert_6_32_hole_depth = mm(0.29) + mm(0.005);
+Insert_6_32_opening_dia = mm(0.206) + mm(0.002);
+Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
+Insert_6_32_taper_length = mm(0.150);
+
+
 

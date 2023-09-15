@@ -64,5 +64,15 @@ module RightPanel()
     }
 }
 
+module Insert_IUB_632_2()
+{
+    union()
+    {
+        translate([0,0,Insert_6_32_taper_length/2])cylinder(h = Insert_6_32_taper_length, r1 = Insert_6_32_bottom_dia/2,r2 = Insert_6_32_opening_dia/2, center = true); 
+        translate([0,0,-(Insert_6_32_hole_depth - Insert_6_32_taper_length)/2])cylinder(h = (Insert_6_32_hole_depth - Insert_6_32_taper_length), r = Insert_6_32_bottom_dia/2, center = true);
+        
+    }
+}
+
 //LeftPanel();
 //Ledge(250,8,4);

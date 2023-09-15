@@ -4,7 +4,7 @@
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
 // TO DO LIST:
-// Confirm side panel dimensions and shape 
+
 // Separate into two pieces for printing
 // Modify edge to add alignment structure for the two pieces
 // Add insert locations for ataching to back, bottom and front panels
