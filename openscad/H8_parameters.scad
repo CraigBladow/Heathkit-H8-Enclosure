@@ -78,5 +78,9 @@ BaseMountLength = mm(0.6);
 BaseMountThickness = mm(0.2);
 BaseMountFilletRadius = mm(0.2);
 
+// SidePanel Pin
+SidePinLength = mm(0.8);
+SidePinXY = mm(0.25);
+
 
 

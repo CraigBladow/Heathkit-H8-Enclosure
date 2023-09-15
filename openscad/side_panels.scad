@@ -74,6 +74,12 @@ module Insert_IUB_632_2()
     }
 }
 
+
+module SidePin()
+{
+    cube([SidePinLength, SidePinXY, SidePinXY], center=true);
+}
+
 // Tabs that are attached to the side panel to attach it to the Base Plate
 // todo: round corners / fillet all edges
 module BaseMount()
@@ -94,7 +100,7 @@ module BaseMount()
     
 }
 
-
-BaseMount();
+//SidePin();
+//BaseMount();
 //LeftPanel();
 //Ledge(250,8,4);
