@@ -74,6 +74,28 @@ module Insert_IUB_632_2()
     }
 }
 
+SidePinSnapBumpHeight = SidePinSnapGapWidth / 3;
+
+module SidePinSnap()
+{
+    rotate([90,0,0])difference()
+    {
+        union()
+        {
+            
+            cube([SidePinLength, SidePinXY, SidePinXY], center=true);
+            // Add snap bumps
+            translate([(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            
+        }
+        // create gap
+        translate([(SidePinLength-SidePinSnapGapLength)/2,0,0])cube([SidePinSnapGapLength,SidePinXY,SidePinSnapGapWidth],center=true);
+        translate([-(SidePinLength-SidePinSnapGapLength)/2,0,0])cube([SidePinSnapGapLength,SidePinXY,SidePinSnapGapWidth],center=true);
+    }
+}
 
 module SidePin()
 {
@@ -104,14 +126,17 @@ module BaseMount()
     }
     
 }
-
-difference()
+module TestSocket()
 {
-    cube([SidePinLength/2,2*SidePinXY,2*SidePinXY],center=true);
-    rotate([45,0,0])SidePinSocket();
+    difference()
+    {
+        cube([SidePinLength/2,2*SidePinXY,2*SidePinXY],center=true);
+        rotate([45,0,0])SidePinSocket();
+    }
 }
 
-//SidePin();
+TestSocket();
+//SidePinSnap();
 //BaseMount();
 //LeftPanel();
 //Ledge(250,8,4);

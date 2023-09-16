@@ -79,9 +79,13 @@ BaseMountThickness = mm(0.2);
 BaseMountFilletRadius = mm(0.2);
 
 // SidePanel Pin
-SidePinLength = mm(0.8);
-SidePinXY = mm(0.25);
+SidePinLength = mm(0.8);//mm(1.6);
+SidePinXY = mm(0.2);
 SidePinTol = mm(0.01);
+SidePinSnapGapWidth = SidePinXY * 0.4;
+SidePinSnapGapLength = SidePinXY * 0.8;
+SidePinSnapBumpHeight = (SidePinXY-SidePinSnapGapWidth) / 3;
+SidePinSnapBumpLength = (SidePinXY-SidePinSnapGapWidth) / 2;
 
 
 
