@@ -80,6 +80,11 @@ module SidePin()
     cube([SidePinLength, SidePinXY, SidePinXY], center=true);
 }
 
+module SidePinSocket()
+{
+    cube([SidePinLength + SidePinTol, SidePinXY + SidePinTol, SidePinXY + SidePinTol], center=true);
+}
+
 // Tabs that are attached to the side panel to attach it to the Base Plate
 // todo: round corners / fillet all edges
 module BaseMount()
@@ -98,6 +103,12 @@ module BaseMount()
         }
     }
     
+}
+
+difference()
+{
+    cube([SidePinLength/2,2*SidePinXY,2*SidePinXY],center=true);
+    rotate([45,0,0])SidePinSocket();
 }
 
 //SidePin();
