@@ -88,6 +88,11 @@ module SidePinSnap()
             translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
             translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
             translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            rotate([90,0,0])
+            {
+                translate([-SidePinXY,0,0])la_bosse();
+                translate([SidePinXY,0,0])la_bosse();
+            }
             
         }
         // create gap
@@ -177,12 +182,9 @@ module TestPlugSocket()
 }
 
 //TestPlugSocket();    // this is for testing connecting with pins
-color("lime") translate([-SidePinXY,0,0])la_bosse();
-color("lime") translate([SidePinXY,0,0])la_bosse();
-//translate([-SidePinLength/2,20,0])
-SidePinSnap();  // this is the connecting pin
-//SidePinPlugSocket();  // this is the cutout
 
+//translate([-SidePinLength/2,20,0])
+//SidePinSnap();  // this is the connecting pin
 
 //BaseMount();
 //LeftPanel();

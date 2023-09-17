@@ -4,13 +4,12 @@
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
 // TO DO LIST:
-// Trial joining two pieces with square 3d printed pins
-// Separate into two pieces for printing
-// Modify edge to add alignment structure for the two pieces
+// DONE: Trial joining two pieces with square 3d printed pins
+// Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
+// Separate side panels into two pieces for printing
+// Add tabs to side panel for baseplate and back panel connections.
 // Add insert locations for ataching to back, bottom and front panels
-// Right side add insert locations to support side plane PC mounting
-
-//import("/Users/craig/git/Heathkit-H8-Enclosure/NCCP_stl/Left Side.stl", convexity=8);
+// Right side - add insert locations to support side plane PC mounting
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
@@ -39,6 +38,5 @@ module H8Case()
     }
 }
 
-//BackSupport();
-H8Case();
-//color("lime")rotate([0,0,90])translate([0,40.878,mm(0.5/2)])LeftPanel(); //NCC Match 40.878)
+//H8Case();
+SidePinSnap();
