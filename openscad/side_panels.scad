@@ -106,6 +106,11 @@ module SidePinSocket()
     cube([SidePinLength + SidePinTol, SidePinXY + SidePinTol, SidePinXY + SidePinTol], center=true);
 }
 
+module la_bosse()  // a bump
+{
+    cube([0.8,SidePinXY + SidePinTol, SidePinXY],center=true);
+}
+
 module SidePinPlugSocket()
 {
 
@@ -172,7 +177,10 @@ module TestPlugSocket()
 }
 
 //TestPlugSocket();    // this is for testing connecting with pins
-translate([-SidePinLength/2,20,0])SidePinSnap();  // this is the connecting pin
+color("lime") translate([-SidePinXY,0,0])la_bosse();
+color("lime") translate([SidePinXY,0,0])la_bosse();
+//translate([-SidePinLength/2,20,0])
+SidePinSnap();  // this is the connecting pin
 //SidePinPlugSocket();  // this is the cutout
 
 
