@@ -74,7 +74,6 @@ module Insert_IUB_632_2()
     }
 }
 
-SidePinSnapBumpHeight = SidePinSnapGapWidth / 3;
 
 module SidePinSnap()
 {
@@ -107,6 +106,31 @@ module SidePinSocket()
     cube([SidePinLength + SidePinTol, SidePinXY + SidePinTol, SidePinXY + SidePinTol], center=true);
 }
 
+module SidePinPlugSocket()
+{
+
+        union()
+        {
+            
+            cube([SidePinLength+SidePinTol, SidePinXY+SidePinTol, SidePinXY+SidePinTol], center=true);
+            // Add snap bumps
+            translate([(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            
+            rotate([90,0,0])
+            {
+                            translate([(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            
+            }
+        }
+
+}
+
 // Tabs that are attached to the side panel to attach it to the Base Plate
 // todo: round corners / fillet all edges
 module BaseMount()
@@ -126,6 +150,8 @@ module BaseMount()
     }
     
 }
+
+
 module TestSocket()
 {
     difference()
@@ -135,8 +161,21 @@ module TestSocket()
     }
 }
 
-//TestSocket();
-SidePinSnap();
+module TestPlugSocket()
+{
+    difference()
+    {
+        cube([SidePinLength,2*SidePinXY,PanelThickness],center=true);
+        //translate([SidePinLength/2+SidePinTol,0,0])
+        translate([-SidePinLength/2,0,0])rotate([45,0,0])SidePinPlugSocket();
+    }
+}
+
+//TestPlugSocket();    // this is for testing connecting with pins
+translate([-SidePinLength/2,20,0])SidePinSnap();  // this is the connecting pin
+//SidePinPlugSocket();  // this is the cutout
+
+
 //BaseMount();
 //LeftPanel();
 //Ledge(250,8,4);
