@@ -54,6 +54,19 @@ module LeftPanel()
     }
 }
 
+module FrontLeftPanel()
+{
+    difference()
+    {
+        union()
+        {
+            LeftPanel();
+            translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
+        }
+        translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+    }
+}
+
 module RightPanel()
 {
     union()
@@ -181,11 +194,11 @@ module TestPlugSocket()
     }
 }
 
-//TestPlugSocket();    // this is for testing connecting with pins
 
-//translate([-SidePinLength/2,20,0])
-//SidePinSnap();  // this is the connecting pin
-
-//BaseMount();
-//LeftPanel();
-//Ledge(250,8,4);
+// test for inter and mounting tab dimensions
+difference()
+{
+    FrontLeftPanel();
+        translate([0,PanelOverallLength/2+BaseMountWidth,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+    translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
+}

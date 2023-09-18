@@ -50,11 +50,11 @@ LedgeWidth = mm(0.05);
 LedgeHeight = mm(0.125);
 LedgeLength = mm(10.7);
 
-// Side Panel Base Plate Dado 
-DadoDepth = mm(0.0);
+// Side Panel Base Plate Recess , how much the side panel extends below the bottom of the base plate
+BasePlateRecess = mm(0.125);
 
 // Base Plate dimensions
-BasePlateWidth = CaseWidth - 2 * PanelThickness - DadoDepth;
+BasePlateWidth = CaseWidth - 2 * PanelThickness;
 BasePlateLength = mm(16.0); //Not verified
 BasePlateHeight = 9.0; //Baltic Birch Plywood 9mm
 
