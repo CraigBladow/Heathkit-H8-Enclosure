@@ -22,7 +22,8 @@ module Ledge(L,H,R)
 
 module LidLedge(side)
 {
-    translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeHeight/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
+    color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
+    
     
     //cube([LedgeWidth,LedgeHeight,LedgeLength],center=true);
 }
@@ -198,6 +199,7 @@ module TestPlugSocket()
 // test for inter and mounting tab dimensions
 difference()
 {
+   $fn = 128;
     FrontLeftPanel();
         translate([0,PanelOverallLength/2+BaseMountWidth,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
     translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
