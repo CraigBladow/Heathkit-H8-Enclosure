@@ -7,7 +7,7 @@
 left = 1.0;
 right = -1.0;
 
-//All measurements in inches converted to mm
+//All measurements in inches converted to mm or mm directly.
 function mm(x) = x * 25.4;  //convert inches to mm
 
 // Case Dimension
@@ -86,6 +86,16 @@ SidePinSnapGapWidth = SidePinXY * 0.4;
 SidePinSnapGapLength = SidePinXY * 1.2;
 SidePinSnapBumpHeight = (SidePinXY-SidePinSnapGapWidth) / 3;
 SidePinSnapBumpLength = (SidePinXY-SidePinSnapGapWidth) / 2;
+
+// Card and Top Bracket
+CardBracketWidth = 14; // mm
+CardBracketThickness = 1.54; //mm
+CardBracketLength = mm(6.25);
+CardBrackeTabLength = mm(0.625);
+CardBracketCardHoleDia = 3.6; //mm
+CardBracketCardHoleSpacing = mm(4.0);
+CardBracketTabCornerRadius = mm(0.1);
+
 
 
 
