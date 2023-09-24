@@ -63,6 +63,7 @@ module FrontLeftPanel()
         {
             LeftPanel();
             translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
+            translate([-(PanelHeight)/2+BasePlateRecess,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
         }
         translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
     }
@@ -203,4 +204,7 @@ difference()
     FrontLeftPanel();
         translate([0,PanelOverallLength/2+BaseMountWidth,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
     translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
+    color("lime") translate([-PanelHeight/2-25/2,25/2,0]) cube([25,25,25],center=true);
+    
 }
+ 

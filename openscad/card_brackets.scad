@@ -27,6 +27,6 @@ module CardBracketTab()
         cylinder(h=CardBracketThickness,r=CardBracketTabCornerRadius,center=true);
     }
 }
-
+$fn=128;
 CardBracketSpan();
 color("lime")CardBracketTab();
