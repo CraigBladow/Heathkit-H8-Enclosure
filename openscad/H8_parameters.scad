@@ -13,7 +13,7 @@ function mm(x) = x * 25.4;  //convert inches to mm
 // Case Dimension
 CaseWidth = mm(16.0);
 
-// Front Panel Dimensions
+// Front/Side Panel PCB Dimensions
 FP_PCB_Length = mm(14.75);
 FP_PCB_Height = mm(5.75);
 SidePlanePCBHeight = mm(5.5);
@@ -42,6 +42,7 @@ PanelFrontBottomRecessHeight = mm(0.5);
 PanelFrontBottomRecessLength = mm(0.5);
 PanelTopLength = mm(14.0);
 PanelThickness = mm(0.5);
+PanelSocketsNumber = 6;
 
 // Lid support
 LedgeRecess = mm(0.27);
@@ -73,7 +74,7 @@ Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
 Insert_6_32_taper_length = mm(0.150);
 
 // Mounting Tabs
-BaseMountWidth = mm(0.75);
+BaseMountWidth = BasePlateLength;
 BaseMountLength = mm(0.6);
 BaseMountThickness = mm(0.2);
 BaseMountFilletRadius = mm(0.2);

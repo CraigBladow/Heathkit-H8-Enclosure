@@ -23,9 +23,6 @@ module Ledge(L,H,R)
 module LidLedge(side)
 {
     color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
-    
-    
-    //cube([LedgeWidth,LedgeHeight,LedgeLength],center=true);
 }
 module FrontPanelLedge(side)
 {
@@ -52,6 +49,15 @@ module LeftPanel()
         Panel();
         LidLedge(left);
         color("magenta")FrontPanelLedge(left);
+        //translate([-PanelHeight/2+BasePlateHeight/2+BaseMountThickness,0,BaseMountLength])rotate([90,0,90])BaseMountRails();
+        
+                    translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
+        difference(){
+                        translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
+                    translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
+                        
+        }
+
     }
 }
 
@@ -62,10 +68,26 @@ module FrontLeftPanel()
         union()
         {
             LeftPanel();
+            //translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
+            //translate([-(PanelHeight)/2+BasePlateRecess,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
+        }
+        translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+        SidePinPlugSockets();
+    }
+}
+
+module RearLeftPanel()
+{
+    difference()
+    {
+        union()
+        {
+            LeftPanel();
             translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
             translate([-(PanelHeight)/2+BasePlateRecess,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
         }
-        translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+        translate([0,PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+        SidePinPlugSockets();
     }
 }
 
@@ -126,10 +148,18 @@ module SidePinSocket()
     cube([SidePinLength + SidePinTol, SidePinXY + SidePinTol, SidePinXY + SidePinTol], center=true);
 }
 
+module SidePinPlugSockets()
+{
+    for(i = [1 : PanelSocketsNumber])translate([(i*PanelHeight/PanelSocketsNumber)-PanelHeight/2-PanelHeight/(2*PanelSocketsNumber),0,0])rotate([45,0,90])SidePinPlugSocket();
+}
+
+
 module la_bosse()  // a bump
 {
-    cube([0.8,SidePinXY + SidePinTol, SidePinXY],center=true);
+        cube([0.8,SidePinXY + SidePinTol, SidePinXY],center=true);
 }
+
+
 
 module SidePinPlugSocket()
 {
@@ -175,6 +205,15 @@ module BaseMount()
     }
     
 }
+/*
+module BaseMountRails()
+{
+    translate([0,0,0])
+    {
+        translate([0,0,BasePlateHeight/2])BaseMount();
+        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(); 
+    }  
+}*/
 
 
 module TestSocket()
@@ -198,13 +237,45 @@ module TestPlugSocket()
 
 
 // test for inter and mounting tab dimensions
-difference()
+module TestFrontLeftSidePanelSubSection()
 {
-   $fn = 128;
-    FrontLeftPanel();
-        translate([0,PanelOverallLength/2+BaseMountWidth,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
-    translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
-    color("lime") translate([-PanelHeight/2-25/2,25/2,0]) cube([25,25,25],center=true);
-    
+    $fn = 128;
+    difference()
+    {
+        
+        FrontLeftPanel();
+
+    //translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
+        color("lime")translate([0,PanelOverallLength/2+mm(1.0),0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+    }
+
 }
+
+module TestRearLeftSidePanelSubSection()
+{
+    $fn = 128;
+    difference()
+    {
+        
+        RearLeftPanel();
+
+    //translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
+        color("lime")translate([0,-PanelOverallLength/2-mm(1.0),0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+    }
+
+}
+
+//FrontLeftPanel();
+//RearLeftPanel();
+LeftPanel();
+//RightPanel();
+//TestFrontLeftSidePanelSubSection();
+//TestRearLeftSidePanelSubSection();
+
+
+
+
+
+
+
  
