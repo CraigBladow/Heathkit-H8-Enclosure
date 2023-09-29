@@ -40,3 +40,5 @@ module H8Case()
 
 //H8Case();
 //SidePinSnap();
+TestFrontLeftSidePanelSubSection();
+//TestRearLeftSidePanelSubSection();
