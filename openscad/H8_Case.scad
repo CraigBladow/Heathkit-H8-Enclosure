@@ -25,7 +25,7 @@ module BackSupport()
 }
 
 
-module BasePlate()
+module BasePlate(BP_Width)
 {
     cube([BasePlateWidth,BasePlateLength,BasePlateHeight],center=true);
 }
@@ -43,6 +43,8 @@ module H8Case()
 }
 
 //H8Case();
+LeftPanel();
+
 //SidePinSnap();
 //TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();

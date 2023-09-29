@@ -49,12 +49,12 @@ module LeftPanel()
         Panel();
         LidLedge(left);
         color("magenta")FrontPanelLedge(left);
-        //translate([-PanelHeight/2+BasePlateHeight/2+BaseMountThickness,0,BaseMountLength])rotate([90,0,90])BaseMountRails();
         
-                    translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
+        translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount(BaseMountWidth);
         difference(){
-                        translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
-                    translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
+        translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
+        // remove excess fillet on bottom    
+        translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
                         
         }
 
@@ -65,13 +65,11 @@ module FrontLeftPanel()
 {
     difference()
     {
-        union()
-        {
-            LeftPanel();
-            //translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
-            //translate([-(PanelHeight)/2+BasePlateRecess,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
-        }
+        LeftPanel();
+        
+        // Remove other half of panel
         translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+        // Make Sockets for pins
         SidePinPlugSockets();
     }
 }
@@ -80,13 +78,11 @@ module RearLeftPanel()
 {
     difference()
     {
-        union()
-        {
-            LeftPanel();
-            translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount();
-            translate([-(PanelHeight)/2+BasePlateRecess,BaseMountWidth/2,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount();
-        }
+        LeftPanel();
+            
+        // Remove other half of panel
         translate([0,PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
+        // Make sockets for pins
         SidePinPlugSockets();
     }
 }
@@ -198,21 +194,20 @@ module SidePinPlugSocket()
 
 }
 
-// Tabs that are attached to the side panel to attach it to the Base Plate
-// todo: round corners / fillet all edges
-module BaseMount()
+// Rail for the side panel to attach it to the Base Plate
+module BaseMount(BM_Width)
 {
     difference()
     {
-        translate([0,0,BaseMountFilletRadius*2+BaseMountThickness/2])cube([BaseMountWidth,BaseMountLength, BaseMountFilletRadius*4 + BaseMountThickness],center = true);
+        translate([0,0,BaseMountFilletRadius*2+BaseMountThickness/2])cube([BM_Width,BaseMountLength, BaseMountFilletRadius*4 + BaseMountThickness],center = true);
         
        translate([0,-BaseMountFilletRadius/2,BaseMountFilletRadius+BaseMountThickness/2])hull()
         {
-            translate([0,0,BaseMountFilletRadius*2+BaseMountThickness])cube([BaseMountWidth,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
-            translate([0,BaseMountLength-BaseMountFilletRadius/2,BaseMountFilletRadius*2+BaseMountThickness])cube([BaseMountWidth,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
-            translate([0,BaseMountLength-BaseMountFilletRadius/2,0])cube([BaseMountWidth,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
+            translate([0,0,BaseMountFilletRadius*2+BaseMountThickness])cube([BM_Width,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
+            translate([0,BaseMountLength-BaseMountFilletRadius/2,BaseMountFilletRadius*2+BaseMountThickness])cube([BM_Width,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
+            translate([0,BaseMountLength-BaseMountFilletRadius/2,0])cube([BM_Width,BaseMountFilletRadius*2,BaseMountFilletRadius*2],center = true);
     
-            translate([0,0,0])rotate([0,90,0])cylinder(h = BaseMountWidth, r = BaseMountFilletRadius,center = true);
+            translate([0,0,0])rotate([0,90,0])cylinder(h = BM_Width, r = BaseMountFilletRadius,center = true);
         }
     }
     
@@ -222,8 +217,8 @@ module BaseMountRails()
 {
     translate([0,0,0])
     {
-        translate([0,0,BasePlateHeight/2])BaseMount();
-        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(); 
+        translate([0,0,BasePlateHeight/2])BaseMount(BaseMountWidth);
+        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(BaseMountWidth); 
     }  
 }*/
 
