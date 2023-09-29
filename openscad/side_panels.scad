@@ -150,7 +150,7 @@ module SidePinSocket()
 
 module SidePinPlugSockets()
 {
-    for(i = [1 : PanelSocketsNumber])translate([(i*PanelHeight/PanelSocketsNumber)-PanelHeight/2-PanelHeight/(2*PanelSocketsNumber),0,0])rotate([45,0,90])SidePinPlugSocket();
+    for(i = [1 : PanelSocketsNumber])translate([(i*PanelHeight/PanelSocketsNumber)-PanelHeight/2-PanelHeight/(2*PanelSocketsNumber),0,0])rotate([(i-0)*90+45,0,90])SidePinPlugSocket();
 }
 
 
@@ -173,6 +173,18 @@ module SidePinPlugSocket()
             translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
             translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
             translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
+            // Add flare for pins
+                // Check size of flare
+                //echo(SidePinSnapBumpHeight);
+                //x = SidePinXY+SidePinTol;
+                //flareHeight = sqrt(x*x*2)/2-x/2;
+                //echo(flareHeight);
+            hull()
+            {
+                rotate([0,45,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
+                rotate([0,90,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
+            }
+            
             
             rotate([90,0,0])
             {
@@ -267,11 +279,24 @@ module TestRearLeftSidePanelSubSection()
 
 //FrontLeftPanel();
 //RearLeftPanel();
-LeftPanel();
+//LeftPanel();
 //RightPanel();
-//TestFrontLeftSidePanelSubSection();
-//TestRearLeftSidePanelSubSection();
 
+union()
+{
+    //echo(SidePinSnapBumpHeight);
+    //x = SidePinXY+SidePinTol;
+    //flareHeight = sqrt(x*x*2)/2-x/2;
+    //echo(flareHeight);
+    //SidePinPlugSocket();
+    /*
+    hull()
+    {
+        rotate([0,45,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
+        rotate([0,90,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
+    }
+    */
+}
 
 
 
