@@ -50,10 +50,12 @@ module LeftPanel()
         LidLedge(left);
         color("magenta")FrontPanelLedge(left);
         
-        translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount(BaseMountWidth);
+        //translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount(BaseMountWidth);
         
         difference(){
-            translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
+            //translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
+            // Base plate mounting rails
+            translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,0,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])PanelMount(BaseMountWidth);
             // remove excess fillet on bottom    
             translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
                         
@@ -62,15 +64,11 @@ module LeftPanel()
     }
 }
 
-/*
-module PanelMount()
+module PanelMount(PM_Width)
 {
-    translate([0,0,0])
-    {
-        translate([0,0,BasePlateHeight/2])BaseMount(BaseMountWidth);
-        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(BaseMountWidth); 
-    }  
-}*/
+        translate([0,0,BasePlateHeight/2])BaseMount(PM_Width);
+        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(PM_Width);
+}
 
 
 module FrontLeftPanel()
