@@ -248,7 +248,7 @@ module TestPlugSocket()
 }
 
 
-// test for inter and mounting tab dimensions
+// test for inner and mounting tab dimensions
 module TestFrontLeftSidePanelSubSection()
 {
     $fn = 128;
@@ -269,9 +269,7 @@ module TestRearLeftSidePanelSubSection()
     difference()
     {
         
-        RearLeftPanel();
-
-    //translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
+        RearLeftPanel(); //translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
         color("lime")translate([0,-PanelOverallLength/2-mm(1.0),0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
     }
 
@@ -282,20 +280,11 @@ module TestRearLeftSidePanelSubSection()
 //LeftPanel();
 //RightPanel();
 
+//back support mount development
 union()
 {
-    //echo(SidePinSnapBumpHeight);
-    //x = SidePinXY+SidePinTol;
-    //flareHeight = sqrt(x*x*2)/2-x/2;
-    //echo(flareHeight);
-    //SidePinPlugSocket();
-    /*
-    hull()
-    {
-        rotate([0,45,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
-        rotate([0,90,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
-    }
-    */
+    
+
 }
 
 

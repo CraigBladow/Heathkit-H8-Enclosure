@@ -5,10 +5,14 @@
 
 // TO DO LIST:
 // DONE: Trial joining two pieces with square 3d printed pins
+// DONE: Separate left side panel into two pieces for printing
+// DONE: Add rails to left side panel for attaching to baseplate
+// Add tabs to left side panel for attaching back panel pieces.
+// Add tabs to right side panel for baseplate and back panel connections.
+// Add tabs to right side panel for attaching back panel pieces.
 // Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
-// Separate side panels into two pieces for printing
-// Add tabs to side panel for baseplate and back panel connections.
-// Add insert locations for ataching to back, bottom and front panels
+// Add front panel PCB support bracket to left/right panels
+// Add insert locations for ataching to front panel
 // Right side - add insert locations to support side plane PC mounting
 
 $fn = 128; // Rendering setting
@@ -40,5 +44,5 @@ module H8Case()
 
 //H8Case();
 //SidePinSnap();
-TestFrontLeftSidePanelSubSection();
+//TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();
