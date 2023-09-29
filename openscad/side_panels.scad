@@ -51,15 +51,27 @@ module LeftPanel()
         color("magenta")FrontPanelLedge(left);
         
         translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount(BaseMountWidth);
+        
         difference(){
-        translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
-        // remove excess fillet on bottom    
-        translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
+            translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
+            // remove excess fillet on bottom    
+            translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
                         
-        }
+            }
 
     }
 }
+
+/*
+module PanelMount()
+{
+    translate([0,0,0])
+    {
+        translate([0,0,BasePlateHeight/2])BaseMount(BaseMountWidth);
+        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(BaseMountWidth); 
+    }  
+}*/
+
 
 module FrontLeftPanel()
 {
@@ -67,7 +79,7 @@ module FrontLeftPanel()
     {
         LeftPanel();
         
-        // Remove other half of panel
+        // Remove other half of left panel
         translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
         // Make Sockets for pins
         SidePinPlugSockets();
@@ -80,7 +92,7 @@ module RearLeftPanel()
     {
         LeftPanel();
             
-        // Remove other half of panel
+        // Remove other half of left panel
         translate([0,PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
         // Make sockets for pins
         SidePinPlugSockets();
@@ -212,15 +224,6 @@ module BaseMount(BM_Width)
     }
     
 }
-/*
-module BaseMountRails()
-{
-    translate([0,0,0])
-    {
-        translate([0,0,BasePlateHeight/2])BaseMount(BaseMountWidth);
-        translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(BaseMountWidth); 
-    }  
-}*/
 
 
 module TestSocket()
