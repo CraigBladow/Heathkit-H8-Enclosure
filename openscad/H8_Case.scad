@@ -8,6 +8,7 @@
 // DONE: Separate left side panel into two pieces for printing
 // DONE: Add rails to left side panel for attaching to baseplate
 // Add tabs to left side panel for attaching back panel pieces.
+// Add holes for #8 bolts and recesses for washers to side panel mounting rails
 // Add tabs to right side panel for baseplate and back panel connections.
 // Add tabs to right side panel for attaching back panel pieces.
 // Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.

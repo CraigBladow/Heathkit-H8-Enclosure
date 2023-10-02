@@ -41,6 +41,16 @@ module Panel()
 
     }
 }
+LeftPanel();
+BackPanelMountLength = PanelHeight-LedgeRecess-PanelThickness-BasePlateRecess;
+BackPanelRecess = BasePlateRecess;
+        color("Magenta") difference(){
+            //translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
+            // Base plate mounting rails
+            translate([0,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
+            // remove excess fillet on bottom    
+            //translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
+        }
 
 module LeftPanel()
 {
