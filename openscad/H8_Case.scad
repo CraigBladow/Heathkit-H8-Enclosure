@@ -8,6 +8,8 @@
 // DONE: Separate left side panel into two pieces for printing
 // DONE: Add rails to left side panel for attaching to baseplate
 // Add tabs to left side panel for attaching back panel pieces.
+// Align base plate rail to initial position
+// Alingn base plate and back supports to match left side panel
 // Add holes for #8 bolts and recesses for washers to side panel mounting rails
 // Add tabs to right side panel for baseplate and back panel connections.
 // Add tabs to right side panel for attaching back panel pieces.
@@ -43,8 +45,8 @@ module H8Case()
     }
 }
 
-//H8Case();
-LeftPanel();
+H8Case();
+//LeftPanel();
 
 //SidePinSnap();
 //TestFrontLeftSidePanelSubSection();

@@ -41,17 +41,17 @@ module Panel()
 
     }
 }
-LeftPanel();
-BackPanelMountLength = PanelHeight-LedgeRecess-PanelThickness-BasePlateRecess;
-BackPanelRecess = BasePlateRecess;
-        color("Magenta") difference(){
-            //translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
-            // Base plate mounting rails
-            translate([0,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
-            // remove excess fillet on bottom    
-        translate([0,-PanelOverallLength/2-PanelThickness*2,0])cube([PanelHeight,PanelThickness*4,PanelThickness*4],center=true);
-        }
-                    //color("blue") translate([0,-PanelOverallLength/2-PanelThickness*2,0])cube([PanelHeight,PanelThickness*4,PanelThickness*4],center=true);
+
+
+module BackPanelRails()
+{
+    difference(){
+       // Back panel mounting rails
+       translate([-BackPanelRailsOffset,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
+       // remove excess fillet on bottom    
+       translate([0,-PanelOverallLength/2-PanelThickness*2,0])cube([PanelHeight,PanelThickness*4,PanelThickness*4],center=true);
+    }
+}
 
 module LeftPanel()
 {
@@ -59,12 +59,10 @@ module LeftPanel()
     {
         Panel();
         LidLedge(left);
-        color("magenta")FrontPanelLedge(left);
-        
-        //translate([-(PanelHeight)/2+BasePlateRecess+BasePlateHeight,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,90])BaseMount(BaseMountWidth);
-        
+        FrontPanelLedge(left);
+        BackPanelRails();
+   
         difference(){
-            //translate([-(PanelHeight)/2+BasePlateRecess,0,(BaseMountLength+PanelThickness)/2])rotate([90,0,-90])BaseMount(BaseMountWidth);
             // Base plate mounting rails
             translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,0,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])PanelMount(BaseMountWidth);
             // remove excess fillet on bottom    
