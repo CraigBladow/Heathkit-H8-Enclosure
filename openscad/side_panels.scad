@@ -42,12 +42,20 @@ module Panel()
     }
 }
 
+echo(PanelHeight = PanelHeight);
+echo(LedgeRecess = LedgeRecess);
+echo(BaseMountThickness = BaseMountThickness);
+echo(BasePlateRecess = BasePlateRecess);
+echo(BasePlateHeight = BasePlateHeight);
+echo(BackPanelMountLength = BackPanelMountLength);
+echo(Test = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess);
 
 module BackPanelRails()
 {
     difference(){
        // Back panel mounting rails
-       translate([-BackPanelRailsOffset,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
+       //old translate([-BackPanelRailsOffset-0,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
+               translate([-BackPanelRailsOffset,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
        // remove excess fillet on bottom    
        translate([0,-PanelOverallLength/2-PanelThickness*2,0])cube([PanelHeight,PanelThickness*4,PanelThickness*4],center=true);
     }
@@ -72,6 +80,30 @@ module LeftPanel()
 
     }
 }
+//development support
+/*module BackSupportA()
+{
+    cube([BasePlateWidth,BackSupportThickness,BackSupportHeight],center=true);    
+}
+
+
+module BasePlateA(BP_Width)
+{
+    cube([BasePlateWidth,BasePlateLength,BasePlateHeight],center=true);
+}
+
+module H8CasePartial()
+{
+    rotate([0,-90,0])union(){
+        //echo(left= left);
+        color("Magenta") LeftPanel();
+        color("Lime") translate([0,0,BasePlateWidth+PanelThickness])rotate([0,0,0])RightPanel();
+        translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,-(PanelOverallLength-BasePlateLength)/2,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlateA();
+        translate([PanelHeight/2-BackSupportHeight/2-LedgeRecess,-BasePlateLength/2-BackSupportThickness/2-BackPanelRecess/7,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupportA();
+        translate([-(PanelHeight/2-BackSupportHeight/2)+BasePlateHeight+BasePlateRecess,-BasePlateLength/2-BackSupportThickness/2-BackPanelRecess/7,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupportA();
+    }
+}
+H8CasePartial();*/
 
 module PanelMount(PM_Width)
 {

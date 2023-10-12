@@ -98,8 +98,11 @@ CardBracketCardHoleSpacing = mm(4.0);
 CardBracketTabCornerRadius = mm(0.1);
 
 //Back Panel
-BackPanelMountLength = PanelHeight+BaseMountThickness-LedgeRecess-PanelThickness-BasePlateRecess;
-BackPanelRailsOffset = (LedgeRecess-PanelThickness-BasePlateRecess)/2;
+BackPanelMountLengthOld = PanelHeight+BaseMountThickness-LedgeRecess-PanelThickness-BasePlateRecess;
+BackPanelMountLengthTry1 = PanelHeight-LedgeRecess-BaseMountThickness-PanelThickness;
+BackPanelMountLength = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
+BackPanelRailsOffsetOLD = (LedgeRecess-PanelThickness-BasePlateRecess)/2;
+BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
 BackPanelRecess = BasePlateRecess;
 
 
