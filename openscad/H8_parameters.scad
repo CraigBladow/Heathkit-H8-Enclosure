@@ -73,11 +73,6 @@ Insert_6_32_opening_dia = mm(0.206) + mm(0.002);
 Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
 Insert_6_32_taper_length = mm(0.150);
 
-// Base Plate Mounting Rails
-BaseMountWidth = BasePlateLength;
-BaseMountLength = mm(0.6);
-BaseMountThickness = mm(0.2);
-BaseMountFilletRadius = mm(0.2);
 
 // SidePanel Pin
 SidePinLength = mm(1.6);
@@ -98,12 +93,15 @@ CardBracketCardHoleSpacing = mm(4.0);
 CardBracketTabCornerRadius = mm(0.1);
 
 //Back Panel
-BackPanelMountLengthOld = PanelHeight+BaseMountThickness-LedgeRecess-PanelThickness-BasePlateRecess;
-BackPanelMountLengthTry1 = PanelHeight-LedgeRecess-BaseMountThickness-PanelThickness;
 BackPanelMountLength = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
-BackPanelRailsOffsetOLD = (LedgeRecess-PanelThickness-BasePlateRecess)/2;
 BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
 BackPanelRecess = BasePlateRecess;
+
+// Base Plate Mounting Rails
+BaseMountWidth = BasePlateLength-BackSupportThickness-BackPanelRecess;
+BaseMountLength = mm(0.6);
+BaseMountThickness = mm(0.2);
+BaseMountFilletRadius = mm(0.2);
 
 
 
