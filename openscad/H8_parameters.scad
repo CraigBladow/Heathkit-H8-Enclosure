@@ -99,7 +99,7 @@ BackPanelRecess = BasePlateRecess;
 
 // Base Plate Mounting Rails
 BaseMountThickness = mm(0.2);
-BaseMountWidth = BasePlateLength-(BackSupportThickness+BackPanelRecess+BaseMountThickness);
+BaseMountWidth = BasePlateLength-(BackSupportThickness);
 BaseMountLength = mm(0.6);
 BaseMountFilletRadius = mm(0.2);
 

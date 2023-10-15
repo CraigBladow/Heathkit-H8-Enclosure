@@ -75,7 +75,7 @@ module LeftPanel()
         // Base Plate rails
         difference(){
              // original BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2+BackPanelRecess+BackSupportThickness+BaseMountThickness; 
-    BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness+BaseMountThickness); 
+    BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness); 
             // Base plate mounting rails
     echo(PanelOverallLength = PanelOverallLength);
     echo(BasePlateMountingRailsOffset = BasePlateMountingRailsOffset);   
