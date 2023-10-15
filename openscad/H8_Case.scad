@@ -10,16 +10,19 @@
 // DONE: Add tabs to left side panel for attaching back panel pieces.
 // DONE: Align back panel top support rail to lid ledge heigth
 // DONE: Align base plate rail to initial position
-// DONE:Align base plate and back supports to match left side panel
+// DONE:Align base plate and back supports to match left side panel.
 // DONE: Create initial front panel PCB bracket
 // Add holes for #8 bolts and recesses for washers to side panel mounting rails
-// Elongate holes in front panel PCB Bracket, print and check measuremnts
+// Pring front panel PCB Bracketand check measuremnts
 // Add fillet to front panel PCB Bracket backside and attach to side panel
 // Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
-// Add insert locations for ataching to front panel to left side
+// Add insert locations for ataching to front panel to left side panel.
+// Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels.
 // Add tabs to right side panel for baseplate and back panel connections.
 // Add tabs to right side panel for attaching back panel pieces.
-// Right side - add insert locations to support side plane PC mounting
+// Right side - add insert locations to support side plane PC mounting.
+// Create Front Panel in two 3D printed pieces.
+// Create a sub-frame that can be used as a drill guide for the bottom plate.
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
@@ -53,8 +56,8 @@ module H8Case()
     }
 }
 
-//H8Case();
-FrontPCB_Bracket();
+H8Case();
+//FrontPCB_Bracket();
 //LeftPanel();
 
 //SidePinSnap();
