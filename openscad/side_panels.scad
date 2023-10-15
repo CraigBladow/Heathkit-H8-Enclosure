@@ -93,30 +93,7 @@ module LeftPanel()
 
     }
 }
-//development support
-/*module BackSupportA()
-{
-    cube([BasePlateWidth,BackSupportThickness,BackSupportHeight],center=true);    
-}
 
-
-module BasePlateA(BP_Width)
-{
-    cube([BasePlateWidth,BasePlateLength,BasePlateHeight],center=true);
-}
-
-module H8CasePartial()
-{
-    rotate([0,-90,0])union(){
-        //echo(left= left);
-        color("Magenta") LeftPanel();
-        color("Lime") translate([0,0,BasePlateWidth+PanelThickness])rotate([0,0,0])RightPanel();
-        translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,-(PanelOverallLength-BasePlateLength)/2,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlateA();
-        translate([PanelHeight/2-BackSupportHeight/2-LedgeRecess,-BasePlateLength/2-BackSupportThickness/2-BackPanelRecess/7,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupportA();
-        translate([-(PanelHeight/2-BackSupportHeight/2)+BasePlateHeight+BasePlateRecess,-BasePlateLength/2-BackSupportThickness/2-BackPanelRecess/7,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupportA();
-    }
-}
-H8CasePartial();*/
 
 module PanelMount(PM_Width)
 {
@@ -325,17 +302,29 @@ module TestRearLeftSidePanelSubSection()
 
 }
 
-//FrontLeftPanel();
-//RearLeftPanel();
-//LeftPanel();
-//RightPanel();
 
-//back support mount development
-union()
+
+// The short piece attaches to the front panel PCB
+module FrontPCB_Bracket()
 {
-    
 
+    union()
+    {
+        color( "magenta" ) translate([0,0,FPB_Thickness/2]) cube([FPB_LengthLong,FPB_LengthLongWidth,FPB_Thickness],center=true);
+        
+            translate([0,-FPB_LengthLongWidth/2-FPB_Thickness/2,FPB_LengthShortWidth/2]) rotate([90,0,0]) difference()
+        {
+            cube([FPB_LengthShort,FPB_LengthShortWidth,FPB_Thickness],center=true);
+            translate([FPB_HoleSpacing/2,FPB_HoleOffset,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+            translate([-FPB_HoleSpacing/2,FPB_HoleOffset,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+        }
+        
+    }
+        
+    
+    
 }
+
 
 
 

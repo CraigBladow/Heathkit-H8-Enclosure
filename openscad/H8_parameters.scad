@@ -103,5 +103,16 @@ BaseMountWidth = BasePlateLength-(BackSupportThickness);
 BaseMountLength = mm(0.6);
 BaseMountFilletRadius = mm(0.2);
 
+// FrontPanel Support Bracket
+// Front PCB support Bracket
+FPB_LengthLong = mm(4.5);
+FPB_LengthLongWidth = mm(0.5);
+FPB_LengthShortWidth = mm(0.5+1/6);
+FPB_LengthShort = mm(3.75);
+FPB_Thickness = mm(1/16);
+FPB_HoleSpacing = mm(3.0);
+FPB_HoleDiameter = mm(0.165);
+FPB_HoleOffset = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
+
 
 
