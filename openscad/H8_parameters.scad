@@ -57,7 +57,7 @@ BasePlateRecess = mm(0.125);
 // Base Plate dimensions
 BasePlateWidth = CaseWidth - 2 * PanelThickness;
 BasePlateLength = mm(16.0); //Not verified
-BasePlateHeight = 9.0; //Baltic Birch Plywood 9mm
+BasePlateHeight = 9.0; //mm Baltic Birch Plywood
 
 // Back Support Dimensions, 2 instances are needed
 BackSupportThickness = BasePlateHeight;
@@ -113,6 +113,14 @@ FPB_Thickness = mm(1/16);
 FPB_HoleSpacing = mm(3.0);
 FPB_HoleDiameter = mm(0.165);
 FPB_HoleOffset = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
+
+// No. 8 bolt carve out
+WasherRecessDiameterBottomNo8 = mm(3/8)+mm(1/16); // extra 1/16 cleareance
+WasherRecessDiameterTopNo8 = mm(3/8)+mm(1/8); // slighty conical clearance
+WasherRecessHeightNo8 = mm(1/32)*3; //extra height to clear flillet
+WasherEmbossDepth = 0.8; // mm
+BoltHoleDiameterNo8 = mm(11/64);
+BoltLength3_4 = mm(3/4);
 
 
 

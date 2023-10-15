@@ -61,7 +61,34 @@ module BackPanelRails()
     }
 }
 
-//BasePlateLength-BackSupportThickness-BackPanelRecess;
+module BasePlateMountingRails()
+{
+
+    BoltClearanceX_Offset = -PanelHeight/2+BasePlateRecess+BasePlateHeight+BaseMountThickness/2-WasherEmbossDepth;
+    BoltClearanceY_Offset1 = -WasherRecessDiameterTopNo8;
+    BoltClearanceY_Offset2 = -BoltClearanceY_Offset1;
+    BoltClearanceY_Offset3 = BaseMountWidth/2-WasherRecessDiameterTopNo8;
+    BoltClearanceY_Offset4 = -BoltClearanceY_Offset3;
+    
+    color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset1,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
+    color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset2,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
+    color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset3,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
+    color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset4,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
+    
+    difference(){
+ 
+        BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness); 
+      
+            
+        translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,BasePlateMountingRailsOffset,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])PanelMount(BaseMountWidth);
+            
+        // remove excess fillet on bottom    
+        translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
+        
+        
+                        
+    }
+}
 
 module LeftPanel()
 {
@@ -71,25 +98,7 @@ module LeftPanel()
         LidLedge(left);
         FrontPanelLedge(left);
         BackPanelRails();
-   
-        // Base Plate rails
-        difference(){
-             // original BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2+BackPanelRecess+BackSupportThickness+BaseMountThickness; 
-    BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness); 
-            // Base plate mounting rails
-    echo(PanelOverallLength = PanelOverallLength);
-    echo(BasePlateMountingRailsOffset = BasePlateMountingRailsOffset);   
-    echo( BaseMountWidth = BaseMountWidth); 
-    echo(BackSupportThickness = BackSupportThickness);    
-    echo(BaseMountThickness = BaseMountThickness);        //translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,0,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])PanelMount(BaseMountWidth);
-            
-            translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,BasePlateMountingRailsOffset,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])PanelMount(BaseMountWidth);
-            
-            
-            // remove excess fillet on bottom    
-            translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
-                        
-            }
+        BasePlateMountingRails();
 
     }
 }
@@ -211,11 +220,7 @@ module SidePinPlugSocket()
             translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
             translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength+SidePinTol,SidePinXY+SidePinTol,SidePinSnapBumpHeight+SidePinTol],center=true);
             // Add flare for pins
-                // Check size of flare
-                //echo(SidePinSnapBumpHeight);
-                //x = SidePinXY+SidePinTol;
-                //flareHeight = sqrt(x*x*2)/2-x/2;
-                //echo(flareHeight);
+
             hull()
             {
                 rotate([0,45,0])cube([SidePinXY+SidePinTol,SidePinXY+SidePinTol,SidePinXY+SidePinTol],center=true);
@@ -283,8 +288,7 @@ module TestFrontLeftSidePanelSubSection()
     {
         
         FrontLeftPanel();
-
-    //translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
+        //translate([0,BaseMountWidth/2,(PanelThickness-Insert_6_32_hole_depth)/2])Insert_IUB_632_2();
         color("lime")translate([0,PanelOverallLength/2+mm(1.0),0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
     }
 
@@ -307,7 +311,6 @@ module TestRearLeftSidePanelSubSection()
 // The short piece attaches to the front panel PCB
 module FrontPCB_Bracket()
 {
-
     union()
     {
         color( "magenta" ) translate([0,0,FPB_Thickness/2]) cube([FPB_LengthLong,FPB_LengthLongWidth,FPB_Thickness],center=true);
@@ -320,10 +323,19 @@ module FrontPCB_Bracket()
         }
         
     }
-        
-    
-    
 }
+
+
+module BoltWasherHoleNo8()
+{
+    union()
+    {
+        translate([0,0,-BoltLength3_4/2])cylinder(h = BoltLength3_4, r = BoltHoleDiameterNo8/2, center=true);
+        translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
+    }
+}
+$fn=128;
+LeftPanel();
 
 
 
