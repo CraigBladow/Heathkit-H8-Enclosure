@@ -13,11 +13,12 @@
 // DONE:Align base plate and back supports to match left side panel.
 // DONE: Create initial front panel PCB bracket
 // DONE: Add holes for #8 bolts and recesses for washers to side panel mounting rails.
-// Print front panel PCB Bracketand check measurements.
+// DONE: Calculate Front Panel supports slope angle from side panel parameters.
+// Print front panel PCB Bracket and check measurements.
 // Add fillet to front panel PCB Bracket backside and attach to side panel
 // Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
 // Add insert locations for ataching to front panel to left side panel.
-// Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels.
+// Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add tabs to right side panel for baseplate and back panel connections.
 // Add tabs to right side panel for attaching back panel pieces.
 // Right side - add insert locations to support side plane PC mounting.
@@ -57,6 +58,8 @@ module H8Case()
 }
 
 H8Case();
+echo(atan(3/5.75));
+echo(PrimeSlopeAngle = PrimeSlopeAngle);
 //FrontPCB_Bracket();
 //LeftPanel();
 

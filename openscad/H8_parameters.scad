@@ -25,14 +25,6 @@ CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
 CardToSidePlaneGap = mm(3.0/16.0);
 
-// Front Panel Ledge (temporary)
-FP_LedgeLength = mm(4);
-FP_LedgeWidth = mm(0.08);
-FP_LedgeHeight = mm(0.121);
-FP_LedgeAngle = 58.15; //degrees
-FP_LedgeRecess = mm(2.5);
-FP_LedgeOffset = mm(0.0);
-
 
 // Side Panel overall dimensions in inches.
 PanelHeight = mm(6.25); //NCCP 6.1375
@@ -43,6 +35,17 @@ PanelFrontBottomRecessLength = mm(0.5);
 PanelTopLength = mm(14.0);
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
+
+//Find the angle for to base front panel ledge and bracket on
+PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight));
+
+// Front Panel Ledge
+FP_LedgeLength = mm(4);
+FP_LedgeWidth = mm(0.08);
+FP_LedgeHeight = mm(0.121);
+FP_LedgeAngle = 90 - PrimeSlopeAngle; //58.15; //degrees
+FP_LedgeRecess = mm(2.5);
+FP_LedgeOffset = mm(0.0);
 
 // Lid support
 LedgeRecess = mm(0.27);
