@@ -12,8 +12,8 @@
 // DONE: Align base plate rail to initial position
 // DONE:Align base plate and back supports to match left side panel.
 // DONE: Create initial front panel PCB bracket
-// Add holes for #8 bolts and recesses for washers to side panel mounting rails
-// Pring front panel PCB Bracketand check measuremnts
+// DONE: Add holes for #8 bolts and recesses for washers to side panel mounting rails.
+// Print front panel PCB Bracketand check measurements.
 // Add fillet to front panel PCB Bracket backside and attach to side panel
 // Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
 // Add insert locations for ataching to front panel to left side panel.
@@ -56,8 +56,8 @@ module H8Case()
     }
 }
 
-//H8Case();
-FrontPCB_Bracket();
+H8Case();
+//FrontPCB_Bracket();
 //LeftPanel();
 
 //SidePinSnap();

@@ -48,22 +48,38 @@ echo(BaseMountThickness = BaseMountThickness);
 echo(BasePlateRecess = BasePlateRecess);
 echo(BasePlateHeight = BasePlateHeight);
 echo(BackPanelMountLength = BackPanelMountLength);
-echo(Test = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess);
+echo(BackPanelThickness = BackPanelThickness);
+
+module BackPanelBoltHoles()
+{
+    BoltClearanceY_Offset = 0;
+    BoltClearanceX_Offset1 = BackPanelMountLength/2 -WasherRecessDiameterTopNo8;
+    BoltClearanceX_Offset2 = -BoltClearanceX_Offset1;
+    BoltClearanceZ_Offset = -(BackPanelThickness+BaseMountThickness+0)/2+WasherEmbossDepth;
+
+    color("Magenta")translate([BoltClearanceX_Offset1,BoltClearanceY_Offset,BoltClearanceZ_Offset])rotate([180,0,0])BoltWasherHoleNo8();
+    color("Magenta")translate([BoltClearanceX_Offset2,BoltClearanceY_Offset,BoltClearanceZ_Offset])rotate([180,0,0])BoltWasherHoleNo8();
+}
 
 module BackPanelRails()
 {
+    
     difference(){
        // Back panel mounting rails
-       //old translate([-BackPanelRailsOffset-0,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
-               translate([-BackPanelRailsOffset,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])PanelMount(BackPanelMountLength);
+
+        translate([-BackPanelRailsOffset,-PanelOverallLength/2+BasePlateHeight/2+BackPanelRecess,PanelThickness/2+BaseMountLength/2])rotate([90,0,0])
+       difference(){ 
+            PanelMount(BackPanelMountLength);
+            BackPanelBoltHoles();
+        }
        // remove excess fillet on bottom    
        translate([0,-PanelOverallLength/2-PanelThickness*2,0])cube([PanelHeight,PanelThickness*4,PanelThickness*4],center=true);
     }
+
 }
 
-module BasePlateMountingRails()
+module BasePlateBoltHoles()
 {
-
     BoltClearanceX_Offset = -PanelHeight/2+BasePlateRecess+BasePlateHeight+BaseMountThickness/2-WasherEmbossDepth;
     BoltClearanceY_Offset1 = -WasherRecessDiameterTopNo8;
     BoltClearanceY_Offset2 = -BoltClearanceY_Offset1;
@@ -73,8 +89,13 @@ module BasePlateMountingRails()
     color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset1,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
     color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset2,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
     color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset3,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
-    color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset4,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
+    color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset4,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();    
     
+}
+
+module BasePlateMountingRails()
+{
+
     difference(){
  
         BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness); 
@@ -85,7 +106,7 @@ module BasePlateMountingRails()
         // remove excess fillet on bottom    
         translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
         
-        
+       BasePlateBoltHoles(); 
                         
     }
 }
@@ -334,8 +355,9 @@ module BoltWasherHoleNo8()
         translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
     }
 }
-$fn=128;
-LeftPanel();
+//$fn=64;
+//LeftPanel();
+//BackPanelRails();
 
 
 

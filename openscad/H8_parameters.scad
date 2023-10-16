@@ -96,6 +96,7 @@ CardBracketTabCornerRadius = mm(0.1);
 BackPanelMountLength = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
 BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
 BackPanelRecess = BasePlateRecess;
+BackPanelThickness = BasePlateHeight;
 
 // Base Plate Mounting Rails
 BaseMountThickness = mm(0.2);
