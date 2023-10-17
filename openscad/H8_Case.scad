@@ -22,8 +22,9 @@
 // Add tabs to right side panel for baseplate and back panel connections.
 // Add tabs to right side panel for attaching back panel pieces.
 // Right side - add insert locations to support side plane PC mounting.
-// Create Front Panel in two 3D printed pieces.
+// Create Front Panel in two or more 3D printed pieces.
 // Create a sub-frame that can be used as a drill guide for the bottom plate.
+// Determin Lid solution, if acrylic note that cast acrylic should sag less.
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
