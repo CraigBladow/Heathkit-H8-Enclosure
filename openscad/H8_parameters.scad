@@ -59,7 +59,7 @@ BasePlateRecess = mm(0.125);
 
 // Base Plate dimensions
 BasePlateWidth = CaseWidth - 2 * PanelThickness;
-BasePlateLength = mm(16.0); //Not verified
+BasePlateLength = mm(15); //Not verified
 BasePlateHeight = 9.0; //mm Baltic Birch Plywood
 
 // Back Support Dimensions, 2 instances are needed

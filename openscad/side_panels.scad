@@ -78,13 +78,15 @@ module BackPanelRails()
 
 }
 
+BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness);
+        
 module BasePlateBoltHoles()
 {
     BoltClearanceX_Offset = -PanelHeight/2+BasePlateRecess+BasePlateHeight+BaseMountThickness/2-WasherEmbossDepth;
     BoltClearanceY_Offset1 = -WasherRecessDiameterTopNo8;
     BoltClearanceY_Offset2 = -BoltClearanceY_Offset1;
-    BoltClearanceY_Offset3 = BaseMountWidth/2-WasherRecessDiameterTopNo8;
-    BoltClearanceY_Offset4 = -BoltClearanceY_Offset3;
+    BoltClearanceY_Offset3 = BaseMountWidth/2-WasherRecessDiameterTopNo8 + BasePlateMountingRailsOffset;
+    BoltClearanceY_Offset4 = -BaseMountWidth/2 + WasherRecessDiameterTopNo8 + BasePlateMountingRailsOffset;//-BoltClearanceY_Offset3;
     
     color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset1,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
     color("Magenta")translate([BoltClearanceX_Offset,BoltClearanceY_Offset2,PanelThickness/2+BaseMountLength/2])rotate([0,90,0])BoltWasherHoleNo8();
@@ -98,13 +100,19 @@ module BasePlateMountingRails()
 
     difference(){
  
-        BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness); 
+ 
+        echo(BasePlateMountingRailsOffset  = BasePlateMountingRailsOffset);
       
             
-        translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,BasePlateMountingRailsOffset,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])PanelMount(BaseMountWidth);
+        translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,BasePlateMountingRailsOffset,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])
+        difference()
+        {
+        PanelMount(BaseMountWidth);
+        //BasePlateBoltHoles();
+        }
             
         // remove excess fillet on bottom    
-        translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,BasePlateLength,PanelThickness*4],center=true);
+        translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,PanelOverallLength,PanelThickness*4],center=true);
         
        BasePlateBoltHoles(); 
                         
@@ -130,7 +138,6 @@ module PanelMount(PM_Width)
         translate([0,0,BasePlateHeight/2])BaseMount(PM_Width);
         translate([0,0,-BasePlateHeight/2])rotate([180,0,180])BaseMount(PM_Width);
 }
-
 
 module FrontLeftPanel()
 {
