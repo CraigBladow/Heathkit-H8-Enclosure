@@ -17,11 +17,12 @@
 // DONE: Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
 // DONE: Shorten base plate and fix bolt hole locations in base mount rail.
 // Print front panel PCB Bracket and check measurements.
-// Add fillet to front panel PCB Bracket backside and attach to side panel
+// Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Add insert locations for ataching to front panel to left side panel.
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add tabs to right side panel for baseplate and back panel connections.
 // Add tabs to right side panel for attaching back panel pieces.
+// Add bracket to right side panel
 // Right side - add insert locations to support side plane PC mounting.
 // Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
 // Create Front Panel in two or more 3D printed pieces.
