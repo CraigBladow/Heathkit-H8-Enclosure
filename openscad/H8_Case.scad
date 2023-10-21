@@ -61,10 +61,20 @@ module H8Case()
     }
 }
 
-H8Case();
-//FrontPCB_Bracket();
-//LeftPanel();
+module LeftPanelExplodedAssembly()
+{
 
-//SidePinSnap();
+    translate([0,35,0])FrontLeftPanel();
+    translate([0,-35,0])RearLeftPanel();
+
+    for(i = [1 : PanelSocketsNumber])translate([(i*PanelHeight/PanelSocketsNumber)-PanelHeight/2-PanelHeight/(2*PanelSocketsNumber),0,0])rotate([(i-0)*90+45+90,0,90])SidePinSnap();
+}
+
+//H8Case();
+LeftPanelExplodedAssembly();
+//FrontPCB_Bracket();
+
+
+
 //TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();
