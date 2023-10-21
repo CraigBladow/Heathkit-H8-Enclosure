@@ -70,9 +70,16 @@ module LeftPanelExplodedAssembly()
     for(i = [1 : PanelSocketsNumber])translate([(i*PanelHeight/PanelSocketsNumber)-PanelHeight/2-PanelHeight/(2*PanelSocketsNumber),0,0])rotate([(i-0)*90+45+90,0,90])SidePinSnap();
 }
 
+module SixSnapPins()
+{
+        translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinSnap();
+}
+
 //H8Case();
-LeftPanelExplodedAssembly();
+//LeftPanelExplodedAssembly();
 //FrontPCB_Bracket();
+SixSnapPins();
+//SidePinSnap();
 
 
 
