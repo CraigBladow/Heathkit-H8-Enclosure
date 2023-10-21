@@ -21,8 +21,20 @@ module TestFrontLeftPanel()
     }
 }
 
+module TestRearLeftPanel()
+{
+    
+    difference()
+    {
+        RearLeftPanel();
+
+        color("magenta") linear_extrude(height=PanelThickness+10,center=true)polygon(points=[[-60,-25],[-60,-190],[60,-190],[60,-25]],paths=[[0,1,2,3]]);
+    }
+}
+
 
 
 
 $fn=128;
-TestFrontLeftPanel();
+//TestFrontLeftPanel();
+TestRearLeftPanel();
