@@ -3,6 +3,11 @@
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
+// Notes:
+// Clean out bolt holes on side panels with 11/64-5/32? inch drill bit.
+// When slicing Side and Back Panels, add support enforcers to only place support for the vertical mountin holes. Support is not needed for the snap pin holes and likely not completely removable.
+// Intended base plate material is 9mm Baltic Birch.  There is a 3D model of the base plate in the project which was created to help confirm measurements.
+
 // TO DO LIST:
 // DONE: Trial joining two pieces with square 3d printed pins
 // DONE: Separate left side panel into two pieces for printing

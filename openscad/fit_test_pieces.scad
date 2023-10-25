@@ -32,9 +32,56 @@ module TestRearLeftPanel()
     }
 }
 
+module TestVerticalBoltHoleSize()
+{
+  difference(){
+    cube([25,25,BasePlateHeight],center=true);
+    cylinder(h=50,r=BoltHoleDiameterNo8/2,center=true);
+  }
+}
+
+module SidePinFitTest()
+{
+    rotate([90,0,0])difference()
+    {
+        union()
+        {
+            
+            cube([SidePinLength, SidePinXY, SidePinXY], center=true);
+            // Add snap bumps
+            //translate([(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            //translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            //translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            //translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            rotate([90,0,0])
+            {
+                translate([-SidePinXY,0,0])la_bosse();
+                translate([SidePinXY,0,0])la_bosse();
+                translate([-SidePinXY*2,0,0])la_bosse();
+                translate([SidePinXY*2,0,0])la_bosse();
+                translate([-SidePinXY*3,0,0])la_bosse();
+                translate([SidePinXY*3,0,0])la_bosse();
+                translate([-SidePinXY*3.8,0,0])la_bosse();
+                translate([SidePinXY*3.8,0,0])la_bosse();
+            }
+            
+        }
+        // create gap
+        translate([(SidePinLength-SidePinSnapGapLength)/2,0,0])cube([SidePinSnapGapLength,SidePinXY,SidePinSnapGapWidth],center=true);
+        translate([-(SidePinLength-SidePinSnapGapLength)/2,0,0])cube([SidePinSnapGapLength,SidePinXY,SidePinSnapGapWidth],center=true);
+    }
+}
+module SixSidePinFitTest()
+{
+        translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinFitTest();
+}
 
 
 
 $fn=128;
+SidePinFitTest();
+//SixSidePinFitTest();
 //TestFrontLeftPanel();
-TestRearLeftPanel();
+//TestRearLeftPanel();
+//TestVerticalBoltHoleSize();
+
