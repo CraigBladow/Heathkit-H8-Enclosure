@@ -71,17 +71,19 @@ module SidePinFitTest()
         translate([-(SidePinLength-SidePinSnapGapLength)/2,0,0])cube([SidePinSnapGapLength,SidePinXY,SidePinSnapGapWidth],center=true);
     }
 }
-module SixSidePinFitTest()
+module TwelveSidePinFitTest()
 {
         translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinFitTest();
+                translate([-7*15/2,45,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinFitTest();
 }
 
 
 
 $fn=128;
-SidePinFitTest();
-//SixSidePinFitTest();
-//TestFrontLeftPanel();
+//SidePinFitTest();
+//TwelveSidePinFitTest();
+mirror([0,1,0])TestFrontLeftPanel();
+//mirror([0,1,0])TestRearLeftPanel();
 //TestRearLeftPanel();
 //TestVerticalBoltHoleSize();
 

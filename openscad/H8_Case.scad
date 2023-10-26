@@ -5,7 +5,7 @@
 
 // Notes:
 // Clean out bolt holes on side panels with 11/64-5/32? inch drill bit.
-// When slicing Side and Back Panels, add support enforcers to only place support for the vertical mountin holes. Support is not needed for the snap pin holes and likely not completely removable.
+// When slicing Side and Back Panels, add support enforcers, tool type 'smart fill', to only place support for the vertical mounting holes. Support is not needed for the snap pin holes and likely not completely removable.
 // Intended base plate material is 9mm Baltic Birch.  There is a 3D model of the base plate in the project which was created to help confirm measurements.
 
 // TO DO LIST:
@@ -21,6 +21,7 @@
 // DONE: Calculate Front Panel supports slope angle from side panel parameters.
 // DONE: Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
 // DONE: Shorten base plate and fix bolt hole locations in base mount rail.
+// Add washer imprints to bottom side panel rails.
 // Print front panel PCB Bracket and check measurements.
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Add insert locations for ataching to front panel to left side panel.
@@ -54,7 +55,7 @@ module H8Case()
     rotate([0,-90,0])union(){
         echo(left= left);
         color("Magenta") LeftPanel();
-        color("Lime") translate([0,0,BasePlateWidth+PanelThickness])rotate([0,0,0])RightPanel();
+        color("Lime") translate([0,0,BasePlateWidth+PanelThickness])RightPanel();
     
     BasePlateOffset = -(PanelOverallLength-BasePlateLength)/2+BackPanelRecess; 
         translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,BasePlateOffset,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlate();
@@ -80,10 +81,11 @@ module SixSnapPins()
         translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinSnap();
 }
 
-//H8Case();
+H8Case();
 //LeftPanelExplodedAssembly();
+//mirror([0,1,0])LeftPanel();
 //FrontPCB_Bracket();
-SixSnapPins();
+//SixSnapPins();
 //SidePinSnap();
 
 

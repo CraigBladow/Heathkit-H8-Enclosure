@@ -42,14 +42,6 @@ module Panel()
     }
 }
 
-echo(PanelHeight = PanelHeight);
-echo(LedgeRecess = LedgeRecess);
-echo(BaseMountThickness = BaseMountThickness);
-echo(BasePlateRecess = BasePlateRecess);
-echo(BasePlateHeight = BasePlateHeight);
-echo(BackPanelMountLength = BackPanelMountLength);
-echo(BackPanelThickness = BackPanelThickness);
-
 module BackPanelBoltHoles()
 {
     BoltClearanceY_Offset = 0;
@@ -62,8 +54,7 @@ module BackPanelBoltHoles()
 }
 
 module BackPanelRails()
-{
-    
+{ 
     difference(){
        // Back panel mounting rails
 
@@ -98,19 +89,10 @@ module BasePlateBoltHoles()
 module BasePlateMountingRails()
 {
 
-    difference(){
- 
- 
-        echo(BasePlateMountingRailsOffset  = BasePlateMountingRailsOffset);
-      
+    difference(){   
             
-        translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,BasePlateMountingRailsOffset,PanelThickness/2+BaseMountLength/2])rotate([90,0,90])
-        difference()
-        {
-        PanelMount(BaseMountWidth);
-        //BasePlateBoltHoles();
-        }
-            
+        translate([-PanelHeight/2+BasePlateHeight/2+BasePlateRecess,BasePlateMountingRailsOffset,PanelThickness/2+BaseMountLength/2])rotate([90,0,90]) PanelMount(BaseMountWidth);
+
         // remove excess fillet on bottom    
         translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,PanelOverallLength,PanelThickness*4],center=true);
         
@@ -167,12 +149,15 @@ module RearLeftPanel()
 
 module RightPanel()
 {
+    rotate([180,0,0])mirror([0,1,0])LeftPanel();
+/*
     union()
     {
         Panel();
         LidLedge(right);
         FrontPanelLedge(right);
     }
+ */
 }
 
 module Insert_IUB_632_2()
@@ -353,18 +338,22 @@ module FrontPCB_Bracket()
     }
 }
 
-
 module BoltWasherHoleNo8()
 {
     union()
     {
         translate([0,0,-BoltLength3_4/2])cylinder(h = BoltLength3_4, r = BoltHoleDiameterNo8/2, center=true);
         translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
+        translate([0,0,-BasePlateHeight-BaseMountThickness]) rotate([0,180,0])cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
     }
+    //WasherRecessHeightNo8/2-15
 }
+//$fn=128;
 //$fn=64;
 //LeftPanel();
 //BackPanelRails();
+//BasePlateMountingRails();
+//BoltWasherHoleNo8();
 
 
 
