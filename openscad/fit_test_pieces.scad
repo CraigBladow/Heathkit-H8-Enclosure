@@ -82,8 +82,8 @@ module TwelveSidePinFitTest()
 $fn=128;
 //SidePinFitTest();
 //TwelveSidePinFitTest();
-mirror([0,1,0])TestFrontLeftPanel();
-//mirror([0,1,0])TestRearLeftPanel();
+//mirror([0,1,0])TestFrontLeftPanel();
+mirror([0,1,0])TestRearLeftPanel();
 //TestRearLeftPanel();
 //TestVerticalBoltHoleSize();
 
