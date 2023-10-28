@@ -21,19 +21,15 @@
 // DONE: Calculate Front Panel supports slope angle from side panel parameters.
 // DONE: Determine the H8 Front panel slope and adjust side panel edge slope and front panel alignment ridge on side panel.
 // DONE: Shorten base plate and fix bolt hole locations in base mount rail.
-// Add washer imprints to bottom side panel rails.
-// Print front panel PCB Bracket and check measurements.
-// Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
-// Add insert locations for ataching to front panel to left side panel.
+// DONE: Add washer imprints to bottom side panel rails.
+// DONE: Print front panel PCB Bracket and check measurements.
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
-// Add tabs to right side panel for baseplate and back panel connections.
-// Add tabs to right side panel for attaching back panel pieces.
-// Add bracket to right side panel
-// Right side - add insert locations to support side plane PC mounting.
+// Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
+// Left and Right side - add insert locations to support side plane PC mounting.
 // Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
 // Create Front Panel in two or more 3D printed pieces.
 // Create a sub-frame that can be used as a drill guide for the bottom plate.
-// Determin Lid solution, if acrylic note that cast acrylic should sag less.
+// Determine Lid solution, if acrylic note that cast acrylic should sag less.
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
@@ -51,9 +47,10 @@ module H8Case()
         translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,BasePlateOffset,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlate();
         
     BackSupportOffset = -PanelOverallLength/2+BackSupportThickness/2+BackPanelRecess;    
-        translate([PanelHeight/2-BackSupportHeight/2-LedgeRecess,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupport();
+//translate([PanelHeight/2-BackSupportHeight/2-LedgeRecess,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupport();
         
-       translate([-(PanelHeight/2-BackSupportHeight/2)+BasePlateHeight+BasePlateRecess,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupport();
+       //translate([-(PanelHeight/2-BackSupportHeight/2)+BasePlateHeight+BasePlateRecess,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])NewBackSupport();
+       translate([-BackPanelRailsOffset,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])NewBackSupport();
     }
 }
 
