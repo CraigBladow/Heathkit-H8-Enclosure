@@ -95,18 +95,21 @@ CardBracketCardHoleDia = 3.6; //mm
 CardBracketCardHoleSpacing = mm(4.0);
 CardBracketTabCornerRadius = mm(0.1);
 
-//Back Panel
-BackPanelHeight = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
-BackPanelMountLength = BackPanelHeight;
-BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
-BackPanelRecess = BasePlateRecess;
-BackPanelThickness = BasePlateHeight;
+
 
 // Base Plate Mounting Rails
 BaseMountThickness = mm(0.2);
 BaseMountWidth = BasePlateLength-(BackSupportThickness);
 BaseMountLength = mm(0.6);
 BaseMountFilletRadius = mm(0.2);
+
+//Back Panel
+BackPanelHeight = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
+BackPanelMountLength = BackPanelHeight;
+BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
+BackPanelRecess = BasePlateRecess;
+BackPanelThickness = BasePlateHeight;
+BackPanelBoltInset = BaseMountLength/2; 
 
 // FrontPanel Support Bracket
 // Front PCB support Bracket

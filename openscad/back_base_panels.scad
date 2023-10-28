@@ -15,25 +15,21 @@ module BasePlate(BP_Width)
 
 module BackSupport()
 {
-        cube([BasePlateWidth,BackSupportThickness,BackSupportHeight],center=true);   
-}
-
-module NewBackSupport()
-{
     difference()
     {
         cube([BasePlateWidth,BackSupportThickness,BackPanelHeight],center=true); 
-
+        translate([BasePlateWidth/2-BackPanelBoltInset,0,0])rotate([90,90,0])BackPanelBoltHoles();
+        translate([-BasePlateWidth/2+BackPanelBoltInset,0,0])rotate([90,90,0])BackPanelBoltHoles();
+        
     }   
 }
 
 
 
-translate([BasePlateWidth/2,0,0])rotate([90,90,0])BackPanelBoltHoles();
-translate([-BasePlateWidth/2,0,0])rotate([90,90,0])BackPanelBoltHoles();
+
 
 $fn=128;
-NewBackSupport();
+BackSupport();
 
 
 

@@ -47,10 +47,7 @@ module H8Case()
         translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,BasePlateOffset,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlate();
         
     BackSupportOffset = -PanelOverallLength/2+BackSupportThickness/2+BackPanelRecess;    
-//translate([PanelHeight/2-BackSupportHeight/2-LedgeRecess,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupport();
-        
-       //translate([-(PanelHeight/2-BackSupportHeight/2)+BasePlateHeight+BasePlateRecess,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])NewBackSupport();
-       translate([-BackPanelRailsOffset,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])NewBackSupport();
+       translate([-BackPanelRailsOffset,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupport();
     }
 }
 
