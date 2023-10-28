@@ -38,17 +38,7 @@
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
 include <side_panels.scad>
-
-module BackSupport()
-{
-    cube([BasePlateWidth,BackSupportThickness,BackSupportHeight],center=true);    
-}
-
-
-module BasePlate(BP_Width)
-{
-    cube([BasePlateWidth,BasePlateLength,BasePlateHeight],center=true);
-}
+include <back_base_panels.scad>
 
 module H8Case()
 {
