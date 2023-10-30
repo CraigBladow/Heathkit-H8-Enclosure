@@ -70,8 +70,9 @@ module BackPanelRails()
 }
 
 BasePlateMountingRailsOffset = -(PanelOverallLength-BaseMountWidth)/2 +(BackPanelRecess+BackSupportThickness);
-        
-module BasePlateBoltHoles()
+//echo(BasePlateMountingRailsOffset = BasePlateMountingRailsOffset);
+   
+module BasePlateMountingRailBoltHoles()
 {
     BoltClearanceX_Offset = -PanelHeight/2+BasePlateRecess+BasePlateHeight+BaseMountThickness/2-WasherEmbossDepth;
     BoltClearanceY_Offset1 = -WasherRecessDiameterTopNo8;
@@ -96,7 +97,7 @@ module BasePlateMountingRails()
         // remove excess fillet on bottom    
         translate([-PanelHeight/2-PanelThickness*2,0,0])color("lime")cube([PanelThickness*4,PanelOverallLength,PanelThickness*4],center=true);
         
-       BasePlateBoltHoles(); 
+       BasePlateMountingRailBoltHoles(); 
                         
     }
 }
@@ -130,7 +131,7 @@ module FrontLeftPanel()
         // Remove other half of left panel
         translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
         // Make Sockets for pins
-        SidePinPlugSockets();
+        SidePinPlugSockets(PanelHeight);
     }
 }
 
@@ -143,7 +144,7 @@ module RearLeftPanel()
         // Remove other half of left panel
         translate([0,PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
         // Make sockets for pins
-        SidePinPlugSockets();
+        SidePinPlugSockets(PanelHeight);
     }
 }
 
@@ -207,9 +208,9 @@ module SidePinSocket()
     cube([SidePinLength + SidePinTol, SidePinXY + SidePinTol, SidePinXY + SidePinTol], center=true);
 }
 
-module SidePinPlugSockets()
+module SidePinPlugSockets(SockePanelLength)
 {
-    for(i = [1 : PanelSocketsNumber])translate([(i*PanelHeight/PanelSocketsNumber)-PanelHeight/2-PanelHeight/(2*PanelSocketsNumber),0,0])rotate([(i-0)*90+45,0,90])SidePinPlugSocket();
+    for(i = [1 : PanelSocketsNumber])translate([(i*SockePanelLength/PanelSocketsNumber)-SockePanelLength/2-SockePanelLength/(2*PanelSocketsNumber),0,0])rotate([(i-0)*90+45,0,90])SidePinPlugSocket();
 }
 
 

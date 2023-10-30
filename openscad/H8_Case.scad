@@ -23,6 +23,8 @@
 // DONE: Shorten base plate and fix bolt hole locations in base mount rail.
 // DONE: Add washer imprints to bottom side panel rails.
 // DONE: Print front panel PCB Bracket and check measurements.
+// DONE: Add holes to base plate model
+// Secion Base Plate Model for fit test
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Left and Right side - add insert locations to support side plane PC mounting.
@@ -39,11 +41,11 @@ include <back_base_panels.scad>
 module H8Case()
 {
     rotate([0,-90,0])union(){
-        echo(left= left);
+        
         color("Magenta") LeftPanel();
         color("Lime") translate([0,0,BasePlateWidth+PanelThickness])RightPanel();
     
-    BasePlateOffset = -(PanelOverallLength-BasePlateLength)/2+BackPanelRecess; 
+    
         translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,BasePlateOffset,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlate();
         
     BackSupportOffset = -PanelOverallLength/2+BackSupportThickness/2+BackPanelRecess;    

@@ -54,13 +54,15 @@ LedgeWidth = mm(0.05);
 LedgeHeight = mm(0.125);
 LedgeLength = mm(10.7);
 
-// Side Panel Base Plate Recess , how much the side panel extends below the bottom of the base plate
+// Side Panel Base Plate and Back Panel Recess , how much the side panel extends below the bottom of the base plate
 BasePlateRecess = mm(0.125);
+BackPanelRecess = BasePlateRecess;
 
 // Base Plate dimensions
 BasePlateWidth = CaseWidth - 2 * PanelThickness;
 BasePlateLength = mm(15); //Not verified
 BasePlateHeight = 9.0; //mm Baltic Birch Plywood
+BasePlateOffset = -(PanelOverallLength-BasePlateLength)/2+BackPanelRecess; 
 
 // Back Support Dimensions, 2 instances are needed
 BackSupportThickness = BasePlateHeight;
@@ -96,7 +98,6 @@ CardBracketCardHoleSpacing = mm(4.0);
 CardBracketTabCornerRadius = mm(0.1);
 
 
-
 // Base Plate Mounting Rails
 BaseMountThickness = mm(0.2);
 BaseMountWidth = BasePlateLength-(BackSupportThickness);
@@ -107,7 +108,7 @@ BaseMountFilletRadius = mm(0.2);
 BackPanelHeight = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
 BackPanelMountLength = BackPanelHeight;
 BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
-BackPanelRecess = BasePlateRecess;
+
 BackPanelThickness = BasePlateHeight;
 BackPanelBoltInset = BaseMountLength/2; 
 
@@ -129,6 +130,15 @@ WasherRecessHeightNo8 = mm(1/32)*3; //extra height to clear flillet
 WasherEmbossDepth = 0.8; // mm
 BoltHoleDiameterNo8 = mm(11/64);
 BoltLength3_4 = mm(3/4);
+
+//echo(BackPanelRecess = BackPanelRecess);
+//echo(BackPanelThickness = BackPanelThickness);
+//echo(BaseMountThickness = BaseMountThickness);
+//echo(PanelOverallLength = PanelOverallLength);
+//echo(BaseMountWidth = BaseMountWidth);
+//echo(BasePlateLength = BasePlateLength);
+//echo(WasherRecessDiameterTopNo8 = WasherRecessDiameterTopNo8);
+//echo(BoltHoleDiameterNo8  = BoltHoleDiameterNo8 );
 
 
 
