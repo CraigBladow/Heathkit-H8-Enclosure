@@ -93,6 +93,16 @@ module TestBasePlateLeftRear()
         translate([0,BasePlateLength/2,0])color("magenta")cube([BasePlateWidth,BasePlateLength,BasePlateHeight*4],center = true);
         translate([BasePlateWidth/4,0])SidePinPlugSockets(BasePlateWidth/2);
         translate([0,-BasePlateLength/4-BackSupportThickness,0])rotate([0,0,90])SidePinPlugSockets(BasePlateLength/2);
+        
+        //Triangle subtraction
+        T=18; //width of diagonal, sort of.
+        W = SidePinLength*.75;
+        X1 = BasePlateWidth/2-W;
+        Y1 = -(BasePlateLength/2 - BasePlateMountingRailsOffset)+W;
+        X2 =W;
+        Y2 = -W;      
+        triangle(points =[[X1,Y1+T],[X1,Y2],[X2+T,Y2]],BasePlateHeight+5);
+        triangle(points =[[X1-T,Y1],[X2,Y2-T],[X2,Y1]],BasePlateHeight+5);  
     } 
 }
 
@@ -103,7 +113,7 @@ module triangle(points, T_Height)
 
 
 
-$fn=16;
+$fn=128;
 //SidePinFitTest();
 //TwelveSidePinFitTest();
 //mirror([0,1,0])TestFrontLeftPanel();
@@ -112,26 +122,9 @@ $fn=16;
 //TestVerticalBoltHoleSize();
 //TestBasePlateLeft();
 TestBasePlateLeftRear();
-W = SidePinLength*.75;
-T = 8;
-X1 = BasePlateWidth/2-W;
-Y1 = -(BasePlateLength/2 - BasePlateMountingRailsOffset)+W +T;
-X2 =X1;
-Y2 = -W;
-X3 = W+T;
-Y3 = Y2;
-triangle(points =[[X1,Y1],[X2,Y2],[X3,Y3]],BasePlateHeight+5);
-X4 = X1-T;
-Y4 = -(BasePlateLength/2 - BasePlateMountingRailsOffset)+W;
-X5 = X3;
-Y5 = Y4; //Y2 - T;
-X6 = X5;
-Y6 = -W-T;
-triangle(points =[[X4,Y4],[X5,Y5],[X6,Y6]],BasePlateHeight+5);
-echo(W = W);
-echo(SidePinLength = SidePinLength);
-echo(X1 = X1);
-echo(Y1=Y1);
-echo(BasePlateWidth = BasePlateWidth);
+
+
+
+
 
 
