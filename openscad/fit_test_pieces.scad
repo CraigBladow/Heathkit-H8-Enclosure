@@ -113,7 +113,7 @@ module triangle(points, T_Height)
 
 
 
-$fn=128;
+//$fn=128;
 //SidePinFitTest();
 //TwelveSidePinFitTest();
 //mirror([0,1,0])TestFrontLeftPanel();
@@ -121,7 +121,7 @@ $fn=128;
 //TestRearLeftPanel();
 //TestVerticalBoltHoleSize();
 //TestBasePlateLeft();
-TestBasePlateLeftRear();
+//TestBasePlateLeftRear();
 
 
 
