@@ -131,6 +131,10 @@ WasherEmbossDepth = 0.8; // mm
 BoltHoleDiameterNo8 = mm(11/64);
 BoltLength3_4 = mm(3/4);
 
+BaseFootTopDiameter = mm(0.75);
+BaseFootBottomDiameter = mm(0.5);
+BaseFootHeight = mm(0.5);
+
 //echo(BackPanelRecess = BackPanelRecess);
 //echo(BackPanelThickness = BackPanelThickness);
 //echo(BaseMountThickness = BaseMountThickness);

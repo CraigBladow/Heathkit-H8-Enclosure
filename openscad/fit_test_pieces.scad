@@ -7,6 +7,7 @@
 
 include <H8_parameters.scad>
 include <side_panels.scad>
+include <back_base_panels.scad>
 
 
 
@@ -49,10 +50,7 @@ module SidePinFitTest()
             
             cube([SidePinLength, SidePinXY, SidePinXY], center=true);
             // Add snap bumps
-            //translate([(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
-            //translate([(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
-            //translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
-            //translate([-(SidePinLength-SidePinSnapBumpLength)/2,0,-(SidePinXY+SidePinSnapBumpHeight)/2]) cube([SidePinSnapBumpLength,SidePinXY,SidePinSnapBumpHeight],center=true);
+            
             rotate([90,0,0])
             {
                 translate([-SidePinXY,0,0])la_bosse();
@@ -77,13 +75,35 @@ module TwelveSidePinFitTest()
                 translate([-7*15/2,45,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinFitTest();
 }
 
+module TestBasePlateLeft()
+{
+    difference()
+    {
+        translate([0,BasePlateMountingRailsOffset-BackSupportThickness/2,0])BasePlate();
+        translate([-BasePlateWidth/2,0,0])cube([BasePlateWidth,BasePlateLength*2,BasePlateHeight*4],center=true);
+    }
+    
+}
+
+module TestBasePlateLeftRear()
+{
+    difference()
+    {
+        TestBasePlateLeft();
+        translate([0,BasePlateLength/2,0])color("magenta")cube([BasePlateWidth,BasePlateLength,BasePlateHeight*4],center = true);
+    }
+    
+}
 
 
-$fn=128;
+$fn=16;
 //SidePinFitTest();
 //TwelveSidePinFitTest();
 //mirror([0,1,0])TestFrontLeftPanel();
-mirror([0,1,0])TestRearLeftPanel();
+//mirror([0,1,0])TestRearLeftPanel();
 //TestRearLeftPanel();
 //TestVerticalBoltHoleSize();
+//TestBasePlateLeft();
+TestBasePlateLeftRear();
+
 

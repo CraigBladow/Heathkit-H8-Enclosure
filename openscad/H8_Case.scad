@@ -24,7 +24,8 @@
 // DONE: Add washer imprints to bottom side panel rails.
 // DONE: Print front panel PCB Bracket and check measurements.
 // DONE: Add holes to base plate model
-// Secion Base Plate Model for fit test
+// DONE: Add feet to Base Plate Model
+// Section Base Plate Model for fit test
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Left and Right side - add insert locations to support side plane PC mounting.
