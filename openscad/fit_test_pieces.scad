@@ -111,9 +111,14 @@ module triangle(points, T_Height)
         color("magenta") linear_extrude(height=T_Height,center=true)translate([0,0,0])polygon(points,paths=[[0,1,2]]);
 }
 
+module TestBasePlateRightRear()
+{
+    mirror([1,0,0])TestBasePlateLeftRear();
+}
 
 
-//$fn=128;
+
+$fn=128;
 //SidePinFitTest();
 //TwelveSidePinFitTest();
 //mirror([0,1,0])TestFrontLeftPanel();
@@ -122,6 +127,7 @@ module triangle(points, T_Height)
 //TestVerticalBoltHoleSize();
 //TestBasePlateLeft();
 //TestBasePlateLeftRear();
+TestBasePlateRightRear();
 
 
 
