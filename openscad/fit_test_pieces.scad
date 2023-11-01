@@ -116,18 +116,41 @@ module TestBasePlateRightRear()
     mirror([1,0,0])TestBasePlateLeftRear();
 }
 
+module TestBasePlateLeftFront()
+{
+    difference()
+    {
+        TestBasePlateLeft();
+        translate([0,-BasePlateLength/2,0])color("magenta")cube([BasePlateWidth,BasePlateLength,BasePlateHeight*4],center = true);
+        
+        translate([BasePlateWidth/4,0,0])SidePinPlugSockets(BasePlateWidth/2);
+        translate([0,BasePlateLength/4+BackSupportThickness,0])rotate([0,0,90])SidePinPlugSockets(BasePlateLength/2);
 
+        
+        //Triangle subtraction
+        T=18; //width of diagonal, sort of.
+        W = SidePinLength*.75;
+        X1 = BasePlateWidth/2-W;
+        Y1 = W;
+        X2 =W;
+        Y2 = (BasePlateLength/2 + BasePlateMountingRailsOffset)-W;;      
+        triangle(points =[[X1,Y1+T],[X1,Y2],[X2+T,Y2]],BasePlateHeight+5);
+        triangle(points =[[X1-T,Y1],[X2,Y2-T],[X2,Y1]],BasePlateHeight+5);  
+    } 
 
-$fn=128;
-//SidePinFitTest();
-//TwelveSidePinFitTest();
-//mirror([0,1,0])TestFrontLeftPanel();
-//mirror([0,1,0])TestRearLeftPanel();
-//TestRearLeftPanel();
-//TestVerticalBoltHoleSize();
-//TestBasePlateLeft();
+}
+
+module TestBasePlateRightFront()
+{
+    mirror([1,0,0])TestBasePlateLeftFront();
+}
+
+//$fn=128;
+
 //TestBasePlateLeftRear();
-TestBasePlateRightRear();
+//TestBasePlateRightRear();
+//TestBasePlateLeftFront();
+//TestBasePlateRightFront();
 
 
 
