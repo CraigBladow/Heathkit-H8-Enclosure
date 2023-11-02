@@ -134,7 +134,7 @@ module TestBasePlateLeftFront()
         Y1 = W;
         X2 =W;
         Y2 = (BasePlateLength/2 + BasePlateMountingRailsOffset)-W;;      
-        triangle(points =[[X1,Y1+T],[X1,Y2],[X2+T,Y2]],BasePlateHeight+5);
+        triangle(points =[[X1,Y1+T],[X1,Y2],[X2+T,Y2]],BasePlateHeight*5);
         triangle(points =[[X1-T,Y1],[X2,Y2-T],[X2,Y1]],BasePlateHeight+5);  
     } 
 
