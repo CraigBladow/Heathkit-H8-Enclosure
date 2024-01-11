@@ -1,5 +1,5 @@
 // Heathkit H8 Computer Enclosure - Side Panels
-// Copyright 2023 Craig Bladow
+// Copyright 2024 Craig Bladow
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
@@ -102,6 +102,13 @@ module BasePlateMountingRails()
     }
 }
 
+module PCB_InsertMountPoints()
+{
+    Insert_IUB_632_2();
+}
+$fn=128;
+PCB_InsertMountPoint();
+
 module LeftPanel()
 {
     union()
@@ -151,14 +158,6 @@ module RearLeftPanel()
 module RightPanel()
 {
     rotate([180,0,0])mirror([0,1,0])LeftPanel();
-/*
-    union()
-    {
-        Panel();
-        LidLedge(right);
-        FrontPanelLedge(right);
-    }
- */
 }
 
 module Insert_IUB_632_2()

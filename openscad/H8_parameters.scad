@@ -1,5 +1,5 @@
 // Heathkit H8 Computer Enclosure - Parameters and Functions
-// Copyright 2023 Craig Bladow
+// Copyright 2024 Craig Bladow
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
@@ -18,12 +18,24 @@ FP_PCB_Length = mm(14.75);
 FP_PCB_Height = mm(5.75);
 SidePlanePCBHeight = mm(5.5);
 SidePlanePCBTopEdgeLength = mm(11.125);
-SidePlanePCBBottomEdgeLength = mm(13.25);
-SidePlanePCBFrontEdgeLength = mm(6.25);
+SidePlanePCBBottomEdgeLength = mm(14.25);// wrong! old version: mm(13.25);
+SidePlanePCBFrontEdgeLength = mm(6.52);// wrong! old version: mm(6.25);
 PCB_Thickness = 1.6; //mm
 CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
 CardToSidePlaneGap = mm(3.0/16.0);
+SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
+echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
+
+// Side Panel PCB mount locations
+SP_MountVerticalInset = mm(7.0/16.0);
+SP_MountTopBackHorizInset = mm(3.0/4.0);
+SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
+SP_MountHolesOffset = mm(4.0+5.0/8.0);
+SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
+SP_PCB_HeightFromCaseBottom = mm(0);
+
+SP_PCB_StandOffHeight = 6.5; //mm
 
 
 // Side Panel overall dimensions in inches.
@@ -37,8 +49,9 @@ PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
 
 //Find the angle for to base front panel ledge and bracket on
+// Todo - use side panel dimensions,also adjusting the Panel dimensions currently used.
 PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight));
-
+echo(PrimeSlopeAngle = PrimeSlopeAngle);
 // Front Panel Ledge
 FP_LedgeLength = mm(4);
 FP_LedgeWidth = mm(0.08);

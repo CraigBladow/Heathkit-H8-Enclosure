@@ -1,5 +1,5 @@
 // Heathkit H8 Computer Enclosure
-// Copyright 2023 Craig Bladow
+// Copyright 2024 Craig Bladow
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
@@ -25,13 +25,17 @@
 // DONE: Print front panel PCB Bracket and check measurements.
 // DONE: Add holes to base plate model
 // DONE:  Add feet to Base Plate Model
-// Section Base Plate Model for fit test
-// Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
+// DONE: Section Base Plate Model for fit test
+// DONE: Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
+// Solve SidePlane Mounting Clearance from Side Panel Fillets and bolts. 1) raise plastic base floor or thin edges 2) Increase Case overall height.  If going with plastic floor then hide the wood that I bought so my wife thinks I used it! :)
+// Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
+// Ensure room for MicroATX power supply
+// Update PrimeSlopeAngle to match side panel pcb slope of 32.47 degrees
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
-// Left and Right side - add insert locations to support side plane PC mounting.
-// Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
+// Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
+
 // Create Front Panel in two or more 3D printed pieces.
-// Create a sub-frame that can be used as a drill guide for the bottom plate.
+// Create a sub-frame that can be used as a drill guide for the bottom plate. (Or not if using plastic base)
 // Determine Lid solution, if acrylic note that cast acrylic should sag less.
 
 $fn = 128; // Rendering setting

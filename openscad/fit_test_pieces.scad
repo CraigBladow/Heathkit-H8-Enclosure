@@ -1,7 +1,7 @@
 // Heathkit H8 Computer Enclosure - Fit Test Pieces
 // Generates pieces with bulk areas removed to speed up printing
 // and reduce material use.  This is to check initial measurments.
-// Copyright 2023 Craig Bladow
+// Copyright 2024 Craig Bladow
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
@@ -145,13 +145,79 @@ module TestBasePlateRightFront()
     mirror([1,0,0])TestBasePlateLeftFront();
 }
 
-//$fn=128;
+// Side Panel PCB mount locations
+SP_MountVerticalInset = mm(7.0/16.0);
+SP_MountTopBackHorizInset = mm(3.0/4.0);
+SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
+SP_MountHolesOffset = mm(4.0+5.0/8.0);
+SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
+
+    
+    HoleDiameter = 3.8;  //PCB hole size 4.0mm, size of peg to fit into it.
+    TSP_T = 2.0;
+    TSP_L = 2 * SP_MountHolesOffset + 4 * (HoleDiameter+0.2);
+    TSP_W = 3 * HoleDiameter;
+    RowDist = SidePlanePCBHeight- 2*SP_MountVerticalInset;
+    HoleOffset = HoleDiameter*2;
+    DY = RowDist;
+    DX = SP_MountBottomBackHorizInset-SP_MountTopBackHorizInset;
+    TSP_L2 = sqrt(DY*DY+DX*DX)+4 * (HoleDiameter+0.2);
+
+module TestPegBar()
+{
+        cube([TSP_L,TSP_W,TSP_T],center=true);
+
+        translate([HoleOffset-TSP_L/2,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        translate([HoleOffset+SP_MountHolesOffset-TSP_L/2,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        translate([HoleOffset+SP_MountHolesOffset*2-TSP_L/2,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+    
+}
+
+module TestSidePanelHoles1()
+{
+        color("lime") translate([TSP_L/2,0,0]) TestPegBar();   
+}
+
+module TestPegBar2()
+{
+        cube([TSP_L2,TSP_W,TSP_T],center=true);
+
+        translate([HoleOffset-TSP_L2/2,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        translate([TSP_L2/2-HoleOffset,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        //translate([HoleOffset+SP_MountHolesOffset*2-TSP_L/2,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+    
+}
+module TestSidePanelHoles2()
+{
+
+    union()
+    {
+        //translate([TSP_L/2,0,0])cube([TSP_L,TSP_W,TSP_T],center=true);
+       
+        //translate([HoleOffset,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        //translate([HoleOffset+SP_MountHolesOffset,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        //translate([HoleOffset+SP_MountHolesOffset*2,0,TSP_T])cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        //cylinder(h=TSP_T * 2, r = HoleDiameter/2, center = true);
+        //rotate([0,0,SidePlanePrimeSlopeAngle])
+        translate([SP_MountBottomBackHorizInset-SP_MountTopBackHorizInset+TSP_L/2,RowDist,0])TestPegBar();
+
+        //color("blue")translate([SP_MountBottomBackHorizInset-SP_MountTopBackHorizInset+HoleOffset+SP_MountHolesOffset,RowDist,0])
+        //rotate([0,0,90-SidePlanePrimeSlopeAngle])translate([TSP_L2,0,0])
+        rotate([0,0,90-SidePlanePrimeSlopeAngle])
+        translate([TSP_L2/2,0,0])TestPegBar2();
+    }
+    
+}
+
+$fn=128;
 
 //TestBasePlateLeftRear();
 //TestBasePlateRightRear();
 //TestBasePlateLeftFront();
 //TestBasePlateRightFront();
-
+//TestSidePanelHoles1();
+//TestSidePanelHoles2();
+TestPegBar2();
 
 
 

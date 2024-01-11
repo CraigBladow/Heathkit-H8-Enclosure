@@ -1,5 +1,5 @@
 // Heathkit H8 Computer Enclosure - Back and Base panel modules
-// Copyright 2023 Craig Bladow
+// Copyright 2024 Craig Bladow
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 

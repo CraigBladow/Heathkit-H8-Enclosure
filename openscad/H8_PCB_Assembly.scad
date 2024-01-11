@@ -1,5 +1,5 @@
 // Heathkit H8 Computer Enclosure - Parameters and Functions
-// Copyright 2023 Craig Bladow
+// Copyright 2024 Craig Bladow
 // Released under MIT license:
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
@@ -24,6 +24,11 @@ module PCB_Assembly()
     SidePanel();    
 }
 
+module HoleTest()
+{
+    
+}
+
 A = SidePlanePCBHeight;
 B = SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength;
 C = sqrt(A*A+B*B);
@@ -32,5 +37,5 @@ alpha = atan(B/A);
 beta = atan(A/B);
 echo(alpha = alpha, beta= beta);
 
-//PCB_Assembly();
+PCB_Assembly();
 
