@@ -107,7 +107,7 @@ module PCB_InsertMountPoints()
     Insert_IUB_632_2();
 }
 $fn=128;
-PCB_InsertMountPoint();
+PCB_InsertMountPoints();
 
 module LeftPanel()
 {

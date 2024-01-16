@@ -33,7 +33,7 @@
 // Update PrimeSlopeAngle to match side panel pcb slope of 32.47 degrees
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
-
+// Create Card PCB bracket printed replacement solution since bolts come up through bottom
 // Create Front Panel in two or more 3D printed pieces.
 // Create a sub-frame that can be used as a drill guide for the bottom plate. (Or not if using plastic base)
 // Determine Lid solution, if acrylic note that cast acrylic should sag less.
