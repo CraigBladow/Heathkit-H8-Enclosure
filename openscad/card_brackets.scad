@@ -10,7 +10,7 @@ CardBracketWidth = 14; // mm
 CardBracketThickness = 1.54; //mm
 CardBracketLength = mm(6.25);
 CardBrackeTabLength = mm(0.625);
-CardBracketCardHoleDia = 3.6; //mm
+CardBracketCardHoleDia = 4.0; //mm
 CardBracketCardHoleSpacing = mm(4.0);
 CardBracketTabCornerRadius = mm(0.1);
 
@@ -27,6 +27,8 @@ module CardBracketTab()
         cylinder(h=CardBracketThickness,r=CardBracketTabCornerRadius,center=true);
     }
 }
+
+//SidePlanePrimeSlopeAngle
 $fn=128;
 CardBracketSpan();
 color("lime")CardBracketTab();

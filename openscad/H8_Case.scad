@@ -27,6 +27,7 @@
 // DONE:  Add feet to Base Plate Model
 // DONE: Section Base Plate Model for fit test
 // DONE: Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
+// Develop tool-less inter locking channels and brackets for card mounting.
 // Solve SidePlane Mounting Clearance from Side Panel Fillets and bolts. 1) raise plastic base floor or thin edges 2) Increase Case overall height.  If going with plastic floor then hide the wood that I bought so my wife thinks I used it! :)
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Ensure room for MicroATX power supply
