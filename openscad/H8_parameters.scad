@@ -1,7 +1,11 @@
 // Heathkit H8 Computer Enclosure - Parameters and Functions
 // Copyright 2024 Craig Bladow
 // Released under MIT license:
-//          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
+//  
+//        https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
+//  Notes on actual H8 case parameters:
+//      Front Panel support ledge front edge is 1" from front edge of side panels
+//      Front Panel, Front PCB, Circuit Cards, Side Plane front edge are all parallel to each other.
 
 // Common Constants
 left = 1.0;
