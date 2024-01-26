@@ -27,8 +27,10 @@
 // DONE:  Add feet to Base Plate Model
 // DONE: Section Base Plate Model for fit test
 // DONE: Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
-// Update PrimeSlopeAngle to match side panel pcb slope of 29.6 (or 30?)  degrees
+
 // Model and test use of flathead screws for base plate mounting.
+
+// Update PrimeSlopeAngle to match side panel pcb slope of 29.6 (or 30?)  degrees
 // Develop tool-less inter locking channels and brackets for card mounting - maybe recessed in base?
 // Solve SidePlane Mounting Clearance from Side Panel Fillets and bolts. 1) raise plastic base floor or thin edges 2) Increase Case overall height.  If going with plastic floor then hide the wood that I bought so my wife thinks I used it! :)
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
@@ -77,14 +79,18 @@ module SixSnapPins()
         translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinSnap();
 }
 
-H8Case();
+//H8Case();
+
 //LeftPanelExplodedAssembly();
 //mirror([0,1,0])LeftPanel();
 //FrontPCB_Bracket();
 //SixSnapPins();
 //SidePinSnap();
 
+// Spacers / washers if needed
+//washers(16, mm(3/8),BoltHoleDiameterNo6,mm(1/16));
 
 
-//TestFrontLeftSidePanelSubSection();
+
+TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();

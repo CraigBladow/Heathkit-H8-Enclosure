@@ -28,7 +28,40 @@ module CardBracketTab()
     }
 }
 
+module washer(OuterDia, InnerDia, Thickness)
+{
+    difference()
+    {
+        cylinder(h = Thickness, r = OuterDia/2, center=true);
+        cylinder(h = Thickness, r = InnerDia/2, center=true);
+        
+    }
+}
+
+module washers(NumWashers, OuterDia, InnerDia, Thickness)
+{
+//echo();
+    X = ceil(sqrt(NumWashers));
+    echo(X = X);
+    count = 0;
+    offset_xy = 1.5 * OuterDia;
+    for(i = [ 1: X]) 
+    {
+        for(j = [ 1:X]) 
+        {
+            if(count < NumWashers)
+            {
+                translate([i * offset_xy,j * offset_xy,0]) washer(OuterDia, InnerDia, Thickness);
+            }
+        
+        }  
+    }
+}
+
 //SidePlanePrimeSlopeAngle
-$fn=128;
-CardBracketSpan();
-color("lime")CardBracketTab();
+//$fn=64;
+//CardBracketSpan();
+//color("lime")CardBracketTab();
+
+
+

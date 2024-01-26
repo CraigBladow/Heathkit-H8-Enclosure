@@ -146,8 +146,15 @@ WasherRecessDiameterTopNo8 = mm(3/8)+mm(1/8); // slighty conical clearance
 WasherRecessHeightNo8 = mm(1/32)*3; //extra height to clear flillet
 WasherEmbossDepth = 0.8; // mm
 BoltHoleDiameterNo8 = mm(11/64);
+BoltHoleDiameterNo6 = mm(0.17);//mm(0.185);
 BoltLength3_4 = mm(3/4);
 
+// No. 8 flat head bolt head dimensions
+FlatHeadBolt8TopDia = mm(5/16);
+FlatHeadBolt8BotDia = BoltHoleDiameterNo8;
+FlatHeadBolt8Height = mm(0.125);
+
+// Printed base plate feet
 BaseFootTopDiameter = mm(0.75);
 BaseFootBottomDiameter = mm(0.5);
 BaseFootHeight = mm(0.5);

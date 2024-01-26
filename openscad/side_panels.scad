@@ -87,6 +87,7 @@ module BasePlateMountingRailBoltHoles()
     
 }
 
+
 module BasePlateMountingRails()
 {
 
@@ -106,8 +107,8 @@ module PCB_InsertMountPoints()
 {
     Insert_IUB_632_2();
 }
-$fn=128;
-PCB_InsertMountPoints();
+//$fn=128;
+//PCB_InsertMountPoints();
 
 module LeftPanel()
 {
@@ -307,6 +308,8 @@ module TestFrontLeftSidePanelSubSection()
 
 }
 
+
+
 module TestRearLeftSidePanelSubSection()
 {
     $fn = 128;
@@ -337,7 +340,7 @@ module FrontPCB_Bracket()
         
     }
 }
-
+/*
 module BoltWasherHoleNo8()
 {
     union()
@@ -346,15 +349,44 @@ module BoltWasherHoleNo8()
         translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
         translate([0,0,-BasePlateHeight-BaseMountThickness]) rotate([0,180,0])cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
     }
-    //WasherRecessHeightNo8/2-15
+    
+} */
+
+// No. 8 flat head bolt head dimensions
+FlatHeadBolt8TopDia = mm(5/16);
+FlatHeadBolt8BotDia = BoltHoleDiameterNo8;
+FlatHeadBolt8Height = mm(0.125);
+
+module BoltWasherHoleNo8()   // Flathead version
+{
+    union()
+    {
+        color("lime") translate([0,0,-BoltLength3_4/2])cylinder(h = BoltLength3_4, r = BoltHoleDiameterNo8/2, center=true);
+        
+        //color("orange") translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
+        
+        color("orange") translate([0,0,FlatHeadBolt8Height/2-2.2]) cylinder(h = FlatHeadBolt8Height, r1 = FlatHeadBolt8BotDia/2, r2 = FlatHeadBolt8TopDia/2, center = true);
+        
+        color("magenta")translate([0,0,-BasePlateHeight-BaseMountThickness]) rotate([0,180,0])cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
+    }
+    
 }
-//$fn=128;
+
+$fn=128;
 //$fn=64;
 //LeftPanel();
 //BackPanelRails();
 //BasePlateMountingRails();
-//BoltWasherHoleNo8();
 
+//FlatHeadBoltWasherHoleNo8();
+echo (FlatHeadBolt8Height = FlatHeadBolt8Height);
+//BasePlateMountingRailBoltHoles();
+
+difference()
+{
+    TestFrontLeftSidePanelSubSection();
+    translate([20,0,0])cube([140,60,20],center=true);
+}
 
 
 
