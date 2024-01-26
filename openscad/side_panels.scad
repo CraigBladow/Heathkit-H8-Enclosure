@@ -356,6 +356,13 @@ module BoltWasherHoleNo8()
 FlatHeadBolt8TopDia = mm(5/16);
 FlatHeadBolt8BotDia = BoltHoleDiameterNo8;
 FlatHeadBolt8Height = mm(0.125);
+OldFlatHeadRecess = FlatHeadBolt8Height/2-2.2;
+// move below to H8_Parameters
+CardAssemblyHeightAboveBasePlate = mm(1/8);
+FlatHeadRecess = FlatHeadBolt8Height/2-2.4;
+echo(OldFlatHeadRecess = OldFlatHeadRecess);
+echo(FlatHeadRecess = FlatHeadRecess);
+echo(BaseMountThickness = BaseMountThickness/2);
 
 module BoltWasherHoleNo8()   // Flathead version
 {
@@ -365,7 +372,14 @@ module BoltWasherHoleNo8()   // Flathead version
         
         //color("orange") translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
         
-        color("orange") translate([0,0,FlatHeadBolt8Height/2-2.2]) cylinder(h = FlatHeadBolt8Height, r1 = FlatHeadBolt8BotDia/2, r2 = FlatHeadBolt8TopDia/2, center = true);
+        color("orange") translate([0,0,FlatHeadBolt8Height/2-2.2])
+       {
+            union()
+            {
+               cylinder(h = FlatHeadBolt8Height, r1 = FlatHeadBolt8BotDia/2, r2 = FlatHeadBolt8TopDia/2, center = true);
+                color("blue") translate([0,0,FlatHeadBolt8Height]) cylinder(r = FlatHeadBolt8TopDia/2 , h = FlatHeadBolt8Height,center=true);
+            }
+        }
         
         color("magenta")translate([0,0,-BasePlateHeight-BaseMountThickness]) rotate([0,180,0])cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
     }
@@ -380,6 +394,7 @@ $fn=128;
 
 //FlatHeadBoltWasherHoleNo8();
 echo (FlatHeadBolt8Height = FlatHeadBolt8Height);
+
 //BasePlateMountingRailBoltHoles();
 
 difference()
