@@ -372,7 +372,8 @@ module BoltWasherHoleNo8()   // Flathead version
         
         //color("orange") translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
         
-        translate([0,0,FlatHeadBolt8Height/2-3])
+        //translate([0,0,FlatHeadBolt8Height/2-3])
+        translate([0,0,FlatHeadBolt8Height/2.8-mm(.1)])
        {
             union()
             {
@@ -399,14 +400,15 @@ echo (FlatHeadBolt8Height = FlatHeadBolt8Height);
 
 module TestSideChunk()
 {
-difference()
-{
-    TestFrontLeftSidePanelSubSection();
-    translate([20,0,0])cube([140,60,20],center=true);
-}
+    difference()
+    {
+        TestFrontLeftSidePanelSubSection();
+        translate([20,0,0])cube([140,60,20],center=true);
+    }
 }
 
 TestSideChunk();
+
 /*
 difference()
 {
