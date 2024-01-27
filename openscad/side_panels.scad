@@ -372,12 +372,12 @@ module BoltWasherHoleNo8()   // Flathead version
         
         //color("orange") translate([0,0,WasherRecessHeightNo8/2]) cylinder(h = WasherRecessHeightNo8, r1 = WasherRecessDiameterBottomNo8/2, r2 = WasherRecessDiameterTopNo8/2, center = true);
         
-        color("orange") translate([0,0,FlatHeadBolt8Height/2-3])
+        translate([0,0,FlatHeadBolt8Height/2-3])
        {
             union()
             {
-               cylinder(h = FlatHeadBolt8Height, r1 = FlatHeadBolt8BotDia/2, r2 = FlatHeadBolt8TopDia/2, center = true);
-                color("blue") translate([0,0,FlatHeadBolt8Height]) cylinder(r = FlatHeadBolt8TopDia/2 , h = FlatHeadBolt8Height,center=true);
+               color("orange") cylinder(h = FlatHeadBolt8Height, r1 = FlatHeadBolt8BotDia/2, r2 = FlatHeadBolt8TopDia/2, center = true);
+                color("blue") translate([0,0,FlatHeadBolt8Height]) cylinder(r = FlatHeadBolt8TopDia/2 +0.1 , h = FlatHeadBolt8Height,center=true);
             }
         }
         
@@ -406,8 +406,17 @@ difference()
 }
 }
 
+TestSideChunk();
+/*
+difference()
+{
+    cube([14,14,mm(0.1)],center=true);
+    translate([0,0,FlatHeadBolt8Height/2.8-mm(.02)])BoltWasherHoleNo8();
+    
+}
+*/
 
-
+//translate([0,0,+FlatHeadBolt8Height/2.8-mm(.02)])BoltWasherHoleNo8();
 
 
 

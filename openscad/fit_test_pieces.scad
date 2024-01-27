@@ -217,7 +217,20 @@ $fn=128;
 //TestBasePlateRightFront();
 //TestSidePanelHoles1();
 //TestSidePanelHoles2();
-TestPegBar2();
+//TestPegBar2();
+module TestBaseChunk()
+{
+  difference()
+  {
+    TestBasePlateRightFront();
+    translate([-65,90,0])cube([220,220,60],center = true);
+    translate([-100,45,0])cube([220,180,60],center = true);
+    
+   }
+  
+}
+
+//TestBaseChunk();
 
 
 
