@@ -57,18 +57,18 @@ PanelSocketsNumber = 6;
 PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight));
 echo(PrimeSlopeAngle = PrimeSlopeAngle);
 // Front Panel Ledge
-FP_LedgeLength = mm(4);
-FP_LedgeWidth = mm(0.08);
+FP_LedgeLength = mm(4.0);
+FP_LedgeWidth = mm(0.08);   // how far the ledge sticks out
 FP_LedgeHeight = mm(0.121);
-FP_LedgeAngle = 90 - PrimeSlopeAngle; //58.15; //degrees
+FP_LedgeAngle = 90.0 - PrimeSlopeAngle; //58.15; //degrees
 FP_LedgeRecess = mm(2.5);
 FP_LedgeOffset = mm(0.0);
 
 // Lid support
-LedgeRecess = mm(0.27);
-LedgeOffset = mm(1.875);
-LedgeWidth = mm(0.05);
-LedgeHeight = mm(0.125);
+LedgeRecess = mm(0.25); // Distance from side panel top edge to top of ledge
+LedgeOffset = mm(1.875); 
+LedgeWidth = mm(0.125);  // Horizontal dimenstion, was 0.05
+LedgeHeight = mm(0.125); // Vertical height of ledge
 LedgeLength = mm(10.7);
 
 // Side Panel Base Plate and Back Panel Recess , how much the side panel extends below the bottom of the base plate

@@ -26,7 +26,7 @@ module LidLedge(side)
 }
 module FrontPanelLedge(side)
 {
-    translate([FP_LedgeOffset,PanelOverallLength/2-FP_LedgeRecess,side*(PanelThickness/2+FP_LedgeWidth/2)])rotate([0,0,FP_LedgeAngle]) Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
+    color("lime")translate([FP_LedgeOffset,PanelOverallLength/2-FP_LedgeRecess,side*(PanelThickness/2+FP_LedgeWidth/2)])rotate([0,0,FP_LedgeAngle]) Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
 }
 
 module Panel()
@@ -142,6 +142,8 @@ module FrontLeftPanel()
         SidePinPlugSockets(PanelHeight);
     }
 }
+
+FrontLeftPanel();
 
 module RearLeftPanel()
 {
@@ -407,7 +409,7 @@ module TestSideChunk()
     }
 }
 
-TestSideChunk();
+//TestSideChunk();
 
 /*
 difference()
