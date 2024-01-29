@@ -48,7 +48,8 @@ PanelCornerRadius = mm(0.125);
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = mm(0.5);
 PanelFrontBottomRecessLength = mm(0.5);
-PanelTopLength = mm(14.0);
+//OriginalPanelTopLength = mm(14.0);
+PanelTopLength = mm(13.73);
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
 
@@ -60,7 +61,8 @@ echo(PrimeSlopeAngle = PrimeSlopeAngle);
 FP_LedgeLength = mm(4.0);
 FP_LedgeWidth = mm(0.08);   // how far the ledge sticks out
 FP_LedgeHeight = mm(0.121);
-FP_LedgeAngle = 90.0 - PrimeSlopeAngle; //58.15; //degrees
+FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
+echo (FP_LedgeAngle = FP_LedgeAngle);
 FP_LedgeRecess = mm(2.5);
 FP_LedgeOffset = mm(0.0);
 

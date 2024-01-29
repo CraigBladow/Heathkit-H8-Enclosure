@@ -29,10 +29,8 @@
 // DONE: Create 3D printed base plate for fit testing (so only need to cut one piece of wood) :)
 // DONE: Model and test use of flathead screws for base plate mounting.
 // DONE: Update the following measurements based on input from TS: Lid support ledge Inset 0.25 inch.
-// Update the following measurements based on input from TS: FP support ledge Inset 1.0 inch.
-// Update PrimeSlopeAngle to match side panel pcb slope of 29.6 (or 30?)  degrees
-// Develop tool-less inter locking channels and brackets for card mounting - maybe recessed in base?
-// Solve SidePlane Mounting Clearance from Side Panel Fillets and bolts. 1) raise plastic base floor or thin edges 2) Increase Case overall height.  If going with plastic floor then hide the wood that I bought so my wife thinks I used it! :)
+// DONE Update PrimeSlopeAngle to match side panel pcb slope of 29.6 degrees
+// FP support ledge Inset is 1.0 inch.
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Update the following measurements based on input from TS: Side Panel Length 17.0", Side Panel height = 6.1", Side Panel Top Length: 14.8", Side Panel bottom length = 16.6", Side panel front apex rise: 0.7 ,
 // Ensure room for MicroATX power supply

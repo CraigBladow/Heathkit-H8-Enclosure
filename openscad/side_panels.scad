@@ -389,7 +389,7 @@ module BoltWasherHoleNo8()   // Flathead version
     
 }
 
-$fn=128;
+//$fn=128;
 //$fn=64;
 //LeftPanel();
 //BackPanelRails();
