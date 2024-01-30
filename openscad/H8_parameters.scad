@@ -5,7 +5,15 @@
 //        https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 //  Notes on actual H8 case parameters:
 //      Front Panel support ledge front edge is 1" from front edge of side panels
+//      Lid support ledge edge recessed 0.25"
 //      Front Panel, Front PCB, Circuit Cards, Side Plane front edge are all parallel to each other.
+//      Case side panel: Length 17", Height 6.1", Top Edge Length 13.875 or 13.8", Bottom Edge Length 16.6", Height 6.1", Front edge vertex Height 0.6-0.7"
+
+// Calculate Angles from actual case dimensions so relative profile can be maintained if case depth or height changes
+SideFrontEdgeUpperAngle = atan((17-13.875)/(6.1-0.6)); // Using 13.875 and 0.6 as the angle matches the sideplane circuit card angles.
+echo(SideFrontEdgeUpperAngle = SideFrontEdgeUpperAngle);
+SideFrontEdgeLowerAngle = atan((17-16.6)/(0.6));
+echo(SideFrontEdgeLowerAngle=SideFrontEdgeLowerAngle);
 
 // Common Constants
 left = 1.0;
@@ -41,17 +49,19 @@ SP_PCB_HeightFromCaseBottom = mm(0);
 
 SP_PCB_StandOffHeight = 6.5; //mm
 
-
 // Side Panel overall dimensions in inches.
 PanelHeight = mm(6.25); //NCCP 6.1375
 PanelCornerRadius = mm(0.125);
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = mm(0.5);
 PanelFrontBottomRecessLength = mm(0.5);
-//OriginalPanelTopLength = mm(14.0);
-PanelTopLength = mm(13.73);
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
+
+// Calculate PanelTopLength
+//PanelTopLength = mm(13.73);
+PanelTopLength = PanelOverallLength - tan(SideFrontEdgeUpperAngle)*(PanelHeight - PanelFrontBottomRecessHeight);
+echo(PanelTopLength = PanelTopLength/25.4 , "inches");
 
 //Find the angle for to base front panel ledge and bracket on
 // Todo - use side panel dimensions,also adjusting the Panel dimensions currently used.
