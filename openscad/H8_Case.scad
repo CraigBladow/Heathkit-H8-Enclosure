@@ -30,6 +30,11 @@
 // DONE: Model and test use of flathead screws for base plate mounting.
 // DONE: Update the following measurements based on input from TS: Lid support ledge Inset 0.25 inch.
 // DONE Update PrimeSlopeAngle to match side panel pcb slope of 29.6 degrees
+// Organize note on original case dimensions and calculaote prime slope angle
+// PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/ (PanelHeight-PanelFrontBottomRecessHeight))
+// Calculate top front corner position (PanelTopLength) using prime slope angle and PanelOverallLength, PanelFrontBottomRecessHeight, PanelHeight
+//    PanelTopLength = PanelOverallLength - tan(PrimeSlopeAngle)*(PanelHeight - PanelFrontBottomRecessHeight;)
+// Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
 // FP support ledge Inset is 1.0 inch.
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Update the following measurements based on input from TS: Side Panel Length 17.0", Side Panel height = 6.1", Side Panel Top Length: 14.8", Side Panel bottom length = 16.6", Side panel front apex rise: 0.7 ,
