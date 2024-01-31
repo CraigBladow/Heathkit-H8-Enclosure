@@ -53,8 +53,8 @@ SP_PCB_StandOffHeight = 6.5; //mm
 PanelHeight = mm(6.25); //NCCP 6.1375
 PanelCornerRadius = mm(0.125);
 PanelOverallLength = mm(17);
-PanelFrontBottomRecessHeight = mm(0.5);
-PanelFrontBottomRecessLength = mm(0.5);
+PanelFrontBottomRecessHeight = mm(0.6); // was 0.5
+PanelFrontBottomRecessLength = mm(0.4); // was 0.5
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
 

@@ -143,7 +143,7 @@ module FrontLeftPanel()
     }
 }
 
-FrontLeftPanel();
+
 
 module RearLeftPanel()
 {
@@ -394,6 +394,7 @@ module BoltWasherHoleNo8()   // Flathead version
 //LeftPanel();
 //BackPanelRails();
 //BasePlateMountingRails();
+//FrontLeftPanel();
 
 //FlatHeadBoltWasherHoleNo8();
 echo (FlatHeadBolt8Height = FlatHeadBolt8Height);
