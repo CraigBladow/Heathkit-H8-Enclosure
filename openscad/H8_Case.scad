@@ -34,6 +34,8 @@
 // DONE: PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/ (PanelHeight-PanelFrontBottomRecessHeight))
 // DONE: Calculate top front corner position (PanelTopLength) using prime slope angle and PanelOverallLength, PanelFrontBottomRecessHeight, PanelHeight
 // DONE:   PanelTopLength = PanelOverallLength - tan(PrimeSlopeAngle)*(PanelHeight - PanelFrontBottomRecessHeight;)
+// Add calculation of vertical stackup and emit result
+// Add calculation of front to back stackup and emit result
 // FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
 // Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
