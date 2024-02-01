@@ -35,6 +35,7 @@ SidePlanePCBFrontEdgeLength = mm(6.52);// wrong! old version: mm(6.25);
 PCB_Thickness = 1.6; //mm
 CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
+CardPCP_Spacing = mm(1.0+5.0/32.0);
 CardToSidePlaneGap = mm(3.0/16.0);
 SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
 echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
@@ -46,7 +47,6 @@ SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
 SP_MountHolesOffset = mm(4.0+5.0/8.0);
 SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
 SP_PCB_HeightFromCaseBottom = mm(0);
-
 SP_PCB_StandOffHeight = 6.5; //mm
 
 // Side Panel overall dimensions in inches.
@@ -137,7 +137,6 @@ BaseMountFilletRadius = mm(0.2);
 BackPanelHeight = PanelHeight-LedgeRecess-BasePlateHeight-BasePlateRecess;
 BackPanelMountLength = BackPanelHeight;
 BackPanelRailsOffset = (LedgeRecess-BasePlateHeight-BasePlateRecess)/2;
-
 BackPanelThickness = BasePlateHeight;
 BackPanelBoltInset = BaseMountLength/2; 
 

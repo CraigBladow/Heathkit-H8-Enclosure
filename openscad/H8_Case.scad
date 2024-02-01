@@ -34,9 +34,9 @@
 // DONE: PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/ (PanelHeight-PanelFrontBottomRecessHeight))
 // DONE: Calculate top front corner position (PanelTopLength) using prime slope angle and PanelOverallLength, PanelFrontBottomRecessHeight, PanelHeight
 // DONE:   PanelTopLength = PanelOverallLength - tan(PrimeSlopeAngle)*(PanelHeight - PanelFrontBottomRecessHeight;)
+// FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
 // Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
-// FP support ledge Inset is 1.0 inch.
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Update the following measurements based on input from TS: Side Panel Length 17.0", Side Panel height = 6.1", Side Panel Top Length: 14.8", Side Panel bottom length = 16.6", Side panel front apex rise: 0.7 ,
 // Ensure room for MicroATX power supply
@@ -44,6 +44,7 @@
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Create Card PCB bracket printed replacement solution since bolts come up through bottom
+// Card PCB mounting holes in bottom are elongated in the original case
 // Create Front Panel in two or more 3D printed pieces.
 // Possibly implement orange peel/ powder coated texture for front case panel.
 // Create a badge. see https://github.com/prusa3d/PrusaSlicer/issues/4455 for texture. 
