@@ -30,8 +30,8 @@ FP_PCB_Length = mm(14.75);
 FP_PCB_Height = mm(5.75);
 SidePlanePCBHeight = mm(5.5);
 SidePlanePCBTopEdgeLength = mm(11.125);
-SidePlanePCBBottomEdgeLength = mm(14.25);// wrong! old version: mm(13.25);
-SidePlanePCBFrontEdgeLength = mm(6.52);// wrong! old version: mm(6.25);
+SidePlanePCBBottomEdgeLength = mm(14.25);
+SidePlanePCBFrontEdgeLength = mm(6.52);
 PCB_Thickness = 1.6; //mm
 CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
@@ -46,7 +46,8 @@ SP_MountTopBackHorizInset = mm(3.0/4.0);
 SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
 SP_MountHolesOffset = mm(4.0+5.0/8.0);
 SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
-SP_PCB_HeightFromCaseBottom = mm(0);
+SP_PCB_HeightFromCaseBottom = mm(1.0/8.0); //Mk 1 estimate
+SP_PCB_HeightFromLedgeRecess = mm(1.0/8.0); //Mk 1 estimate
 SP_PCB_StandOffHeight = 6.5; //mm
 
 // Side Panel overall dimensions in inches.
@@ -79,7 +80,7 @@ FP_LedgeOffset = mm(0.0);
 // Lid support
 LedgeRecess = mm(0.25); // Distance from side panel top edge to top of ledge
 LedgeOffset = mm(1.875); 
-LedgeWidth = mm(0.125);  // Horizontal dimenstion, was 0.05
+LedgeWidth = mm(0.125);  // Horizontal dimension, was 0.05
 LedgeHeight = mm(0.125); // Vertical height of ledge
 LedgeLength = mm(10.7);
 
@@ -126,7 +127,6 @@ CardBracketCardHoleDia = 3.6; //mm
 CardBracketCardHoleSpacing = mm(4.0);
 CardBracketTabCornerRadius = mm(0.1);
 
-
 // Base Plate Mounting Rails
 BaseMountThickness = mm(0.2);
 BaseMountWidth = BasePlateLength-(BackSupportThickness);
@@ -169,6 +169,19 @@ FlatHeadBolt8Height = mm(0.125);
 BaseFootTopDiameter = mm(0.75);
 BaseFootBottomDiameter = mm(0.5);
 BaseFootHeight = mm(0.5);
+
+// Calculate vertical stackup
+BottomStackup = BasePlateHeight+BasePlateRecess;
+LidSupportStackup = LedgeHeight + LedgeRecess;
+// Note: SP_PCB_HeightFromCaseBottom is greater thant BaseMountThickness / 2 so it is not included
+CircuitCardCageStackup = SidePlanePCBHeight + SP_PCB_HeightFromCaseBottom + SP_PCB_HeightFromLedgeRecess;
+VerticalStackup = CircuitCardCageStackup + BottomStackup + LidSupportStackup;
+echo (BottomStackup = BottomStackup/25.4 ,"inches");
+echo (LidSupportStackup = LidSupportStackup/25.4 ,"inches");
+echo (CircuitCardCageStackup = CircuitCardCageStackup/25.4 ,"inches");
+echo (VerticalStackup = VerticalStackup/25.4 ,"inches");
+echo(PanelHeight = PanelHeight/25.4 ,"inches");
+echo("Margin =", (PanelHeight - VerticalStackup)/25.4, "inches");
 
 //echo(BackPanelRecess = BackPanelRecess);
 //echo(BackPanelThickness = BackPanelThickness);
