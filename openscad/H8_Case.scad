@@ -35,14 +35,15 @@
 // DONE: Calculate top front corner position (PanelTopLength) using prime slope angle and PanelOverallLength, PanelFrontBottomRecessHeight, PanelHeight
 // DONE:   PanelTopLength = PanelOverallLength - tan(PrimeSlopeAngle)*(PanelHeight - PanelFrontBottomRecessHeight;)
 // DONE: Add calculation of vertical stackup and emit result
-// Increase case height by 0.35 inches.
+// DONE: Increase case height by 0.35 inches.
+// Locate FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
 // Add calculation of front to back stackup and emit result
 // FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
 // Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
-// Update the following measurements based on input from TS: Side Panel Length 17.0", Side Panel height = 6.1", Side Panel Top Length: 14.8", Side Panel bottom length = 16.6", Side panel front apex rise: 0.7 ,
 // Ensure room for MicroATX power supply
+// Print Right side of case to check 
 
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together

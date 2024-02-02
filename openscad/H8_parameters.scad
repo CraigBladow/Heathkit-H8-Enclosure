@@ -71,7 +71,7 @@ echo(PrimeSlopeAngle = PrimeSlopeAngle);
 // Front Panel Ledge
 FP_LedgeLength = mm(4.0);
 FP_LedgeWidth = mm(0.08);   // how far the ledge sticks out
-FP_LedgeHeight = mm(0.121);
+FP_LedgeHeight = mm(0.125);
 FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
 echo (FP_LedgeAngle = FP_LedgeAngle);
 FP_LedgeRecess = mm(2.5);
