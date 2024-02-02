@@ -24,9 +24,32 @@ module LidLedge(side)
 {
     color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
 }
+
+
+FP_LedgeLength = mm(4.0);
+FP_LedgeWidth = mm(0.125);   // how far the ledge sticks out
+FP_LedgeHeight = mm(0.125);
+FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
+echo (FP_LedgeAngle = FP_LedgeAngle);
+//FP_LedgeRecess = mm(2.5);
+//FP_LedgeRecess = mm(2.5); // orig 2.5
+//F//P_LedgeOffsetVertical = mm(0.5); // orig 0
+//FP_LedgeRecess = 
+FP_LedgeOffsetVertical = (PanelHeight/2) - ((FP_LedgeLength/2)*cos(SidePlanePrimeSlopeAngle)) - mm(0.5);
+
+FP_LedgeOffsetHorizontal = PanelOverallLength/2-FP_LedgeRecess;
+//Equation of front edge
+FE_Slope = (-PanelHeight + PanelFrontBottomRecessHeight) / (PanelOverallLength - PanelTopLength);
+echo (FE_Slope = FE_Slope);
+
+RightPanel();
+
 module FrontPanelLedge(side)
 {
-    color("lime")translate([FP_LedgeOffset,PanelOverallLength/2-FP_LedgeRecess,side*(PanelThickness/2+FP_LedgeWidth/2)])rotate([0,0,FP_LedgeAngle]) Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
+    
+    color("lime")translate([FP_LedgeOffsetVertical,FP_LedgeOffsetHorizontal,side*(PanelThickness/2+FP_LedgeWidth/2)])
+        rotate([0,0,FP_LedgeAngle]) 
+            Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
 }
 
 module Panel()

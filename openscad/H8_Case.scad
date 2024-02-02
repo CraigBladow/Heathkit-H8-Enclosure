@@ -36,10 +36,11 @@
 // DONE:   PanelTopLength = PanelOverallLength - tan(PrimeSlopeAngle)*(PanelHeight - PanelFrontBottomRecessHeight;)
 // DONE: Add calculation of vertical stackup and emit result
 // DONE: Increase case height by 0.35 inches.
+// Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
 // Locate FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
+// Add calculation of FP support ledge offset
 // Add calculation of front to back stackup and emit result
 // FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
-// Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Ensure room for MicroATX power supply

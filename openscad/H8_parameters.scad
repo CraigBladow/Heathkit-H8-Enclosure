@@ -75,7 +75,7 @@ FP_LedgeHeight = mm(0.125);
 FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
 echo (FP_LedgeAngle = FP_LedgeAngle);
 FP_LedgeRecess = mm(2.5);
-FP_LedgeOffset = mm(0.0);
+FP_LedgeOffsetVertical = mm(0.0);
 
 // Lid support
 LedgeRecess = mm(0.25); // Distance from side panel top edge to top of ledge
