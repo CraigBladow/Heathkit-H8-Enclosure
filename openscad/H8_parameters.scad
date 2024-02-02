@@ -51,7 +51,7 @@ SP_PCB_HeightFromLedgeRecess = mm(1.0/8.0); //Mk 1 estimate
 SP_PCB_StandOffHeight = 6.5; //mm
 
 // Side Panel overall dimensions in inches.
-PanelHeight = mm(6.25); //NCCP 6.1375
+PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375
 PanelCornerRadius = mm(0.125);
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = mm(0.6); // was 0.5
