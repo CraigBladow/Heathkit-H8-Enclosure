@@ -40,11 +40,13 @@
 // DONE: Locate FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
 // DONE: Add calculation of FP support ledge offset
 // DONE: Revise Panel() to use offset() to round corners vs. using hull() which introduces errors on leading edges of case sides.
+// DONE: Model PCB card assembly with case model. 
+// Model Power Supply
+// Add PCB mountin insets
 // Add calculation of front to back stackup and emit result
-// FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
-// Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Ensure room for MicroATX power supply
+// Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Print Right side of case to check 
 
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
@@ -61,13 +63,15 @@ $fn = 128; // Rendering setting
 include <H8_parameters.scad>
 include <side_panels.scad>
 include <back_base_panels.scad>
+include <H8_PCB_Assembly.scad>
+
 
 module H8Case()
 {
     rotate([0,-90,0])union(){
         
-        color("Magenta") LeftPanel();
-        color("Lime") translate([0,0,BasePlateWidth+PanelThickness])RightPanel();
+        //color("Magenta") LeftPanel();
+        color("Red") translate([0,0,BasePlateWidth+PanelThickness])RightPanel();
     
     
         translate([-(PanelHeight/2)+BasePlateHeight/2+BasePlateRecess,BasePlateOffset,BasePlateWidth/2+PanelThickness/2])rotate([0,90,0])color("Orange") BasePlate();
@@ -92,6 +96,7 @@ module SixSnapPins()
 }
 
 H8Case();
+translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom])PCB_Assembly();
 
 //LeftPanelExplodedAssembly();
 //mirror([0,1,0])LeftPanel();

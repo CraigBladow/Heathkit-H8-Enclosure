@@ -386,9 +386,9 @@ OldFlatHeadRecess = FlatHeadBolt8Height/2-2.2;
 // move below to H8_Parameters
 CardAssemblyHeightAboveBasePlate = mm(1/8);
 FlatHeadRecess = FlatHeadBolt8Height/2-2.4;
-echo(OldFlatHeadRecess = OldFlatHeadRecess);
-echo(FlatHeadRecess = FlatHeadRecess);
-echo(BaseMountThickness = BaseMountThickness/2);
+//echo(OldFlatHeadRecess = OldFlatHeadRecess);
+//echo(FlatHeadRecess = FlatHeadRecess);
+//echo(BaseMountThickness = BaseMountThickness/2);
 
 module BoltWasherHoleNo8()   // Flathead version
 {
@@ -421,7 +421,7 @@ module BoltWasherHoleNo8()   // Flathead version
 //FrontLeftPanel();
 
 //FlatHeadBoltWasherHoleNo8();
-echo (FlatHeadBolt8Height = FlatHeadBolt8Height);
+//echo (FlatHeadBolt8Height = FlatHeadBolt8Height);
 
 //BasePlateMountingRailBoltHoles();
 

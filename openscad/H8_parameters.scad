@@ -7,20 +7,20 @@
 //      Front Panel support ledge front edge is 1" from front edge of side panels
 //      Lid support ledge edge recessed 0.25"
 //      Front Panel, Front PCB, Circuit Cards, Side Plane front edge are all parallel to each other.
-//      Case side panel: Length 17", Height 6.1", Top Edge Length 13.875 or 13.8", Bottom Edge Length 16.6", Height 6.1", Front edge vertex Height 0.6-0.7"
+//      Case side panel: Length 17", Height 6.1", Top Edge Length 13.875-13.8", Bottom Edge Length 16.6", Height 6.1", Front edge vertex Height 0.6-0.7". Differences due to three different sources.
 
-// Calculate Angles from actual case dimensions so relative profile can be maintained if case depth or height changes
+// Calculate Angles from case dimensions so relative profile can be maintained if case depth or height changes
 SideFrontEdgeUpperAngle = atan((17-13.875)/(6.1-0.6)); // Using 13.875 and 0.6 as the angle matches the sideplane circuit card angles.
-echo(SideFrontEdgeUpperAngle = SideFrontEdgeUpperAngle);
+//echo(SideFrontEdgeUpperAngle = SideFrontEdgeUpperAngle);
 SideFrontEdgeLowerAngle = atan((17-16.6)/(0.6));
-echo(SideFrontEdgeLowerAngle=SideFrontEdgeLowerAngle);
+//echo(SideFrontEdgeLowerAngle=SideFrontEdgeLowerAngle);
 PanelHeightToFrontEdgeHeightRatio = (0.7/6.1);
 
 // Common Constants
 left = 1.0;
 right = -1.0;
 
-//All measurements in inches converted to mm or mm directly.
+//All measurements in inches converted to mm unless in mm directly.
 function mm(x) = x * 25.4;  //convert inches to mm
 function inch(x) = x / 25.4; // convert mm to inches
 
@@ -35,14 +35,16 @@ SidePlanePCBTopEdgeLength = mm(11.125);
 SidePlanePCBBottomEdgeLength = mm(14.25);
 SidePlanePCBFrontEdgeLength = mm(6.52);
 PCB_Thickness = 1.6; //mm
+CardsNumberToModel = 8; // Not including rear expansion connector or Front Panel.
 CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
-CardPCP_Spacing = mm(1.0+5.0/32.0);
+CardPCB_Spacing = mm(1.0+5.0/32.0);
+CardPCB_FirstOffsetFromFront = mm(5.0/8.0); //Rough
 CardToSidePlaneGap = mm(3.0/16.0);
 SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
-echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
+//echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
 
-// Side Panel PCB mount locations
+// Side Panel PCB dimensions, location an mount locations
 SP_MountVerticalInset = mm(7.0/16.0);
 SP_MountTopBackHorizInset = mm(3.0/4.0);
 SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
@@ -57,7 +59,7 @@ PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375
 PanelCornerRadius = mm(0.125);// testing orig value 0.125
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = PanelHeightToFrontEdgeHeightRatio * PanelHeight;
-echo (PanelFrontBottomRecessHeight = inch(PanelFrontBottomRecessHeight));
+//echo (PanelFrontBottomRecessHeight = inch(PanelFrontBottomRecessHeight));
 PanelFrontBottomRecessLength = mm(0.4); // was 0.5
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
@@ -65,13 +67,13 @@ PanelSocketsNumber = 6;
 // Calculate PanelTopLength
 //PanelTopLength = mm(13.73);
 PanelTopLength = PanelOverallLength - tan(SideFrontEdgeUpperAngle)*(PanelHeight - PanelFrontBottomRecessHeight);
-echo(PanelTopLength = PanelTopLength/25.4 , "inches");
+//echo(PanelTopLength = PanelTopLength/25.4 , "inches");
 
 //Check the leading case edge angle
 SideFrontEdgeSlope = (PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight);
 CheckPrimeSlopeAngle = atan(SideFrontEdgeSlope); //(PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight));
-echo(CheckPrimeSlopeAngle = CheckPrimeSlopeAngle);
-echo(SideFrontEdgeSlope = SideFrontEdgeSlope);
+//echo(CheckPrimeSlopeAngle = CheckPrimeSlopeAngle);
+//echo(SideFrontEdgeSlope = SideFrontEdgeSlope);
 
 
 // Front Panel Ledge
@@ -79,24 +81,24 @@ FP_LedgeLength = mm(4.0);
 FP_LedgeWidth = mm(0.125);  // was 0.08 // how far the ledge sticks out
 FP_LedgeHeight = mm(0.125); 
 FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
-echo (FP_LedgeAngle = FP_LedgeAngle);
+//echo (FP_LedgeAngle = FP_LedgeAngle);
 FP_LedgeRecess = mm(1.0);
 FP_LedgeOffsetVertical = (PanelHeight/2) - ((FP_LedgeLength/2)*cos(SidePlanePrimeSlopeAngle)) - mm(0.5);
 // Solve for the Y1 value of the point on the leading edge that is the same X distance as the center of the front panel support ledge
 L_M = -1.0 * SideFrontEdgeSlope;
-echo(L_M = L_M);
+//echo(L_M = L_M);
 L_X = PanelHeight/2;
-echo(L_X = inch(L_X) , "inches");
+//echo(L_X = inch(L_X) , "inches");
 L_Y = PanelTopLength - PanelOverallLength/2;
-echo(L_Y = inch(L_Y) , "inches");
+//echo(L_Y = inch(L_Y) , "inches");
 L_B = L_Y - (L_M * L_X);
-echo(L_B = inch(L_B) , "inches");
+//echo(L_B = inch(L_B) , "inches");
 Y1 = (L_M * FP_LedgeOffsetVertical) + L_B;
-echo(Y1 = inch(Y1) , "inches");
+//echo(Y1 = inch(Y1) , "inches");
 //FP_LedgeOffsetHorizontal = Y1;
 FP_LedgeOffsetHorizontal = Y1 - (FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle));
 offset = FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle);
-echo(offset = inch(offset));
+//echo(offset = inch(offset));
 
 //- (FP_LedgeHeight * sin(SidePlanePrimeSlopeAngle));
 //FP_LedgeOffsetHorizontal = PanelOverallLength/2-FP_LedgeRecess;
@@ -200,12 +202,12 @@ LidSupportStackup = LedgeHeight + LedgeRecess;
 // Note: SP_PCB_HeightFromCaseBottom is greater thant BaseMountThickness / 2 so it is not included
 CircuitCardCageStackup = SidePlanePCBHeight + SP_PCB_HeightFromCaseBottom + SP_PCB_HeightFromLedgeRecess;
 VerticalStackup = CircuitCardCageStackup + BottomStackup + LidSupportStackup;
-echo (BottomStackup = BottomStackup/25.4 ,"inches");
-echo (LidSupportStackup = LidSupportStackup/25.4 ,"inches");
-echo (CircuitCardCageStackup = CircuitCardCageStackup/25.4 ,"inches");
-echo (VerticalStackup = VerticalStackup/25.4 ,"inches");
-echo(PanelHeight = PanelHeight/25.4 ,"inches");
-echo("Margin =", (PanelHeight - VerticalStackup)/25.4, "inches");
+//echo (BottomStackup = BottomStackup/25.4 ,"inches");
+//echo (LidSupportStackup = LidSupportStackup/25.4 ,"inches");
+//echo (CircuitCardCageStackup = CircuitCardCageStackup/25.4 ,"inches");
+//echo (VerticalStackup = VerticalStackup/25.4 ,"inches");
+//echo(PanelHeight = PanelHeight/25.4 ,"inches");
+//echo("Margin =", (PanelHeight - VerticalStackup)/25.4, "inches");
 
 //echo(BackPanelRecess = BackPanelRecess);
 //echo(BackPanelThickness = BackPanelThickness);
