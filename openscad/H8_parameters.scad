@@ -35,7 +35,7 @@ SidePlanePCBTopEdgeLength = mm(11.125);
 SidePlanePCBBottomEdgeLength = mm(14.25);
 SidePlanePCBFrontEdgeLength = mm(6.52);
 PCB_Thickness = 1.6; //mm
-CardsNumberToModel = 8; // Not including rear expansion connector or Front Panel.
+CardsNumberToModel = 7; // Not including rear expansion connector or Front Panel and last card.
 CardPCB_Length = mm(12.0);
 CardPCB_Height = mm(6.0);
 CardPCB_Spacing = mm(1.0+5.0/32.0);
@@ -134,7 +134,6 @@ Insert_6_32_opening_dia = mm(0.206) + mm(0.002);
 Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
 Insert_6_32_taper_length = mm(0.150);
 
-
 // SidePanel Pin
 SidePinLength = mm(1.6);
 SidePinXY = mm(0.2);
@@ -143,6 +142,12 @@ SidePinSnapGapWidth = SidePinXY * 0.4;
 SidePinSnapGapLength = SidePinXY * 1.2;
 SidePinSnapBumpHeight = (SidePinXY-SidePinSnapGapWidth) / 3;
 SidePinSnapBumpLength = (SidePinXY-SidePinSnapGapWidth) / 2;
+
+// Mini ITX power supply
+PS_Height = 125;//mm
+PS_Length = 100;//mm
+PS_Width = 65;//mm
+PS_Lift = mm(0.5);
 
 // Card and Top Bracket
 CardBracketWidth = 14; // mm

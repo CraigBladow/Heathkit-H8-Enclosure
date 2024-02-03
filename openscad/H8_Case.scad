@@ -41,21 +41,20 @@
 // DONE: Add calculation of FP support ledge offset
 // DONE: Revise Panel() to use offset() to round corners vs. using hull() which introduces errors on leading edges of case sides.
 // DONE: Model PCB card assembly with case model. 
-// Model Power Supply
-// Add PCB mountin insets
-// Add calculation of front to back stackup and emit result
+// DONE Model Power Supply
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
-// Ensure room for MicroATX power supply
+// Add Front Panel insets in sides and mounting holes in base plate
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Print Right side of case to check 
-
+// Determine FP PCB bracket mount locations
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
-// Create Card PCB bracket printed replacement solution since bolts come up through bottom
+// Add Power supply mount in back panel
+// Add cable pass throughs to back panel.
 // Card PCB mounting holes in bottom are elongated in the original case
 // Create Front Panel in two or more 3D printed pieces.
-// Possibly implement orange peel/ powder coated texture for front case panel.
-// Create a badge. see https://github.com/prusa3d/PrusaSlicer/issues/4455 for texture. 
+// Locate the badge in FP.
+//Create a badge. see https://github.com/prusa3d/PrusaSlicer/issues/4455 for texture. 
 // Create a sub-frame that can be used as a drill guide for the bottom plate. (Or not if using plastic base)
 // Determine Lid solution, if acrylic note that cast acrylic should sag less.
 
@@ -66,11 +65,17 @@ include <back_base_panels.scad>
 include <H8_PCB_Assembly.scad>
 
 
+module PowerSupply()
+{
+    color("Red") cube([PS_Width,PS_Length,PS_Height],center=true);
+}
+
+
 module H8Case()
 {
     rotate([0,-90,0])union(){
         
-        //color("Magenta") LeftPanel();
+        color("Magenta") LeftPanel();
         color("Red") translate([0,0,BasePlateWidth+PanelThickness])RightPanel();
     
     
@@ -97,6 +102,9 @@ module SixSnapPins()
 
 H8Case();
 translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom])PCB_Assembly();
+translate([-(BaseMountLength+PS_Width/2+PanelThickness/2),PS_Length/2-PanelOverallLength/2+(BasePlateHeight+BasePlateRecess),-(PanelHeight/2 - PS_Height/2)+(BasePlateHeight+BasePlateRecess)+PS_Lift])PowerSupply();
+
+//PS_Length/2  BasePlateLength
 
 //LeftPanelExplodedAssembly();
 //mirror([0,1,0])LeftPanel();
