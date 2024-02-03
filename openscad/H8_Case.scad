@@ -36,9 +36,10 @@
 // DONE:   PanelTopLength = PanelOverallLength - tan(PrimeSlopeAngle)*(PanelHeight - PanelFrontBottomRecessHeight;)
 // DONE: Add calculation of vertical stackup and emit result
 // DONE: Increase case height by 0.35 inches.
-// Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
-// Locate FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
-// Add calculation of FP support ledge offset
+// DONE: Calculate UnderSlopeAngle, adjust PanelFrontBottomRecessHeight, PanelFrontBottomRecessLength to match.
+// DONE: Locate FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
+// DONE: Add calculation of FP support ledge offset
+// DONE: Revise Panel() to use offset() to round corners vs. using hull() which introduces errors on leading edges of case sides.
 // Add calculation of front to back stackup and emit result
 // FP support ledge Inset is 1.0 inch. DeltaY = mm(1.0)*COS(PrimeSlopeAmgle);
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.

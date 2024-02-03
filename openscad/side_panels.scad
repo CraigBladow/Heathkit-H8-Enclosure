@@ -25,8 +25,7 @@ module LidLedge(side)
     color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
 }
 
-$fn = 64;
-RightPanel();
+
 
 module FrontPanelLedge(side)
 {
@@ -36,18 +35,36 @@ module FrontPanelLedge(side)
             Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
 }
 
-module Panel()
+module OrigPanel()
 {
     hull()
     {
-        translate([-PanelHeight/2+PanelCornerRadius,-PanelOverallLength/2+PanelCornerRadius,0])RoundedEdge(PanelThickness,PanelCornerRadius);  // lower rear corner
         translate([PanelHeight/2-PanelCornerRadius,-PanelOverallLength/2+PanelCornerRadius,0])RoundedEdge(PanelThickness,PanelCornerRadius);  // upper rear corner
+        translate([-PanelHeight/2+PanelCornerRadius,-PanelOverallLength/2+PanelCornerRadius,0])RoundedEdge(PanelThickness,PanelCornerRadius);  // lower rear corner
+
+        
         translate([-PanelHeight/2+PanelCornerRadius+PanelFrontBottomRecessHeight,PanelOverallLength/2-PanelCornerRadius,0])RoundedEdge(PanelThickness,PanelCornerRadius);  // lower front corner (not bottom)
         translate([-PanelHeight/2+PanelCornerRadius,PanelOverallLength/2-PanelCornerRadius-PanelFrontBottomRecessLength,0])RoundedEdge(PanelThickness,PanelCornerRadius);  // bottom front corner (recessed)
         translate([PanelHeight/2-PanelCornerRadius,PanelTopLength-PanelOverallLength/2-PanelCornerRadius,0])RoundedEdge(PanelThickness,PanelCornerRadius);  // upper front corner
 
     }
 }
+
+module Panel()
+{
+    R = PanelCornerRadius;
+    D = R * 2;
+    PH = PanelHeight/2 - R;
+    POL = PanelOverallLength/2 - R;
+    linear_extrude(PanelThickness, center = true)
+        offset(r = PanelCornerRadius)
+            polygon([ [PH,-POL],
+                      [-PH,-POL],        
+                      [-PH,POL - PanelFrontBottomRecessLength],
+                      [-PH+PanelFrontBottomRecessHeight,POL],
+                      [PH,PanelTopLength-PanelOverallLength/2]]);   
+}
+
 
 module BackPanelBoltHoles()
 {

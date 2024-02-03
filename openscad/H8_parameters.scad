@@ -54,9 +54,8 @@ SP_PCB_StandOffHeight = 6.5; //mm
 
 // Side Panel overall dimensions in inches.
 PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375
-PanelCornerRadius = mm(0.125);
+PanelCornerRadius = mm(0.125);// testing orig value 0.125
 PanelOverallLength = mm(17);
-//PanelFrontBottomRecessHeight = mm(0.6); // was 0.5
 PanelFrontBottomRecessHeight = PanelHeightToFrontEdgeHeightRatio * PanelHeight;
 echo (PanelFrontBottomRecessHeight = inch(PanelFrontBottomRecessHeight));
 PanelFrontBottomRecessLength = mm(0.4); // was 0.5
@@ -94,7 +93,12 @@ L_B = L_Y - (L_M * L_X);
 echo(L_B = inch(L_B) , "inches");
 Y1 = (L_M * FP_LedgeOffsetVertical) + L_B;
 echo(Y1 = inch(Y1) , "inches");
-FP_LedgeOffsetHorizontal = Y1;//- (FP_LedgeHeight * sin(SidePlanePrimeSlopeAngle));
+//FP_LedgeOffsetHorizontal = Y1;
+FP_LedgeOffsetHorizontal = Y1 - (FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle));
+offset = FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle);
+echo(offset = inch(offset));
+
+//- (FP_LedgeHeight * sin(SidePlanePrimeSlopeAngle));
 //FP_LedgeOffsetHorizontal = PanelOverallLength/2-FP_LedgeRecess;
 
 // Lid support
