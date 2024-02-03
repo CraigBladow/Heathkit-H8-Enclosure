@@ -14,6 +14,7 @@ SideFrontEdgeUpperAngle = atan((17-13.875)/(6.1-0.6)); // Using 13.875 and 0.6 a
 echo(SideFrontEdgeUpperAngle = SideFrontEdgeUpperAngle);
 SideFrontEdgeLowerAngle = atan((17-16.6)/(0.6));
 echo(SideFrontEdgeLowerAngle=SideFrontEdgeLowerAngle);
+PanelHeightToFrontEdgeHeightRatio = (0.7/6.1);
 
 // Common Constants
 left = 1.0;
@@ -21,6 +22,7 @@ right = -1.0;
 
 //All measurements in inches converted to mm or mm directly.
 function mm(x) = x * 25.4;  //convert inches to mm
+function inch(x) = x / 25.4; // convert mm to inches
 
 // Case Dimension
 CaseWidth = mm(16.0);
@@ -54,7 +56,9 @@ SP_PCB_StandOffHeight = 6.5; //mm
 PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375
 PanelCornerRadius = mm(0.125);
 PanelOverallLength = mm(17);
-PanelFrontBottomRecessHeight = mm(0.6); // was 0.5
+//PanelFrontBottomRecessHeight = mm(0.6); // was 0.5
+PanelFrontBottomRecessHeight = PanelHeightToFrontEdgeHeightRatio * PanelHeight;
+echo (PanelFrontBottomRecessHeight = inch(PanelFrontBottomRecessHeight));
 PanelFrontBottomRecessLength = mm(0.4); // was 0.5
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
@@ -64,18 +68,34 @@ PanelSocketsNumber = 6;
 PanelTopLength = PanelOverallLength - tan(SideFrontEdgeUpperAngle)*(PanelHeight - PanelFrontBottomRecessHeight);
 echo(PanelTopLength = PanelTopLength/25.4 , "inches");
 
-//Find the angle for to base front panel ledge and bracket on
-// Todo - use side panel dimensions,also adjusting the Panel dimensions currently used.
-PrimeSlopeAngle = atan((PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight));
-echo(PrimeSlopeAngle = PrimeSlopeAngle);
+//Check the leading case edge angle
+SideFrontEdgeSlope = (PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight);
+CheckPrimeSlopeAngle = atan(SideFrontEdgeSlope); //(PanelOverallLength-PanelTopLength)/(PanelHeight-PanelFrontBottomRecessHeight));
+echo(CheckPrimeSlopeAngle = CheckPrimeSlopeAngle);
+echo(SideFrontEdgeSlope = SideFrontEdgeSlope);
+
+
 // Front Panel Ledge
 FP_LedgeLength = mm(4.0);
-FP_LedgeWidth = mm(0.08);   // how far the ledge sticks out
+FP_LedgeWidth = mm(0.125);  // was 0.08 // how far the ledge sticks out
 FP_LedgeHeight = mm(0.125);
 FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
 echo (FP_LedgeAngle = FP_LedgeAngle);
-FP_LedgeRecess = mm(2.5);
-FP_LedgeOffsetVertical = mm(0.0);
+FP_LedgeRecess = mm(1.0);
+FP_LedgeOffsetVertical = (PanelHeight/2) - ((FP_LedgeLength/2)*cos(SidePlanePrimeSlopeAngle)) - mm(0.5);
+// Solve for the Y1 value of the point on the leading edge that is the same X distance as the center of the front panel support ledge
+L_M = -1.0 * SideFrontEdgeSlope;
+echo(L_M = L_M);
+L_X = PanelHeight/2;
+echo(L_X = inch(L_X) , "inches");
+L_Y = PanelTopLength - PanelOverallLength/2;
+echo(L_Y = inch(L_Y) , "inches");
+L_B = L_Y - (L_M * L_X);
+echo(L_B = inch(L_B) , "inches");
+Y1 = (L_M * FP_LedgeOffsetVertical) + L_B;
+echo(Y1 = inch(Y1) , "inches");
+FP_LedgeOffsetHorizontal = Y1;
+//FP_LedgeOffsetHorizontal = PanelOverallLength/2-FP_LedgeRecess;
 
 // Lid support
 LedgeRecess = mm(0.25); // Distance from side panel top edge to top of ledge

@@ -26,22 +26,6 @@ module LidLedge(side)
 }
 
 
-FP_LedgeLength = mm(4.0);
-FP_LedgeWidth = mm(0.125);   // how far the ledge sticks out
-FP_LedgeHeight = mm(0.125);
-FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
-echo (FP_LedgeAngle = FP_LedgeAngle);
-//FP_LedgeRecess = mm(2.5);
-//FP_LedgeRecess = mm(2.5); // orig 2.5
-//F//P_LedgeOffsetVertical = mm(0.5); // orig 0
-//FP_LedgeRecess = 
-FP_LedgeOffsetVertical = (PanelHeight/2) - ((FP_LedgeLength/2)*cos(SidePlanePrimeSlopeAngle)) - mm(0.5);
-
-FP_LedgeOffsetHorizontal = PanelOverallLength/2-FP_LedgeRecess;
-//Equation of front edge
-FE_Slope = (-PanelHeight + PanelFrontBottomRecessHeight) / (PanelOverallLength - PanelTopLength);
-echo (FE_Slope = FE_Slope);
-
 RightPanel();
 
 module FrontPanelLedge(side)
