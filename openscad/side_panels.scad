@@ -25,7 +25,7 @@ module LidLedge(side)
     color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
 }
 
-
+$fn = 64;
 RightPanel();
 
 module FrontPanelLedge(side)

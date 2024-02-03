@@ -78,7 +78,7 @@ echo(SideFrontEdgeSlope = SideFrontEdgeSlope);
 // Front Panel Ledge
 FP_LedgeLength = mm(4.0);
 FP_LedgeWidth = mm(0.125);  // was 0.08 // how far the ledge sticks out
-FP_LedgeHeight = mm(0.125);
+FP_LedgeHeight = mm(0.125); 
 FP_LedgeAngle = 90.0 - SidePlanePrimeSlopeAngle; 
 echo (FP_LedgeAngle = FP_LedgeAngle);
 FP_LedgeRecess = mm(1.0);
@@ -94,7 +94,7 @@ L_B = L_Y - (L_M * L_X);
 echo(L_B = inch(L_B) , "inches");
 Y1 = (L_M * FP_LedgeOffsetVertical) + L_B;
 echo(Y1 = inch(Y1) , "inches");
-FP_LedgeOffsetHorizontal = Y1;
+FP_LedgeOffsetHorizontal = Y1;//- (FP_LedgeHeight * sin(SidePlanePrimeSlopeAngle));
 //FP_LedgeOffsetHorizontal = PanelOverallLength/2-FP_LedgeRecess;
 
 // Lid support
