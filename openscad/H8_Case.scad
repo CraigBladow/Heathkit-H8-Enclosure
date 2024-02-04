@@ -45,6 +45,7 @@
 // Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
 // Add Front Panel insets in sides and mounting holes in base plate
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
+// Create 0.15 mm gap in side halves to see if assembly is better.
 // Print Right side of case to check 
 // Determine FP PCB bracket mount locations
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
