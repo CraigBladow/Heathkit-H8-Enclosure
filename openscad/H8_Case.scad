@@ -42,7 +42,7 @@
 // DONE: Revise Panel() to use offset() to round corners vs. using hull() which introduces errors on leading edges of case sides.
 // DONE: Model PCB card assembly with case model. 
 // DONE Model Power Supply
-// Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. 
+// Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. Need to locate the insert holes.
 // Add Front Panel insets in sides and mounting holes in base plate
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Create 0.15 mm gap in side halves to see if assembly is better.

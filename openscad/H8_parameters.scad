@@ -27,13 +27,9 @@ function inch(x) = x / 25.4; // convert mm to inches
 // Case Dimension
 CaseWidth = mm(16.0);
 
-// Front/Side Panel PCB Dimensions
+// Front Panel PCB Dimensions
 FP_PCB_Length = mm(14.75);
 FP_PCB_Height = mm(5.75);
-SidePlanePCBHeight = mm(5.5);
-SidePlanePCBTopEdgeLength = mm(11.125);
-SidePlanePCBBottomEdgeLength = mm(14.25);
-SidePlanePCBFrontEdgeLength = mm(6.52);
 PCB_Thickness = 1.6; //mm
 CardsNumberToModel = 7; // Not including rear expansion connector or Front Panel and last card.
 CardPCB_Length = mm(12.0);
@@ -41,18 +37,39 @@ CardPCB_Height = mm(6.0);
 CardPCB_Spacing = mm(1.0+5.0/32.0);
 CardPCB_FirstOffsetFromFront = mm(5.0/8.0); //Rough
 CardToSidePlaneGap = mm(3.0/16.0);
-SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
-//echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
 
 // Side Panel PCB dimensions, location an mount locations
-SP_MountVerticalInset = mm(7.0/16.0);
-SP_MountTopBackHorizInset = mm(3.0/4.0);
-SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
-SP_MountHolesOffset = mm(4.0+5.0/8.0);
+SidePlanePCBHeight = mm(5.5);
+SidePlanePCBTopEdgeLength = mm(11.125);
+SidePlanePCBBottomEdgeLength = mm(14.25);
+SidePlanePCBFrontEdgeLength = mm(6.52);
+
+// Side Plane mount locations
+SP_MountVerticalInset = mm(7.0/16.0); // distance from upper or lower edge to center of mounting holes
+SP_MountTopBackHorizInset = mm(3.0/4.0); // distance from back edge to the center of first upper mounting hole
+SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from back edge to the center of the first lower mounting hole
+SP_MountHolesOffset = mm(4.0+5.0/8.0); // distance between mounting holes
+
+// Mounting Hole locations
+T_Z = SidePlanePCBHeight/2 - SP_MountVerticalInset; // top row Z 
+B_Z = -T_Z; // bottom row Z
+TY_R = SP_MountTopBackHorizInset; //top rear Y
+TY_M = TY_R + SP_MountHolesOffset; //top middle Y
+TY_F = TY_M + SP_MountHolesOffset; //top front Y
+BY_R = SP_MountBottomBackHorizInset; //top rear Y
+BY_M = BY_R + SP_MountHolesOffset; //top middle Y
+BY_F = BY_M + SP_MountHolesOffset; //top front Y
+
+SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z]]; // [ Y, Z],..
+
+// Side Plane position location
 SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
 SP_PCB_HeightFromCaseBottom = mm(1.0/8.0); //Mk 1 estimate
 SP_PCB_HeightFromLedgeRecess = mm(1.0/8.0); //Mk 1 estimate
 SP_PCB_StandOffHeight = 6.5; //mm
+
+SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
+//echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
 
 // Side Panel overall dimensions in inches.
 PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375

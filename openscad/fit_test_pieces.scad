@@ -235,7 +235,7 @@ module PCBSupportTemp()
 { 
     cube([20,200,mm(1.0/8.0)],center=true);
 }
-PCBSupportTemp();
+//PCBSupportTemp();
 //TestBaseChunk();
 
 

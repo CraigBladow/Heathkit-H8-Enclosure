@@ -25,8 +25,6 @@ module LidLedge(side)
     color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
 }
 
-
-
 module FrontPanelLedge(side)
 {
     
@@ -143,6 +141,7 @@ module LeftPanel()
         FrontPanelLedge(left);
         BackPanelRails();
         BasePlateMountingRails();
+        SidePlaneMountingInsets();
 
     }
 }
@@ -413,9 +412,21 @@ module BoltWasherHoleNo8()   // Flathead version
     
 }
 
+module SidePlaneMountingInsets()
+{
+    color("lime")translate([0,-BasePlateLength/2,PanelThickness/2])rotate([0,90,0])
+        for(i = SP_MountLocations)
+        {
+            translate(i) rotate([0,90,0]) Insert_IUB_632_2();//cylinder(h=10,r = 2, center = true);
+        }
+}
+
 //$fn=128;
-//$fn=64;
-//LeftPanel();
+$fn=32;
+LeftPanel();
+// translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom]) 
+//color("lime")translate([0,-BasePlateLength/2,PanelThickness/2])rotate([0,90,0])SidePlaneMountingInsets();
+
 //BackPanelRails();
 //BasePlateMountingRails();
 //FrontLeftPanel();
