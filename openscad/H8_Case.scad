@@ -42,13 +42,13 @@
 // DONE: Revise Panel() to use offset() to round corners vs. using hull() which introduces errors on leading edges of case sides.
 // DONE: Model PCB card assembly with case model. 
 // DONE Model Power Supply
-// Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. Need to locate the insert holes.
-// Add Front Panel insets in sides and mounting holes in base plate
+// DONE: Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. Need to locate the insert holes.
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Create 0.15 mm gap in side halves to see if assembly is better.
 // Print Right side of case to check
 
 // Determine FP PCB bracket mount locations
+// Add Front Panel insets in sides and mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add Power supply mount in back panel
@@ -62,8 +62,8 @@
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
-include <side_panels.scad>
-include <back_base_panels.scad>
+include <H8_side_panels.scad>
+include <H8_back_base_panels.scad>
 include <H8_PCB_Assembly.scad>
 
 
@@ -101,11 +101,11 @@ module SixSnapPins()
 {
         translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinSnap();
 }
-/*
+
 H8Case();
 translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom])PCB_Assembly();
 translate([-(BaseMountLength+PS_Width/2+PanelThickness/2),PS_Length/2-PanelOverallLength/2+(BasePlateHeight+BasePlateRecess),-(PanelHeight/2 - PS_Height/2)+(BasePlateHeight+BasePlateRecess)+PS_Lift])PowerSupply();
-*/
+
 //PS_Length/2  BasePlateLength
 
 //LeftPanelExplodedAssembly();

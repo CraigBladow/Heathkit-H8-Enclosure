@@ -28,11 +28,12 @@ module Cards()
 module SidePanel()
 {
     
-    union()
+    difference()
     {
-        HoleTest();
+        
         color("lime") translate([0,0,-SidePlanePCBHeight/2])rotate([90,0,90])
             linear_extrude(PCB_Thickness,center=true) polygon(points=[[0,0],[0,SidePlanePCBHeight],[SidePlanePCBTopEdgeLength,SidePlanePCBHeight],[SidePlanePCBBottomEdgeLength,0]]);
+        HoleTest();
     }
 }
 

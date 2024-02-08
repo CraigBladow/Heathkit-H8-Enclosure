@@ -6,7 +6,7 @@
 //          https://github.com/CraigBladow/Heathkit-H8-Enclosure/blob/main/LICENSE
 
 include <H8_parameters.scad>
-include <side_panels.scad>
+include <H8_side_panels.scad>
 include <back_base_panels.scad>
 
 
