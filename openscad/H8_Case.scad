@@ -43,7 +43,7 @@
 // DONE: Model PCB card assembly with case model. 
 // DONE Model Power Supply
 // DONE: Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. Need to locate the insert holes.
-// Calculate case side bottom length from SideFrontEdgeLowerAngle.
+// DONE: Calculate case side bottom recess length from SideFrontEdgeLowerAngle.
 // Create 0.15 mm gap in side halves to see if assembly is better.
 // Print Right side of case to check
 

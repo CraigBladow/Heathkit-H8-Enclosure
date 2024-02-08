@@ -13,8 +13,9 @@
 SideFrontEdgeUpperAngle = atan((17-13.875)/(6.1-0.6)); // Using 13.875 and 0.6 as the angle matches the sideplane circuit card angles.
 //echo(SideFrontEdgeUpperAngle = SideFrontEdgeUpperAngle);
 SideFrontEdgeLowerAngle = atan((17-16.6)/(0.6));
-//echo(SideFrontEdgeLowerAngle=SideFrontEdgeLowerAngle);
+echo(SideFrontEdgeLowerAngle=SideFrontEdgeLowerAngle);
 PanelHeightToFrontEdgeHeightRatio = (0.7/6.1);
+echo(PanelHeightToFrontEdgeHeightRatio = PanelHeightToFrontEdgeHeightRatio);
 
 // Common Constants
 left = 1.0;
@@ -76,8 +77,10 @@ PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375
 PanelCornerRadius = mm(0.125);// testing orig value 0.125
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = PanelHeightToFrontEdgeHeightRatio * PanelHeight;
-//echo (PanelFrontBottomRecessHeight = inch(PanelFrontBottomRecessHeight));
-PanelFrontBottomRecessLength = mm(0.4); // was 0.5
+echo (PanelFrontBottomRecessHeight = inch(PanelFrontBottomRecessHeight));
+//PanelFrontBottomRecessLength = mm(0.4); // was 0.5
+PanelFrontBottomRecessLength = PanelFrontBottomRecessHeight * tan(SideFrontEdgeLowerAngle);
+echo(PanelFrontBottomRecessLength = inch(PanelFrontBottomRecessLength),"inch");
 PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
 
