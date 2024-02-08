@@ -422,8 +422,8 @@ module SidePlaneMountingInsets()
 }
 
 //$fn=128;
-$fn=32;
-LeftPanel();
+//$fn=32;
+//LeftPanel();
 // translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom]) 
 //color("lime")translate([0,-BasePlateLength/2,PanelThickness/2])rotate([0,90,0])SidePlaneMountingInsets();
 
@@ -457,6 +457,7 @@ difference()
 */
 
 //translate([0,0,+FlatHeadBolt8Height/2.8-mm(.02)])BoltWasherHoleNo8();
+
 
 
 

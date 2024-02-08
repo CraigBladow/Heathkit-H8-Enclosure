@@ -100,11 +100,11 @@ module SixSnapPins()
 {
         translate([-7*15/2,0,0])for(i = [1 : 6])translate([(i*15),0,0])rotate([0,0,90])SidePinSnap();
 }
-
+/*
 H8Case();
 translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom])PCB_Assembly();
 translate([-(BaseMountLength+PS_Width/2+PanelThickness/2),PS_Length/2-PanelOverallLength/2+(BasePlateHeight+BasePlateRecess),-(PanelHeight/2 - PS_Height/2)+(BasePlateHeight+BasePlateRecess)+PS_Lift])PowerSupply();
-
+*/
 //PS_Length/2  BasePlateLength
 
 //LeftPanelExplodedAssembly();

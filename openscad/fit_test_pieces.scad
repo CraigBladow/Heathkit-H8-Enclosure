@@ -43,6 +43,15 @@ module TestVerticalBoltHoleSize()
   }
 }
 
+module TestFrontRightPanel()
+{
+
+}
+
+module TestRearRightPanel()
+{
+}
+
 module SidePinFitTest()
 {
     rotate([90,0,0])difference()
@@ -212,7 +221,8 @@ module TestSidePanelHoles2()
 }
 
 $fn=128;
-
+//TestFrontLeftPanel();
+TestFrontRightPanel();
 //TestBasePlateLeftRear();
 //TestBasePlateRightRear();
 //TestBasePlateLeftFront();
