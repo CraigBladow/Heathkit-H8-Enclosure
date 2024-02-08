@@ -134,15 +134,18 @@ module PCB_InsertMountPoints()
 
 module LeftPanel()
 {
-    union()
+    difference()
     {
-        Panel();
-        LidLedge(left);
-        FrontPanelLedge(left);
-        BackPanelRails();
-        BasePlateMountingRails();
+        union()
+        {
+            Panel();
+            LidLedge(left);
+            FrontPanelLedge(left);
+            BackPanelRails();
+            BasePlateMountingRails();
+;
+        }
         SidePlaneMountingInsets();
-
     }
 }
 
@@ -414,17 +417,16 @@ module BoltWasherHoleNo8()   // Flathead version
 
 module SidePlaneMountingInsets()
 {
-    color("lime")translate([0,-BasePlateLength/2,PanelThickness/2])rotate([0,90,0])
+    color("red")translate([0,-BasePlateLength/2,PanelThickness/2 - Insert_6_32_hole_depth/2 - .06])rotate([0,90,0])
         for(i = SP_MountLocations)
         {
-            translate(i) rotate([0,90,0]) Insert_IUB_632_2();//cylinder(h=10,r = 2, center = true);
+            translate(i) rotate([0,90,180]) Insert_IUB_632_2();//cylinder(h=10,r = 2, center = true);
         }
 }
 
-//$fn=128;
-//$fn=32;
-//LeftPanel();
-// translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom]) 
+echo (Insert_6_32_hole_depth = Insert_6_32_hole_depth/2);
+
+//translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom]) 
 //color("lime")translate([0,-BasePlateLength/2,PanelThickness/2])rotate([0,90,0])SidePlaneMountingInsets();
 
 //BackPanelRails();
@@ -457,6 +459,9 @@ difference()
 */
 
 //translate([0,0,+FlatHeadBolt8Height/2.8-mm(.02)])BoltWasherHoleNo8();
+$fn=128;
+RightPanel();
+
 
 
 
