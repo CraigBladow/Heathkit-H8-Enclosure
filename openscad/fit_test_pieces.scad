@@ -18,11 +18,12 @@ module TestFrontLeftPanel()
     {
         FrontLeftPanel();
 
-        color("magenta") linear_extrude(height=PanelThickness+10,center=true)translate([0,0,0])polygon(points=[[-60,25],[-60,150],[50,100],[50,25]],paths=[[0,1,2,3]]);
+        //color("magenta") linear_extrude(height=PanelThickness+10,center=true)translate([0,0,0])polygon(points=[[-60,25],[-60,150],[50,100],[50,25]],paths=[[0,1,2,3]]);
+        color("magenta") linear_extrude(height=PanelThickness+10,center=true)translate([0,0,0])polygon(points=[[-50,25],[-50,140],[50,90],[50,25]],paths=[[0,1,2,3]]);
     }
 }
 
-//TestFrontLeftPanel();
+
 
 module TestRearLeftPanel()
 {
@@ -31,7 +32,8 @@ module TestRearLeftPanel()
     {
         RearLeftPanel();
 
-        color("magenta") linear_extrude(height=PanelThickness+10,center=true)polygon(points=[[-60,-25],[-60,-190],[60,-190],[60,-25]],paths=[[0,1,2,3]]);
+        //color("magenta") linear_extrude(height=PanelThickness+10,center=true)polygon(points=[[-60,-25],[-60,-190],[60,-190],[60,-25]],paths=[[0,1,2,3]]);
+        color("magenta") linear_extrude(height=PanelThickness+10,center=true)polygon(points=[[-50,-25],[-50,-190],[50,-190],[50,-25]],paths=[[0,1,2,3]]);
     }
 }
 
@@ -45,11 +47,13 @@ module TestVerticalBoltHoleSize()
 
 module TestFrontRightPanel()
 {
+    mirror([1,0,0]) TestFrontLeftPanel();
 
 }
 
 module TestRearRightPanel()
 {
+    mirror([1,0,0]) TestRearLeftPanel();
 }
 
 module SidePinFitTest()
@@ -220,16 +224,6 @@ module TestSidePanelHoles2()
     
 }
 
-$fn=128;
-//TestFrontLeftPanel();
-TestFrontRightPanel();
-//TestBasePlateLeftRear();
-//TestBasePlateRightRear();
-//TestBasePlateLeftFront();
-//TestBasePlateRightFront();
-//TestSidePanelHoles1();
-//TestSidePanelHoles2();
-//TestPegBar2();
 module TestBaseChunk()
 {
   difference()
@@ -245,6 +239,20 @@ module PCBSupportTemp()
 { 
     cube([20,200,mm(1.0/8.0)],center=true);
 }
+
+//$fn=128;
+//TestFrontLeftPanel();
+//TestFrontRightPanel();
+//TestFrontRightPanel();
+//TestRearRightPanel();
+//TestBasePlateLeftRear();
+//TestBasePlateRightRear();
+//TestBasePlateLeftFront();
+//TestBasePlateRightFront();
+//TestSidePanelHoles1();
+//TestSidePanelHoles2();
+//TestPegBar2();
+
 //PCBSupportTemp();
 //TestBaseChunk();
 

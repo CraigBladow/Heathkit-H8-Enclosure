@@ -46,7 +46,8 @@
 // Add Front Panel insets in sides and mounting holes in base plate
 // Calculate case side bottom length from SideFrontEdgeLowerAngle.
 // Create 0.15 mm gap in side halves to see if assembly is better.
-// Print Right side of case to check 
+// Print Right side of case to check
+
 // Determine FP PCB bracket mount locations
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
