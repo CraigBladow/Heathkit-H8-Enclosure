@@ -33,7 +33,7 @@ module FrontPanelLedge(side)
             Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
 }
 
-module OrigPanel()
+module OrigPanel()  // todo delete
 {
     hull()
     {
@@ -160,7 +160,11 @@ module FrontLeftPanel()
 {
     difference()
     {
+
         LeftPanel();
+        
+        // Leave a small gap so printed half panels fit together easily
+        TheGap(PanelHeight * 2,Gap,PanelThickness * 8);
         
         // Remove other half of left panel
         translate([0,-PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
@@ -170,13 +174,18 @@ module FrontLeftPanel()
 }
 
 
+module TheGap(G_X,G_Y,G_T)
+{
+    cube([G_X,G_Y,G_T],center = true);
+    
+}
 
 module RearLeftPanel()
 {
     difference()
     {
         LeftPanel();
-            
+        TheGap(PanelHeight * 2,Gap,PanelThickness * 8);    
         // Remove other half of left panel
         translate([0,PanelOverallLength/2,0]) cube([PanelHeight*2,PanelOverallLength,PanelThickness * 4],center=true);
         // Make sockets for pins
@@ -188,6 +197,18 @@ module RightPanel()
 {
     rotate([180,0,0])mirror([0,1,0])LeftPanel();
 }
+
+module FrontRightPanel()
+{
+    rotate([180,0,0])mirror([0,1,0]) FrontLeftPanel();
+}
+
+module RearRightPanel()
+{
+    rotate([180,0,0])mirror([0,1,0]) RearLeftPanel();
+}
+
+
 
 module Insert_IUB_632_2()
 {

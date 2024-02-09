@@ -44,7 +44,7 @@
 // DONE Model Power Supply
 // DONE: Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. Need to locate the insert holes.
 // DONE: Calculate case side bottom recess length from SideFrontEdgeLowerAngle.
-// Create 0.15 mm gap in side halves to see if assembly is better.
+// DONE: Create 0.15 mm gap in side halves to see if assembly is better.
 // Print Right side of case to check
 
 // Determine FP PCB bracket mount locations
@@ -85,7 +85,12 @@ module H8Case()
         
     BackSupportOffset = -PanelOverallLength/2+BackSupportThickness/2+BackPanelRecess;    
        translate([-BackPanelRailsOffset,BackSupportOffset,BasePlateWidth/2+PanelThickness/2]) rotate([0,90,0])BackSupport();
+        
     }
+    // PCB Assembly
+    translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom])PCB_Assembly();
+    // Power Supply
+    translate([-(BaseMountLength+PS_Width/2+PanelThickness/2),PS_Length/2-PanelOverallLength/2+(BasePlateHeight+BasePlateRecess),-(PanelHeight/2 - PS_Height/2)+(BasePlateHeight+BasePlateRecess)+PS_Lift])PowerSupply();
 }
 
 module LeftPanelExplodedAssembly()
@@ -103,8 +108,7 @@ module SixSnapPins()
 }
 
 H8Case();
-translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom])PCB_Assembly();
-translate([-(BaseMountLength+PS_Width/2+PanelThickness/2),PS_Length/2-PanelOverallLength/2+(BasePlateHeight+BasePlateRecess),-(PanelHeight/2 - PS_Height/2)+(BasePlateHeight+BasePlateRecess)+PS_Lift])PowerSupply();
+
 
 //PS_Length/2  BasePlateLength
 
@@ -117,7 +121,8 @@ translate([-(BaseMountLength+PS_Width/2+PanelThickness/2),PS_Length/2-PanelOvera
 // Spacers / washers if needed
 //washers(16, mm(3/8),BoltHoleDiameterNo6,mm(1/16));
 
-
+//FrontRightPanel();
+//RearRightPanel();
 
 //TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();

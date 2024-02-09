@@ -25,6 +25,10 @@ right = -1.0;
 function mm(x) = x * 25.4;  //convert inches to mm
 function inch(x) = x / 25.4; // convert mm to inches
 
+
+// Gap to use when splitting large parts in half or fourths
+Gap = 0.15 *2.0; //mm
+
 // Case Dimension
 CaseWidth = mm(16.0);
 
