@@ -240,11 +240,13 @@ module PCBSupportTemp()
     cube([20,200,mm(1.0/8.0)],center=true);
 }
 
-//$fn=128;
+$fn=128;
 //TestFrontLeftPanel();
 //TestFrontRightPanel();
+
 //TestFrontRightPanel();
-//TestRearRightPanel();
+TestRearRightPanel();
+
 //TestBasePlateLeftRear();
 //TestBasePlateRightRear();
 //TestBasePlateLeftFront();
