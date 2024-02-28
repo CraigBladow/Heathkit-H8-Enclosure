@@ -29,6 +29,10 @@ function inch(x) = x / 25.4; // convert mm to inches
 // Gap to use when splitting large parts in half or fourths
 Gap = 0.15 *2.0; //mm
 
+// Compensation for ridge produced at top layer for side panel halves
+ridge_h = 3 * 0.3; //mm  3 layers at 0.3 mm layer height
+ridge_w = 0.3; // mm for 0.6mm nozzle and 0.3 mm height
+
 // Case Dimension
 CaseWidth = mm(16.0);
 
@@ -89,7 +93,7 @@ PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
 
 // Calculate PanelTopLength
-//PanelTopLength = mm(13.73);
+// PanelTopLength = mm(13.73);
 PanelTopLength = PanelOverallLength - tan(SideFrontEdgeUpperAngle)*(PanelHeight - PanelFrontBottomRecessHeight);
 //echo(PanelTopLength = PanelTopLength/25.4 , "inches");
 

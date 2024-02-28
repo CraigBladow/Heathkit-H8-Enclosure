@@ -176,9 +176,15 @@ module FrontLeftPanel()
 
 module TheGap(G_X,G_Y,G_T)
 {
-    cube([G_X,G_Y,G_T],center = true);
+    union()
+    {
+        cube([G_X,G_Y,G_T],center = true);
+        BML = BaseMountLength+0.1;
+        color("red") translate([0,0,-(-PanelThickness/2+ridge_h/2-BML/2)])cube([PanelHeight,2*ridge_w+Gap,ridge_h+BML],center=true);
+    }
     
 }
+
 
 module RearLeftPanel()
 {

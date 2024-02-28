@@ -45,7 +45,11 @@
 // DONE: Left and Right side - add insert locations (see module PCB_InsertMountPoints() ) to support side plane PC mounting and test fit. Need to locate the insert holes.
 // DONE: Calculate case side bottom recess length from SideFrontEdgeLowerAngle.
 // DONE: Create 0.15 mm gap in side halves to see if assembly is better.
-// Print Right side of case to check
+// DONE: Test with 0.8 mm nozzle - result - snap pins don't work
+// DONE: Remove 3 layer gap for top layer swelling compensation, also gap in lid ledge
+// Test with 0.6 mm nozzle
+// Remove 3 layer gap for top layer swelling compensation, also gap in lid ledg
+// Print Right side of case to check fit and PCB mount locations
 
 // Determine FP PCB bracket mount locations
 // Add Front Panel insets in sides and mounting holes in base plate
@@ -117,8 +121,8 @@ module SixSnapPins()
 // Spacers / washers if needed
 //washers(16, mm(3/8),BoltHoleDiameterNo6,mm(1/16));
 
-//TestFrontLeftSidePanelSubSection();
+TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();
 
-FrontRightPanel();
+//FrontRightPanel();
 //RearRightPanel();
