@@ -115,13 +115,13 @@ module SixSnapPins()
 
 //LeftPanelExplodedAssembly();
 
-//SixSnapPins();
+SixSnapPins();
 //SidePinSnap();
 
 // Spacers / washers if needed
 //washers(16, mm(3/8),BoltHoleDiameterNo6,mm(1/16));
 
-TestFrontLeftSidePanelSubSection();
+//TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();
 
 //FrontRightPanel();
