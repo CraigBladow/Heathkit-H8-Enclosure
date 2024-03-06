@@ -5,7 +5,7 @@
 
 // Notes:
 // Clean out bolt holes on side panels by hand with 11/64 inch drill bit.
-// When slicing Side and Back Panels, add support enforcers, tool type 'smart fill', to only place support for the vertical mounting holes. Support is not needed for the snap pin holes and likely not completely removable.
+// When slicing Side and Back Panels, add support enforcers, tool type 'smart fill', to only place support for the vertical mounting holes. Support is not needed for the snap pin holes and likely not completely removable. Print with a Brim to reduce lifting. 
 // Intended base plate material is 9mm Baltic Birch.  There is a 3D model of the base plate in the project which was created to help confirm measurements. It may be used but may not be as sturdy.
 
 // TO DO LIST:
@@ -47,10 +47,9 @@
 // DONE: Create 0.15 mm gap in side halves to see if assembly is better.
 // DONE: Test with 0.8 mm nozzle - result - snap pins don't work
 // DONE: Remove 3 layer gap for top layer swelling compensation, also gap in lid ledge
-// Test with 0.6 mm nozzle
-// Remove 3 layer gap for top layer swelling compensation, also gap in lid ledg
-// Print Right side of case to check fit and PCB mount locations
+// DONE:Remove 3 layer gap for top layer swelling compensation, also gap in lid ledg
 
+// Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to check fit and PCB mount locations
 // Determine FP PCB bracket mount locations
 // Add Front Panel insets in sides and mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
@@ -122,7 +121,7 @@ module SixSnapPins()
 //washers(16, mm(3/8),BoltHoleDiameterNo6,mm(1/16));
 
 //TestFrontLeftSidePanelSubSection();
-TestRearLeftSidePanelSubSection();
+//TestRearLeftSidePanelSubSection();
 
-//FrontRightPanel();
+FrontRightPanel();
 //RearRightPanel();
