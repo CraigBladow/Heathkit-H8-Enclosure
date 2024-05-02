@@ -47,7 +47,7 @@ CardPCB_Spacing = mm(1.0+5.0/32.0);
 CardPCB_FirstOffsetFromFront = mm(5.0/8.0); //Rough
 CardToSidePlaneGap = mm(3.0/16.0);
 
-// Side Panel PCB dimensions, location an mount locations
+// Side Panel PCB dimensions and location of mount locations
 SidePlanePCBHeight = mm(5.5);
 SidePlanePCBTopEdgeLength = mm(11.125);
 SidePlanePCBBottomEdgeLength = mm(14.25);
