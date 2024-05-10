@@ -49,13 +49,18 @@
 // DONE: Test with 0.8 mm nozzle - result - snap pins don't work
 // DONE: Remove 3 layer gap for top layer swelling compensation, also gap in lid ledge
 // DONE:Remove 3 layer gap for top layer swelling compensation, also gap in lid ledg
+// DONE: Printed with 15% infill.
+// DONE: Printed with brim to reduce lifting of corners near print bed edge.
 
-// Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to check fit and PCB mount locations
-// Printed with 15% infill.
-// Printed with brim to reduce lifting of corners near print bed edge.
+// Design 3 point test prints to confirm PCB mount locations
+// move PCB mount up 2 mm and extend case height by 2 mm.
+// move PCB back to attain 0.2 - 0.25" clearance from FP PCB
 // Determine FP PCB bracket mount locations
 // Add Front Panel insets in sides and mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
+
+// Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to confirm fit and PCB mount locations
+
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add Power supply mount in back panel
 // Add cable pass throughs to back panel.
