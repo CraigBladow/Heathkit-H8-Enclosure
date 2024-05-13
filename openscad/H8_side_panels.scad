@@ -508,7 +508,7 @@ module TestPegsRightPanel()
             color("red") translate([0,0,-10])cube([400,600,20],center=true);
             color("red") translate([95,0,0])cube([50,600,30],center=true);
             color("red") translate([-95,0,0])cube([50,600,30],center=true);
-            translate ([0,-235,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([150,600,30],center=true);
+            //translate ([0,-235,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([150,600,30],center=true);
             translate ([0,200,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([150,600,30],center=true);
         }
         
@@ -522,9 +522,11 @@ module RearPegTriangle()
     TestPegsRightPanel();
       translate ([0,75,0]) rotate([0,0,177-FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
       translate([20,-110,0])color("red") cylinder(h=20,r=35,center=true);
+      translate([63,-110,0])color("red") cylinder(h=20,r=4,center=true);
   }
   //translate ([0,75,0]) rotate([0,0,177-FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
   //translate([20,-110,0])color("red") cylinder(h=20,r=35,center=true);
+  
 }
 
 module MiddlePegTriangle()
@@ -535,7 +537,9 @@ module MiddlePegTriangle()
             translate ([0,-230,0]) rotate([0,0,175-FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
   translate ([0,140,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
 translate([-18,-50,0])color("red") cylinder(h=20,r=35,center=true);
+  translate([40,-52,0])color("red") cylinder(h=20,r=4,center=true);
   }
+
   
 
 }
@@ -549,7 +553,9 @@ module FrontPegTriangle()
     translate ([0,-110,0]) rotate([0,0,175-FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
   //translate ([0,140,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
 translate([-18,70,0])color("red") cylinder(h=20,r=35,center=true);
+translate([40,70,0])color("lime") cylinder(h=20,r=4,center=true);
   }
+  
   
 
 }
@@ -569,9 +575,9 @@ difference()
 $fn = 128;
 //TestPegsRightPanel();
 
-RearPegTriangle();
-MiddlePegTriangle();
-FrontPegTriangle();
+//translate([0,0,-12])RearPegTriangle();
+//MiddlePegTriangle();
+//FrontPegTriangle();
 
 
 
