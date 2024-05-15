@@ -508,7 +508,7 @@ module TestPegsRightPanel()
             color("red") translate([0,0,-10])cube([400,600,20],center=true);
             color("red") translate([95,0,0])cube([50,600,30],center=true);
             color("red") translate([-95,0,0])cube([50,600,30],center=true);
-            //translate ([0,-235,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([150,600,30],center=true);
+            translate ([0,-235,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([150,600,30],center=true);
             translate ([0,200,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([150,600,30],center=true);
         }
         
@@ -575,7 +575,7 @@ difference()
 $fn = 128;
 //TestPegsRightPanel();
 
-//translate([0,0,-12])RearPegTriangle();
+RearPegTriangle();
 //MiddlePegTriangle();
 //FrontPegTriangle();
 
