@@ -575,8 +575,8 @@ difference()
 $fn = 128;
 //TestPegsRightPanel();
 
-RearPegTriangle();
-//MiddlePegTriangle();
+//RearPegTriangle();
+MiddlePegTriangle();
 //FrontPegTriangle();
 
 
