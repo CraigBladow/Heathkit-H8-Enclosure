@@ -64,10 +64,10 @@ T_Z = SidePlanePCBHeight/2 - SP_MountVerticalInset; // top row Z
 B_Z = -T_Z; // bottom row Z
 TY_R = SP_MountTopBackHorizInset; //top rear Y
 TY_M = TY_R + SP_MountHolesOffset + 0.4; //top middle Y
-TY_F = TY_M + SP_MountHolesOffset ; //top front Y
+TY_F = TY_M + SP_MountHolesOffset + 0.4; //top front Y
 BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
 BY_M = BY_R + SP_MountHolesOffset + 0.4; //bottom middle Y
-BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
+BY_F = BY_M + SP_MountHolesOffset + 0.4; //bottom front Y
 
 SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z]]; // [ Y, Z],..
 
