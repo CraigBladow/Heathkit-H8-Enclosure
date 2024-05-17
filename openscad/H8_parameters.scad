@@ -57,19 +57,33 @@ SidePlanePCBFrontEdgeLength = mm(6.52);
 SP_MountVerticalInset = mm(7.0/16.0); // distance from upper or lower edge to center of mounting holes
 SP_MountTopBackHorizInset = mm(3.0/4.0); // distance from back edge to the center of first upper mounting hole
 SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from back edge to the center of the first lower mounting hole
-SP_MountHolesOffset = mm(4.0+5.0/8.0); // distance between mounting holes
+SP_MountHolesOffset = mm(4.0+5.0/8.0)+0.4; // distance between mounting holes, 0.4 added to make it work!
+SP_MountHolesVerticalOffset = 2; //mm  Needed to clear base fillet.
 
 // Mounting Hole locations
-T_Z = SidePlanePCBHeight/2 - SP_MountVerticalInset; // top row Z 
-B_Z = -T_Z; // bottom row Z
+T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset; // top row Z 
+B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffset; // bottom row Z
 TY_R = SP_MountTopBackHorizInset; //top rear Y
-TY_M = TY_R + SP_MountHolesOffset + 0.4; //top middle Y
-TY_F = TY_M + SP_MountHolesOffset + 0.4; //top front Y
+TY_M = TY_R + SP_MountHolesOffset; //top middle Y
+TY_F = TY_M + SP_MountHolesOffset; //top front Y
 BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
-BY_M = BY_R + SP_MountHolesOffset + 0.4; //bottom middle Y
-BY_F = BY_M + SP_MountHolesOffset + 0.4; //bottom front Y
+BY_M = BY_R + SP_MountHolesOffset; //bottom middle Y
+BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
+
 
 SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z]]; // [ Y, Z],..
+
+//echo(MountsNew= SP_MountLocations);
+
+
+/* before vertical offset 
+ECHO: MountsOld = [[0, 19.05, 58.7375], [0, 136.925, 58.7375], [0, 254.8, 58.7375], [0, 85.725, -58.7375], [0, 203.6, -58.7375], [0, 321.475, -58.7375]]
+
+after vertical 2 mm offset
+ECHO: MountsNew = [[0, 19.05, 60.7375], [0, 136.925, 60.7375], [0, 254.8, 60.7375], [0, 85.725, -56.7375], [0, 203.6, -56.7375], [0, 321.475, -56.7375]]
+*/
+
+
 
 // Side Plane position location
 SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)

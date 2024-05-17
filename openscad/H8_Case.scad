@@ -52,8 +52,8 @@
 // DONE: Printed with 15% infill.
 // DONE: Printed with brim to reduce lifting of corners near print bed edge.
 
-// Design 3 point test prints to confirm PCB mount locations
-// move PCB mount up 2 mm and extend case height by 2 mm.
+// DONE: Design 3 point test prints to confirm PCB mount locations
+// move PCB mount up 2 mm (DONE manually) and extend case height by 2 mm. Look at SP_PCB_HeightFromCaseBottom which was not used in calculating the PCB vertical offset but SP_MountHolesVerticalOffset was used.
 // move PCB back to attain 0.2 - 0.25" clearance from FP PCB
 // Determine FP PCB bracket mount locations
 // Add Front Panel insets in sides and mounting holes in base plate
@@ -131,5 +131,5 @@ module SixSnapPins()
 //TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();
 
-//FrontRightPanel();
+FrontRightPanel();
 RearRightPanel();
