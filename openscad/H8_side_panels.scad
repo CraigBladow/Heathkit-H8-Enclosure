@@ -555,7 +555,7 @@ module FrontPegTriangle()
     translate ([0,-110,0]) rotate([0,0,175-FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
   //translate ([0,140,0]) rotate([0,0,FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
 translate([-18,70,0])color("red") cylinder(h=20,r=35,center=true);
-translate([40,70,0])color("lime") cylinder(h=20,r=4,center=true);
+translate([40,70,0])color("lime") cube([8,8,20],center=true);//cylinder(h=20,r=4,center=true);
   }
   
   
@@ -572,7 +572,7 @@ module FrontMiddlePegTriangle()
   translate ([0,190,0]) rotate([0,0,175 - FP_LedgeAngle])  color("red") translate([0,0,0])cube([250,800,30],center=true);
 translate([15,5,0])color("red") cylinder(h=20,r=35,center=true);
 translate([60,-0,0])color("lime") cylinder(h=20,r=4,center=true);
-      translate([60,16,0])color("lime") cube([8,8,20],center=true); //cylinder(h=20,r=4,center=true);
+      translate([60,16,0])color("lime") cylinder(h=20,r=4,center=true);
   }
   
   
