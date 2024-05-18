@@ -591,13 +591,17 @@ difference()
 */
 
 //translate([0,0,+FlatHeadBolt8Height/2.8-mm(.02)])BoltWasherHoleNo8();
-$fn = 128;
+//$fn = 128;
 //TestPegsRightPanel();
 
 //RearPegTriangle();
 //MiddlePegTriangle();
 //FrontMiddlePegTriangle();
-FrontPegTriangle();
+//FrontPegTriangle();
+
+
+
+
 
 
 
