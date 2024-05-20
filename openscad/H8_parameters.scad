@@ -225,6 +225,12 @@ FPB_HoleDiameter = mm(0.165);
 //FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
 FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - FPB_HoleDiameter/2 - 2;
 
+
+//FP_MountLocations
+// two holes FPB_LengthLongHoleSpacing apart rotated by SidePlanePrimeSlopeAngle
+// one hole for Front Panel mount
+
+
 // No. 8 bolt carve out
 WasherRecessDiameterBottomNo8 = mm(3/8)+mm(1/16); // extra 1/16 cleareance
 WasherRecessDiameterTopNo8 = mm(3/8)+mm(1/8); // slighty conical clearance

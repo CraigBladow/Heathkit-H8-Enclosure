@@ -469,6 +469,15 @@ module SidePlaneMountingInsets()
         }
 }
 
+module FrontPanelMountingInsets()
+{
+    color("red")translate([0,-BasePlateLength/2,PanelThickness/2 - Insert_6_32_hole_depth/2 - .06])rotate([0,90,0])
+        for(i = FP_MountLocations)
+        {
+            translate(i) rotate([0,90,180]) Insert_IUB_632_2();//cylinder(h=10,r = 2, center = true);
+        }
+}
+
 echo (Insert_6_32_hole_depth = Insert_6_32_hole_depth/2);
 
 //translate([-PanelThickness/2-BasePlateWidth+PCB_Thickness/2+SP_PCB_StandOffHeight,-BasePlateLength/2,-(PanelHeight/2 - SidePlanePCBHeight/2)+(BasePlateHeight+BasePlateRecess)+SP_PCB_HeightFromCaseBottom]) 
