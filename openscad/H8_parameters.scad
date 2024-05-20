@@ -53,17 +53,24 @@ SidePlanePCBTopEdgeLength = mm(11.125);
 SidePlanePCBBottomEdgeLength = mm(14.25);
 SidePlanePCBFrontEdgeLength = mm(6.52);
 
+
+// Side Plane position location
+SP_PCB_HorizOffset = mm(-0.25); // A big guess at the moment... :)
+SP_PCB_HeightFromCaseBottom = mm(1.0/8.0); //Mk 1 estimate
+SP_PCB_HeightFromLedgeRecess = mm(1.0/8.0); //Mk 1 estimate
+SP_PCB_StandOffHeight = 6.5; //mm
+
 // Side Plane mount locations
 SP_MountVerticalInset = mm(7.0/16.0); // distance from upper or lower edge to center of mounting holes
 SP_MountTopBackHorizInset = mm(3.0/4.0); // distance from back edge to the center of first upper mounting hole
-SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from back edge to the center of the first lower mounting hole
+SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from PCB back edge to the center of the first lower mounting hole
 SP_MountHolesOffset = mm(4.0+5.0/8.0)+0.4; // distance between mounting holes, 0.4 added to make it work!
 SP_MountHolesVerticalOffset = 2; //mm  Needed to clear base fillet.
 
 // Mounting Hole locations
 T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset; // top row Z 
 B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffset; // bottom row Z
-TY_R = SP_MountTopBackHorizInset; //top rear Y
+TY_R = SP_MountTopBackHorizInset + SP_PCB_HorizOffset; //top rear Y
 TY_M = TY_R + SP_MountHolesOffset; //top middle Y
 TY_F = TY_M + SP_MountHolesOffset; //top front Y
 BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
@@ -82,14 +89,6 @@ ECHO: MountsOld = [[0, 19.05, 58.7375], [0, 136.925, 58.7375], [0, 254.8, 58.737
 after vertical 2 mm offset
 ECHO: MountsNew = [[0, 19.05, 60.7375], [0, 136.925, 60.7375], [0, 254.8, 60.7375], [0, 85.725, -56.7375], [0, 203.6, -56.7375], [0, 321.475, -56.7375]]
 */
-
-
-
-// Side Plane position location
-SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
-SP_PCB_HeightFromCaseBottom = mm(1.0/8.0); //Mk 1 estimate
-SP_PCB_HeightFromLedgeRecess = mm(1.0/8.0); //Mk 1 estimate
-SP_PCB_StandOffHeight = 6.5; //mm
 
 SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
 //echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
