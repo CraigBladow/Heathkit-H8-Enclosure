@@ -215,13 +215,14 @@ BackPanelBoltInset = BaseMountLength/2;
 // FrontPanel Support Bracket
 // Front PCB support Bracket
 FPB_LengthLong = mm(4.5);
-FPB_LengthLongWidth = mm(0.5);
-FPB_LengthShortWidth = mm(0.5+1/6);
+FPB_LengthLongWidth = mm(0.41);
+FPB_LengthShortWidth = 14;//mm(0.5+1/6);
 FPB_LengthShort = mm(3.75);
 FPB_Thickness = mm(1/16);
 FPB_HoleSpacing = mm(3.0);
 FPB_HoleDiameter = mm(0.165);
-FPB_HoleOffset = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
+//FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
+FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - FPB_HoleDiameter/2 - 1;
 
 // No. 8 bolt carve out
 WasherRecessDiameterBottomNo8 = mm(3/8)+mm(1/16); // extra 1/16 cleareance

@@ -389,12 +389,15 @@ module FrontPCB_Bracket()
             translate([0,-FPB_LengthLongWidth/2-FPB_Thickness/2,FPB_LengthShortWidth/2]) rotate([90,0,0]) difference()
         {
             cube([FPB_LengthShort,FPB_LengthShortWidth,FPB_Thickness],center=true);
-            translate([FPB_HoleSpacing/2,FPB_HoleOffset,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
-            translate([-FPB_HoleSpacing/2,FPB_HoleOffset,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+            translate([FPB_HoleSpacing/2,FPB_HoleOffsetShort,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+            translate([-FPB_HoleSpacing/2,FPB_HoleOffsetShort,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
         }
         
     }
 }
+$fn=128;
+FrontPCB_Bracket();
+
 /*
 module BoltWasherHoleNo8()
 {
