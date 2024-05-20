@@ -379,13 +379,18 @@ module TestRearLeftSidePanelSubSection()
 
 
 
+
 // The short piece attaches to the front panel PCB
 module FrontPCB_Bracket()
 {
     union()
     {
-        color( "magenta" ) translate([0,0,FPB_Thickness/2]) cube([FPB_LengthLong,FPB_LengthLongWidth,FPB_Thickness],center=true);
-        
+       difference()
+        {
+            color( "magenta" ) translate([0,0,FPB_Thickness/2]) cube([FPB_LengthLong,FPB_LengthLongWidth,FPB_Thickness],center=true);
+                        translate([FPB_LengthLongHoleSpacing/2,0,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+            translate([-FPB_LengthLongHoleSpacing/2,0,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+        }
             translate([0,-FPB_LengthLongWidth/2-FPB_Thickness/2,FPB_LengthShortWidth/2]) rotate([90,0,0]) difference()
         {
             cube([FPB_LengthShort,FPB_LengthShortWidth,FPB_Thickness],center=true);

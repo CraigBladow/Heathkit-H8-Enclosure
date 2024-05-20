@@ -216,6 +216,7 @@ BackPanelBoltInset = BaseMountLength/2;
 // Front PCB support Bracket
 FPB_LengthLong = mm(4.5);
 FPB_LengthLongWidth = mm(0.41);
+FPB_LengthLongHoleSpacing = mm(4.0);
 FPB_LengthShortWidth = 14;//mm(0.5+1/6);
 FPB_LengthShort = mm(3.75);
 FPB_Thickness = mm(1/16);
