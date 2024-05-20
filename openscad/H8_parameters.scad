@@ -95,7 +95,7 @@ SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopE
 //echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
 
 // Side Panel overall dimensions in inches.
-PanelHeight = mm(6.6); //Old 6.25 /NCCP 6.1375
+PanelHeight = mm(6.7); //Last: 6.6 Old 6.25 /NCCP 6.1375
 PanelCornerRadius = mm(0.125);// testing orig value 0.125
 PanelOverallLength = mm(17);
 PanelFrontBottomRecessHeight = PanelHeightToFrontEdgeHeightRatio * PanelHeight;
@@ -247,14 +247,14 @@ BaseFootHeight = mm(0.5);
 BottomStackup = BasePlateHeight+BasePlateRecess;
 LidSupportStackup = LedgeHeight + LedgeRecess;
 // Note: SP_PCB_HeightFromCaseBottom is greater thant BaseMountThickness / 2 so it is not included
-CircuitCardCageStackup = SidePlanePCBHeight + SP_PCB_HeightFromCaseBottom + SP_PCB_HeightFromLedgeRecess;
+CircuitCardCageStackup = SidePlanePCBHeight + SP_PCB_HeightFromCaseBottom + SP_PCB_HeightFromLedgeRecess + SP_MountHolesVerticalOffset;
 VerticalStackup = CircuitCardCageStackup + BottomStackup + LidSupportStackup;
-//echo (BottomStackup = BottomStackup/25.4 ,"inches");
-//echo (LidSupportStackup = LidSupportStackup/25.4 ,"inches");
-//echo (CircuitCardCageStackup = CircuitCardCageStackup/25.4 ,"inches");
-//echo (VerticalStackup = VerticalStackup/25.4 ,"inches");
-//echo(PanelHeight = PanelHeight/25.4 ,"inches");
-//echo("Margin =", (PanelHeight - VerticalStackup)/25.4, "inches");
+echo (BottomStackup = BottomStackup/25.4 ,"inches");
+echo (LidSupportStackup = LidSupportStackup/25.4 ,"inches");
+echo (CircuitCardCageStackup = CircuitCardCageStackup/25.4 ,"inches");
+echo (VerticalStackup = VerticalStackup/25.4 ,"inches");
+echo(PanelHeight = PanelHeight/25.4 ,"inches");
+echo("Margin =", (PanelHeight - VerticalStackup)/25.4, "inches");
 
 //echo(BackPanelRecess = BackPanelRecess);
 //echo(BackPanelThickness = BackPanelThickness);
