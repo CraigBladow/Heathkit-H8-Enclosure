@@ -55,9 +55,11 @@
 // DONE: Design 3 point test prints to confirm PCB mount locations
 // DONE: PCB mount up 2 mm (DONE manually) and extend case height by 2.54 mm. Look at SP_PCB_HeightFromCaseBottom which was not used in calculating the PCB vertical offset but SP_MountHolesVerticalOffset was used.
 // DONE: Move side plane PCB back by 0.25" to attain > 0.25" clearance from FP PCB
-// design sliding FP PCB bracket
-// Determine FP PCB bracket mount locations
-// Add Front Panel insets in sides and mounting holes in base plate
+
+// In progress: design sliding FP PCB bracket
+// Determine and finalize FP PCB bracket mount locations
+// Add Front Panel insets in side panels
+// Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 
 // Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to confirm fit and PCB mount locations
@@ -132,5 +134,7 @@ module SixSnapPins()
 //TestFrontLeftSidePanelSubSection();
 //TestRearLeftSidePanelSubSection();
 
-FrontRightPanel();
-RearRightPanel();
+//FrontRightPanel();
+//RearRightPanel();
+
+FrontPCB_Bracket();

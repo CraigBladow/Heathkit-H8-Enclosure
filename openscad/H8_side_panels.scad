@@ -378,7 +378,15 @@ module TestRearLeftSidePanelSubSection()
 }
 
 
-
+module FrontPCB_BracketSlot()
+{
+    hull()
+    {
+        translate([FPB_HoleDiameter*1.5,0,0])cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+        translate([-FPB_HoleDiameter*1.5,0,0])cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+    }
+    
+}
 
 // The short piece attaches to the front panel PCB
 module FrontPCB_Bracket()
@@ -388,8 +396,8 @@ module FrontPCB_Bracket()
        difference()
         {
             color( "magenta" ) translate([0,0,FPB_Thickness/2]) cube([FPB_LengthLong,FPB_LengthLongWidth,FPB_Thickness],center=true);
-                        translate([FPB_LengthLongHoleSpacing/2,0,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
-            translate([-FPB_LengthLongHoleSpacing/2,0,0]) cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+                        translate([FPB_LengthLongHoleSpacing/2,0,0]) FrontPCB_BracketSlot();//cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
+            translate([-FPB_LengthLongHoleSpacing/2,0,0]) FrontPCB_BracketSlot();//cylinder(h=FPB_Thickness * 2, r = FPB_HoleDiameter/2, center=true);
         }
             translate([0,-FPB_LengthLongWidth/2-FPB_Thickness/2,FPB_LengthShortWidth/2]) rotate([90,0,0]) difference()
         {
@@ -400,8 +408,10 @@ module FrontPCB_Bracket()
         
     }
 }
-$fn=128;
-FrontPCB_Bracket();
+
+
+
+
 
 /*
 module BoltWasherHoleNo8()
