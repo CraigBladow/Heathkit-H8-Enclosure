@@ -224,6 +224,7 @@ FPB_HoleSpacing = mm(3.0);
 FPB_HoleDiameter = mm(0.165);
 //FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
 FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - FPB_HoleDiameter/2 - 2;
+FPB_LengthLongShift = mm(3/16);
 
 
 //FP_MountLocations

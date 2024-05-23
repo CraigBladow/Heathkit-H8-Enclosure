@@ -33,6 +33,21 @@ module FrontPanelLedge(side)
             Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
 }
 
+module FrontPanelBracketMount(side)
+{
+    
+    color("lime")translate([FP_LedgeOffsetVertical,FP_LedgeOffsetHorizontal,side*(PanelThickness/2)])
+    //+FPB_Thickness/2)])
+    //side*(PanelThickness/2-FPB_LengthShortWidth/2)])
+        rotate([0,0,FP_LedgeAngle-90 ]) 
+    {
+            //Ledge(FP_LedgeLength,FP_LedgeWidth,FP_LedgeHeight/2);
+        translate([-FPB_LengthLongShift,-FPB_LengthShortWidth/2+0.2,0])FrontPCB_Bracket();//0.2 is a magic tweak
+    }
+}
+LeftPanel();
+color("red")FrontPanelBracketMount(left);
+
 module OrigPanel()  // todo delete
 {
     hull()
