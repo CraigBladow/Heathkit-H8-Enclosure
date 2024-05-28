@@ -48,18 +48,14 @@ module FrontPanelBracketMount(side)
 
 module FrontPanelBracketMountInsets(side)
 {
-    translate([FP_LedgeOffsetVertical,FP_LedgeOffsetHorizontal,side*(PanelThickness/2)])
+    translate([FP_LedgeOffsetVertical,FP_LedgeOffsetHorizontal,side*(PanelThickness/2-Insert_6_32_hole_depth/2)])
         rotate([0,0,FP_LedgeAngle-90 ]) 
     {
-           
-        translate([-FPB_LengthLongShift-FPB_LengthLong/2,-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2();//cylinder(h=10,r = 2, center = true);
+             translate([-FPB_LengthLongShift-FPB_LengthLong/2 +(FPB_HoleDiameter*1.75),-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2(); 
+                          translate([-(FPB_LengthLongShift-FPB_LengthLong/2 +(FPB_HoleDiameter*1.75)),-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2(); 
     }
     
 }
-$fn=64;
-LeftPanel();
-color("red")FrontPanelBracketMount(left);
-color("blue")FrontPanelBracketMountInsets(left);
 
 module OrigPanel()  // todo delete
 {
@@ -157,8 +153,7 @@ module PCB_InsertMountPoints()
 {
     Insert_IUB_632_2();
 }
-//$fn=128;
-//PCB_InsertMountPoints();
+
 
 module LeftPanel()
 {
@@ -171,9 +166,9 @@ module LeftPanel()
             FrontPanelLedge(left);
             BackPanelRails();
             BasePlateMountingRails();
-;
         }
         SidePlaneMountingInsets();
+        FrontPanelBracketMountInsets(left);
     }
 }
 
