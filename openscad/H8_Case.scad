@@ -58,7 +58,7 @@
 // DONE: In progress: design sliding FP PCB bracket
 
 // DONE: Determine and finalize FP PCB bracket mount locations see FP_MountLocations in H8_parameters.scad.
-// Add Front Panel inset in side panels
+// In Progress: Add Front Panel inset in side panels. Calculate location from FP support ledge parameters.
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 

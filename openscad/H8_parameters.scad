@@ -76,9 +76,12 @@ TY_F = TY_M + SP_MountHolesOffset; //top front Y
 BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
 BY_M = BY_R + SP_MountHolesOffset; //bottom middle Y
 BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
+FP_Z = T_Z + 12; //Front panel inset Z
+FP_Y = TY_F + 50;
+echo(FP_Z = FP_Z);
+echo(FP_Y = FP_Y);
 
-
-SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z]]; // [ Y, Z],..
+SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z],[0,FP_Y,FP_Z]]; // [ Y, Z],..
 
 //echo(MountsNew= SP_MountLocations);
 
