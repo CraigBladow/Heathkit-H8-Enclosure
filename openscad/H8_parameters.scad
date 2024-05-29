@@ -67,33 +67,7 @@ SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from PCB back edge t
 SP_MountHolesOffset = mm(4.0+5.0/8.0)+0.4; // distance between mounting holes, 0.4 added to make it work!
 SP_MountHolesVerticalOffset = 2; //mm  Needed to clear base fillet.
 
-// Mounting Hole locations
-T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset; // top row Z 
-B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffset; // bottom row Z
-TY_R = SP_MountTopBackHorizInset + SP_PCB_HorizOffset; //top rear Y
-TY_M = TY_R + SP_MountHolesOffset; //top middle Y
-TY_F = TY_M + SP_MountHolesOffset; //top front Y
-BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
-BY_M = BY_R + SP_MountHolesOffset; //bottom middle Y
-BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
-FP_Z = T_Z + 12; //Front panel inset Z
-FP_Y = TY_F + 50;
-echo(FP_Z = FP_Z);
-echo(FP_Y = FP_Y);
 
-SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z],[0,FP_Y,FP_Z]]; // [ Y, Z],..
-
-//echo(MountsNew= SP_MountLocations);
-
-
-/* before vertical offset 
-ECHO: MountsOld = [[0, 19.05, 58.7375], [0, 136.925, 58.7375], [0, 254.8, 58.7375], [0, 85.725, -58.7375], [0, 203.6, -58.7375], [0, 321.475, -58.7375]]
-
-after vertical 2 mm offset
-ECHO: MountsNew = [[0, 19.05, 60.7375], [0, 136.925, 60.7375], [0, 254.8, 60.7375], [0, 85.725, -56.7375], [0, 203.6, -56.7375], [0, 321.475, -56.7375]]
-*/
-
-SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
 //echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
 
 // Side Panel overall dimensions in inches.
@@ -109,7 +83,6 @@ PanelThickness = mm(0.5);
 PanelSocketsNumber = 6;
 
 // Calculate PanelTopLength
-// PanelTopLength = mm(13.73);
 PanelTopLength = PanelOverallLength - tan(SideFrontEdgeUpperAngle)*(PanelHeight - PanelFrontBottomRecessHeight);
 //echo(PanelTopLength = PanelTopLength/25.4 , "inches");
 
@@ -119,6 +92,7 @@ CheckPrimeSlopeAngle = atan(SideFrontEdgeSlope); //(PanelOverallLength-PanelTopL
 //echo(CheckPrimeSlopeAngle = CheckPrimeSlopeAngle);
 //echo(SideFrontEdgeSlope = SideFrontEdgeSlope);
 
+SidePlanePrimeSlopeAngle = atan((SidePlanePCBBottomEdgeLength - SidePlanePCBTopEdgeLength)/SidePlanePCBHeight);
 
 // Front Panel Ledge
 FP_LedgeLength = mm(4.0);
@@ -141,7 +115,7 @@ Y1 = (L_M * FP_LedgeOffsetVertical) + L_B;
 //echo(Y1 = inch(Y1) , "inches");
 //FP_LedgeOffsetHorizontal = Y1;
 FP_LedgeOffsetHorizontal = Y1 - (FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle));
-offset = FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle);
+//offset = FP_LedgeRecess * cos(SidePlanePrimeSlopeAngle);
 //echo(offset = inch(offset));
 
 //- (FP_LedgeHeight * sin(SidePlanePrimeSlopeAngle));
@@ -157,6 +131,40 @@ LedgeLength = mm(10.7);
 // Side Panel Base Plate and Back Panel Recess , how much the side panel extends below the bottom of the base plate
 BasePlateRecess = mm(0.125);
 BackPanelRecess = BasePlateRecess;
+
+// Side Plane PCB and Front Panel Mounting Hole locations
+T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset; // top row Z 
+B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffset; // bottom row Z
+TY_R = SP_MountTopBackHorizInset + SP_PCB_HorizOffset; //top rear Y
+TY_M = TY_R + SP_MountHolesOffset; //top middle Y
+TY_F = TY_M + SP_MountHolesOffset; //top front Y
+BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
+BY_M = BY_R + SP_MountHolesOffset; //bottom middle Y
+BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
+
+// Front Panel mount side panel insert location
+//color("lime")translate([PanelHeight/2-LedgeHeight/2-LedgeRecess,-LedgeOffset,side*(PanelThickness/2+LedgeWidth/2)])rotate([0,0,0]) Ledge(LedgeLength,LedgeWidth,LedgeHeight/2);
+//FP_Z = T_Z + 12; //Front panel inset Z
+FP_Z = PanelHeight/2-LedgeHeight/2-LedgeRecess;
+FP_YORIG = TY_F + 50;
+FP_Y = FP_LedgeOffsetHorizontal;
+echo(FP_YORIG = FP_YORIG);
+echo(FP_Z = FP_Z);
+echo(FP_Y = FP_Y);
+
+SP_MountLocations = [[0,TY_R,T_Z],[0,TY_M,T_Z],[0,TY_F,T_Z],[0,BY_R,B_Z],[0,BY_M,B_Z],[0,BY_F,B_Z]]; // [ Y, Z],..
+
+//echo(MountsNew= SP_MountLocations);
+
+
+/* before vertical offset 
+ECHO: MountsOld = [[0, 19.05, 58.7375], [0, 136.925, 58.7375], [0, 254.8, 58.7375], [0, 85.725, -58.7375], [0, 203.6, -58.7375], [0, 321.475, -58.7375]]
+
+after vertical 2 mm offset
+ECHO: MountsNew = [[0, 19.05, 60.7375], [0, 136.925, 60.7375], [0, 254.8, 60.7375], [0, 85.725, -56.7375], [0, 203.6, -56.7375], [0, 321.475, -56.7375]]
+*/
+
+
 
 // Base Plate dimensions
 BasePlateWidth = CaseWidth - 2 * PanelThickness;
