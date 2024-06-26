@@ -58,12 +58,10 @@
 // DONE: In progress: design sliding FP PCB bracket
 
 // DONE: Determine and finalize FP PCB bracket mount locations see FP_MountLocations in H8_parameters.scad.
-// In Progress: Add Front Panel inset in side panels. Calculate location from FP support ledge parameters.
+// DONE: Add Front Panel inset in side panels. Calculate location from FP support ledge parameters.
+// Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to confirm fit and PCB mount locations
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
-
-// Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to confirm fit and PCB mount locations
-
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
 // Add Power supply mount in back panel
 // Add cable pass throughs to back panel.
@@ -73,6 +71,7 @@
 //Create a badge. see https://github.com/prusa3d/PrusaSlicer/issues/4455 for texture. 
 // Create a sub-frame that can be used as a drill guide for the bottom plate. (Or not if using plastic base)
 // Determine Lid solution, if acrylic note that cast acrylic should sag less.
+// Create Front Panel, possibly the most difficult part!
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
