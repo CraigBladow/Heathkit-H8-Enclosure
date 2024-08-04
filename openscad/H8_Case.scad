@@ -70,7 +70,7 @@
 //Create a badge. see https://github.com/prusa3d/PrusaSlicer/issues/4455 for texture. 
 // Create a sub-frame that can be used as a drill guide for the bottom plate. (Or not if using plastic base)
 // Determine Lid solution, if acrylic note that cast acrylic should sag less.
-// Create Front Panel, possibly the most difficult part!
+
 
 $fn = 128; // Rendering setting
 include <H8_parameters.scad>
