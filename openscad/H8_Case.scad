@@ -58,7 +58,8 @@
 // DONE:  design sliding FP PCB bracket
 // DONE: Determine and finalize FP PCB bracket mount locations see FP_MountLocations in H8_parameters.scad.
 // DONE: Add Front Panel inset in side panels. Calculate location from FP support ledge parameters.
-// Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap to confirm fit and PCB mount locations
+// DONE: Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap
+// Process printed case side parts to confirm fit and PCB mount locations
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
 // Create back panel structure in two 3D printed pieces with two openings for attaching 3D printed sub-panels. Panel is 9mm thick at ends and <= 12.7mm in middle and snaps together
