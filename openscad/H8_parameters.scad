@@ -137,12 +137,12 @@ Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
 Insert_6_32_taper_length = mm(0.150);
 
 // Side Plane PCB Inset Hole locations
-T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset; // top row Z 
+T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset + 1; // top row Z plus correction
 B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffset; // bottom row Z
 TY_R = SP_MountTopBackHorizInset + SP_PCB_HorizOffset; //top rear Y
 TY_M = TY_R + SP_MountHolesOffset; //top middle Y
 TY_F = TY_M + SP_MountHolesOffset; //top front Y
-BY_R = SP_MountBottomBackHorizInset; //bottom rear Y
+BY_R = SP_MountBottomBackHorizInset - 3; //bottom rear Y plus correction
 BY_M = BY_R + SP_MountHolesOffset; //bottom middle Y
 BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
 

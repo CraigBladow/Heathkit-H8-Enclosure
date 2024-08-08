@@ -24,7 +24,6 @@ module TestFrontLeftPanel()
 }
 
 
-
 module TestRearLeftPanel()
 {
     
@@ -239,8 +238,43 @@ module PCBSupportTemp()
 { 
     cube([20,200,mm(1.0/8.0)],center=true);
 }
+module TestPCBMountPointFront()
+{
+    difference()
+    {
+        FrontRightPanel();
+        color("Red")translate([0,150,0])rotate([0,0,-32]) cube([260,70,100],center=true);
+    
+        color("Red")translate([-90,100,0])rotate([0,0,90])cube([200,50,100],center=true);
+            color("Red")translate([95,95,0])rotate([0,0,90])cube([200,50,100],center=true);
+        color("Red")translate([0,40,0])cube([90,60,50],center=true);
+    }
+    
 
+
+}
+
+module TestPCBMountPointRear()
+{
+    difference()
+    {
+        RearRightPanel();
+        color("Red")translate([0,-210,0])cube([200,50,100],center=true);
+        color("Red")translate([-90,-100,0])rotate([0,0,90])cube([200,50,100],center=true);
+        color("Red")translate([95,-100,0])rotate([0,0,90])cube([200,50,100],center=true);
+        color("Red")translate([0,-90,0])cube([100,160,50],center=true);
+    }
+    
+    
+    
+    
+}
 $fn=128;
+TestPCBMountPointFront();
+//TestPCBMountPointRear();
+
+
+
 //TestFrontLeftPanel();
 //TestFrontRightPanel();
 

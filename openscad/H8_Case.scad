@@ -59,6 +59,7 @@
 // DONE: Determine and finalize FP PCB bracket mount locations see FP_MountLocations in H8_parameters.scad.
 // DONE: Add Front Panel inset in side panels. Calculate location from FP support ledge parameters.
 // DONE: Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap
+// Adjust pcb mount points and test locations.
 // Process printed case side parts to confirm fit and PCB mount locations
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
