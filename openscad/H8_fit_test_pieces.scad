@@ -240,6 +240,7 @@ module PCBSupportTemp()
 }
 module TestPCBMountPointFront()
 {
+    rotate([0,180,90])
     difference()
     {
         FrontRightPanel();
@@ -256,6 +257,7 @@ module TestPCBMountPointFront()
 
 module TestPCBMountPointRear()
 {
+    rotate([0,180,90])
     difference()
     {
         RearRightPanel();
@@ -270,8 +272,8 @@ module TestPCBMountPointRear()
     
 }
 $fn=128;
-//TestPCBMountPointFront();
-TestPCBMountPointRear();
+TestPCBMountPointFront();
+//TestPCBMountPointRear();
 
 
 
