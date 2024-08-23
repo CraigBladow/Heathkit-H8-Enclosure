@@ -43,7 +43,7 @@ module FrontPanelBracketMount(side)
         translate([-FPB_LengthLongShift,-FPB_LengthShortWidth/2+0.2,0])FrontPCB_Bracket();//0.2 is a magic tweak
     }
 }
-
+/* Old Delete
 module FrontPanelBracketMountInsets(side)
 {
     translate([FP_LedgeOffsetVertical,FP_LedgeOffsetHorizontal,side*(PanelThickness/2-Insert_6_32_hole_depth/2)])
@@ -51,6 +51,20 @@ module FrontPanelBracketMountInsets(side)
     {
              translate([-FPB_LengthLongShift-FPB_LengthLong/2 +(FPB_HoleDiameter*1.75),-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2(); 
                           translate([-(FPB_LengthLongShift-FPB_LengthLong/2 +(FPB_HoleDiameter*1.75)),-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2(); 
+    }
+    
+}
+*/
+
+
+module FrontPanelBracketMountInsets(side)
+{
+    
+    translate([FP_LedgeOffsetVertical,FP_LedgeOffsetHorizontal,side*(PanelThickness/2-Insert_6_32_hole_depth/2)])
+        rotate([0,0,FP_LedgeAngle-90 ]) 
+    {
+             translate([-FPB_LengthLongShift-FPB_LengthLong/2 +(FPB_HoleDiameter*1.75)- FPB_MountShift,-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2(); 
+                          translate([-(FPB_LengthLongShift-FPB_LengthLong/2 +(FPB_HoleDiameter*1.75)- FPB_MountShift),-FPB_LengthShortWidth/2+0.2,0])     translate([0,0,0]) rotate([0,0,180]) Insert_IUB_632_2(); 
     }
     
 }
@@ -164,9 +178,10 @@ module LeftPanel()
             FrontPanelLedge(left);
             BackPanelRails();
             BasePlateMountingRails();
+            
         }
         SidePlaneMountingInsets();
-        FrontPanelBracketMountInsets(left);
+        FrontPanelBracketMountInsets(left); 
         SidePlaneFrontPanelMountingInset();
         
     }

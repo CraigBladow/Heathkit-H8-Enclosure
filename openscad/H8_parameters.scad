@@ -136,7 +136,7 @@ Insert_6_32_opening_dia = mm(0.206) + mm(0.002);
 Insert_6_32_bottom_dia = mm(0.185) + mm(0.002);
 Insert_6_32_taper_length = mm(0.150);
 
-// Side Plane PCB Inset Hole locations
+
 T_Z = (SidePlanePCBHeight/2 - SP_MountVerticalInset) + SP_MountHolesVerticalOffset + 1; // top row Z plus correction !!last adjusted by adding the +1
 B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffset; // bottom row Z
 TY_R = SP_MountTopBackHorizInset + SP_PCB_HorizOffset; //top rear Y
@@ -233,9 +233,9 @@ FPB_LengthShort = mm(3.75);
 FPB_Thickness = mm(1/16);
 FPB_HoleSpacing = mm(3.0);
 FPB_HoleDiameter = mm(0.165);
-//FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - (mm(0.1)+FPB_HoleDiameter/2);
 FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - FPB_HoleDiameter/2 - 2;
 FPB_LengthLongShift = mm(3/16);
+FPB_MountShift = 3; // mm, + is downwards
 
 
 //FP_MountLocations
