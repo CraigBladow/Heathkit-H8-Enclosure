@@ -5,9 +5,11 @@
 
 // Notes:
 // Clean out bolt holes on side panels by hand with 11/64 inch drill bit.
-// When slicing Side and Back Panels, add support enforcers, tool type 'smart fill', to only place support for the vertical mounting holes. Support is not needed for the snap pin holes and likely not completely removable. Print with a Brim to reduce lifting. 
-// Prints with 0.4 mm nozzle / 0.2 mm quality layer or 0.6 mm / 0.3 mm quality layer.
+// When slicing Side and Back Panels, add support enforcers, tool type 'smart fill', to only place support for the vertical mounting holes. Support is not needed for the snap pin holes and likely not completely removable. Print with a Brim to reduce lifting. Be carefull cleaning out support material as not to crack the side panel base and rear plate rails. 
+// Prints with 0.6 mm / 0.3 mm quality layer. Nozzle diameters greater than 0.8 mm won't work. Smaller diameters may work.
 // Intended base plate material is 9mm Baltic Birch.  There is a 3D model of the base plate in the project which was created to help confirm measurements. It may be used but may not be as sturdy.
+//  The heat set inserts in the side panels tend to have small variations in their final location so the standoffs likely will not line up exactly on all the PCB holes.  Start all the screws but take turns tightening to get the PCB to mount.
+
 
 // TO DO LIST:
 // DONE: Trial joining two pieces with square 3d printed pins
@@ -59,7 +61,8 @@
 // DONE: Determine and finalize FP PCB bracket mount locations see FP_MountLocations in H8_parameters.scad.
 // DONE: Add Front Panel inset in side panels. Calculate location from FP support ledge parameters.
 // DONE: Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap
-// Adjust pcb mount points and test locations.
+// DONE: Adjust pcb mount points and test locations.
+// Move FP bracket mount points down 3 mm
 // Process printed case side parts to confirm fit and PCB mount locations
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge

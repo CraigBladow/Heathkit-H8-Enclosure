@@ -272,8 +272,8 @@ module TestPCBMountPointRear()
     
 }
 $fn=128;
-TestPCBMountPointFront();
-//TestPCBMountPointRear();
+//TestPCBMountPointFront();
+TestPCBMountPointRear();
 
 
 

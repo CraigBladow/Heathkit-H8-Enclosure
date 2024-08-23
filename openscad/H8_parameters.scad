@@ -142,7 +142,8 @@ B_Z = -(SidePlanePCBHeight/2 - SP_MountVerticalInset)+ SP_MountHolesVerticalOffs
 TY_R = SP_MountTopBackHorizInset + SP_PCB_HorizOffset; //top rear Y
 TY_M = TY_R + SP_MountHolesOffset; //top middle Y
 TY_F = TY_M + SP_MountHolesOffset; //top front Y
-BY_R = SP_MountBottomBackHorizInset + 3; //bottom rear Y plus correction !!last adjusted by adding the 3 which moves holes towards rear of case
+BY_R = SP_MountBottomBackHorizInset - 11.08; //bottom rear Y plus correction !!last adjusted by subtracting -1.08 which moves bottom holes towards back of case
+echo(BY_R = BY_R);
 BY_M = BY_R + SP_MountHolesOffset; //bottom middle Y
 BY_F = BY_M + SP_MountHolesOffset; //bottom front Y
 
