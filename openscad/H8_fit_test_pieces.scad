@@ -160,13 +160,13 @@ module TestBasePlateRightFront()
 }
 
 // Side Panel PCB mount locations
-SP_MountVerticalInset = mm(7.0/16.0);
-SP_MountTopBackHorizInset = mm(3.0/4.0);
-SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
-SP_MountHolesOffset = mm(4.0+5.0/8.0);
-SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
+//SP_MountVerticalInset = mm(7.0/16.0);
+//SP_MountTopBackHorizInset = mm(3.0/4.0);
+//moved to parameters SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
+//moved to parameters SP_MountHolesOffset = mm(4.0+5.0/8.0);
+//SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
 
-    
+/*    
     HoleDiameter = 3.8;  //PCB hole size 4.0mm, size of peg to fit into it.
     TSP_T = 2.0;
     TSP_L = 2 * SP_MountHolesOffset + 4 * (HoleDiameter+0.2);
@@ -176,7 +176,7 @@ SP_PCB_InsetFromCaseBack = mm(1.0); // A big guess at the moment... :)
     DY = RowDist;
     DX = SP_MountBottomBackHorizInset-SP_MountTopBackHorizInset;
     TSP_L2 = sqrt(DY*DY+DX*DX)+4 * (HoleDiameter+0.2);
-
+*/
 module TestPegBar()
 {
         cube([TSP_L,TSP_W,TSP_T],center=true);

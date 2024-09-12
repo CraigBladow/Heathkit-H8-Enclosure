@@ -61,7 +61,7 @@
 // DONE: Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap
 // DONE: Adjust pcb mount points and test locations.
 // DONE: Move FP bracket mount points down 3 mm
-// Fix regression in bottom row of PCB mount points due to difference between H8_side_panels and H8_fit_test_pieces and move FP Bracket mount points further down.
+// DONE: Fix regression in bottom row of PCB mount points due to difference between H8_side_panels and H8_fit_test_pieces and move FP Bracket mount points further down.
 // Print full case side parts to confirm fit and PCB mount locations
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge

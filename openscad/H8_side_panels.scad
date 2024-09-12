@@ -55,8 +55,6 @@ module FrontPanelBracketMountInsets(side)
     }
     
 }
-//$fn=128;
-//FrontRightPanel();
 
 module OrigPanel()  // todo delete
 {

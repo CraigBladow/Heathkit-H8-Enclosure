@@ -62,8 +62,14 @@ SP_PCB_StandOffHeight = 6.5; //mm
 // Side Plane mount locations
 SP_MountVerticalInset = mm(7.0/16.0); // distance from upper or lower edge to center of mounting holes
 SP_MountTopBackHorizInset = mm(3.0/4.0); // distance from back edge to the center of first upper mounting hole
-SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from PCB back edge to the center of the first lower mounting hole
-SP_MountHolesOffset = mm(4.0+5.0/8.0)+0.4; // distance between mounting holes, 0.4 added to make it work!
+/// New moved from fit test file
+SP_MountBottomBackHorizInset = mm(3.0+9.0/16.0);
+SP_MountHolesOffset = mm(4.0+5.0/8.0);
+/// end moved
+/// old commented out
+//SP_MountBottomBackHorizInset = mm(3.0+3.0/8.0); // distance from PCB back edge to the center of the first lower mounting hole
+//SP_MountHolesOffset = mm(4.0+5.0/8.0)+0.4; // distance between mounting holes, 0.4 added to make it work!
+// end old
 SP_MountHolesVerticalOffset = 2; //mm  Needed to clear base fillet.
 
 //echo(SidePlanePrimeSlopeAngle = SidePlanePrimeSlopeAngle);
