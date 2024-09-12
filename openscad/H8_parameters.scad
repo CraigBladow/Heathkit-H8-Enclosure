@@ -236,6 +236,7 @@ FPB_HoleDiameter = mm(0.165);
 FPB_HoleOffsetShort = FPB_LengthShortWidth/2 - FPB_HoleDiameter/2 - 2;
 FPB_LengthLongShift = mm(3/16);
 FPB_MountShift = 3; // mm, + is downwards
+FPB_UpperHoleShift = 4; // mm, + is downwards
 
 
 //FP_MountLocations

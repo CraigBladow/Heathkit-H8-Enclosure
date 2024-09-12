@@ -52,7 +52,6 @@
 // DONE:Remove 3 layer gap for top layer swelling compensation, also gap in lid ledg
 // DONE: Printed with 15% infill.
 // DONE: Printed with brim to reduce lifting of corners near print bed edge.
-
 // DONE: Design 3 point test prints to confirm PCB mount locations
 // DONE: PCB mount up 2 mm (DONE manually) and extend case height by 2.54 mm. Look at SP_PCB_HeightFromCaseBottom which was not used in calculating the PCB vertical offset but SP_MountHolesVerticalOffset was used.
 // DONE: Move side plane PCB back by 0.25" to attain > 0.25" clearance from FP PCB
@@ -62,6 +61,7 @@
 // DONE: Print Right side of case with 0.6 mm nozzle and no 0.15 mm gap
 // DONE: Adjust pcb mount points and test locations.
 // DONE: Move FP bracket mount points down 3 mm
+// Fix regression in bottom row of PCB mount points due to difference between H8_side_panels and H8_fit_test_pieces and move FP Bracket mount points further down.
 // Print full case side parts to confirm fit and PCB mount locations
 // Add Front Panel mounting holes in base plate
 // Add fillet to front panel PCB Bracket backside and attach to side panel just behind fp ledge
@@ -132,9 +132,6 @@ module SixSnapPins()
 
 // Spacers / washers if needed
 //washers(16, mm(3/8),BoltHoleDiameterNo6,mm(1/16));
-
-//TestFrontLeftSidePanelSubSection();
-//TestRearLeftSidePanelSubSection();
 
 FrontRightPanel();
 //RearRightPanel();

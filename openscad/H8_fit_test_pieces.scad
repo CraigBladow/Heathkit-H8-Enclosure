@@ -271,10 +271,11 @@ module TestPCBMountPointRear()
     
     
 }
-//$fn=128;
-//TestPCBMountPointFront();
+$fn=128;
+rotate([180,0,-90])TestPCBMountPointFront();
 //TestPCBMountPointRear();
-
+//FrontRightPanel();
+//RearRightPanel();
 
 
 //TestFrontLeftPanel();
